@@ -1,6 +1,7 @@
 import { Minus, Plus } from 'lucide-react'
 import projectPlaceholder from '@/assets/figma/project-placeholder.png'
 import { projectCategories } from '../homeContent'
+import { ProjectPreviewCard } from './ProjectPreviewCard'
 import { SectionTitle } from './SectionTitle'
 
 export function ProjectsSection() {
@@ -29,16 +30,13 @@ export function ProjectsSection() {
                 </div>
                 {category.expanded && (
                   <div className="grid grid-cols-1 gap-5 pt-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 lg:pt-10">
-                    {Array.from({ length: category.previews }).map(
-                      (_, index) => (
-                        <img
-                          key={index}
-                          src={projectPlaceholder}
-                          alt=""
-                          className="h-[220px] w-full rounded-none object-cover md:h-[300px] lg:h-[372px]"
-                        />
-                      ),
-                    )}
+                    {category.projects.map((project, index) => (
+                      <ProjectPreviewCard
+                        key={`${project.title}-${index}`}
+                        image={projectPlaceholder}
+                        {...project}
+                      />
+                    ))}
                   </div>
                 )}
               </article>

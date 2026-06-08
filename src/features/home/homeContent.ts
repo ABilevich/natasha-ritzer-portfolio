@@ -45,16 +45,32 @@ export const projectCategories = [
   {
     title: 'UX UI Design',
     expanded: true,
-    previews: 3,
+    projects: [
+      {
+        title: 'Project title',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+      {
+        title: 'Project title',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+      {
+        title: 'Project title',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+    ],
   },
   {
     title: 'Graphic Design',
     expanded: false,
-    previews: 0,
+    projects: [],
   },
   {
     title: 'Project Management',
     expanded: false,
-    previews: 0,
+    projects: [],
   },
 ]
