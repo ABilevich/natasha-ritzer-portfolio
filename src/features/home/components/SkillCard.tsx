@@ -7,12 +7,12 @@ type SkillCardProps = {
 
 export function SkillCard({ title, items }: SkillCardProps) {
   return (
-    <Card className="rounded-3xl border-[#e5e7eb] bg-white px-8 py-12 shadow-none md:py-16">
+    <Card className="rounded-3xl border-[#e5e7eb] bg-white px-6 py-9 shadow-none md:px-8 md:py-12 lg:py-16">
       <CardContent className="px-0">
-        <h3 className="m-0 text-3xl font-semibold leading-tight text-[#4b5563] md:text-[40px]">
+        <h3 className="m-0 text-2xl font-semibold leading-tight text-[#4b5563] md:text-3xl lg:text-[40px]">
           {title}
         </h3>
-        <ul className="mb-0 mt-6 list-none space-y-2 p-0 text-xl leading-9 text-[#4b5563] md:text-2xl md:leading-[44px]">
+        <ul className="mb-0 mt-5 list-none space-y-1.5 p-0 text-base leading-7 text-[#4b5563] md:mt-6 md:text-xl md:leading-9 lg:text-2xl lg:leading-[44px]">
           {items.map((item) => (
             <li key={item}>{item}</li>
           ))}

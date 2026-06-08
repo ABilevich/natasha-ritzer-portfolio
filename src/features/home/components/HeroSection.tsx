@@ -21,7 +21,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative min-h-svh overflow-hidden bg-white/70 md:min-h-[920px]"
+      className="relative min-h-[760px] overflow-hidden bg-white/70 sm:min-h-svh lg:min-h-[920px]"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
@@ -30,21 +30,21 @@ export function HeroSection() {
             key={tile.position}
             src={tile.image}
             alt=""
-            className={`absolute h-[155px] w-[155px] object-cover opacity-80 will-change-transform md:h-[249px] md:w-[246px] ${tile.position}`}
+            className={`absolute h-32 w-32 object-cover opacity-80 will-change-transform sm:h-[155px] sm:w-[155px] md:h-[190px] md:w-[188px] lg:h-[249px] lg:w-[246px] ${tile.position}`}
             style={{
               transform: `translate3d(0, ${tile.offset - scrollY * tile.speed}px, 0)`,
             }}
           />
         ))}
       </div>
-      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-8 whitespace-nowrap px-5 text-center">
+      <div className="absolute left-1/2 top-1/2 flex w-full max-w-[min(760px,calc(100%_-_40px))] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-5 px-5 text-center md:gap-8">
         <h1
           id="hero-title"
-          className="m-0 text-[44px] font-bold leading-tight text-[#111928] md:text-7xl md:leading-[72px]"
+          className="m-0 text-[clamp(2.4rem,11vw,4.5rem)] font-bold leading-tight text-[#111928] md:leading-[72px]"
         >
           Natasha Ritzer
         </h1>
-        <p className="m-0 text-xl font-medium leading-8 text-[#6b7280] md:text-[28px] md:leading-10">
+        <p className="m-0 text-lg font-medium leading-7 text-[#6b7280] md:text-[28px] md:leading-10">
           UX UI Designer
         </p>
       </div>

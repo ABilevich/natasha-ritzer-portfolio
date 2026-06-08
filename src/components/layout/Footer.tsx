@@ -2,9 +2,9 @@ export function Footer() {
   const footerLinks = ['Projects', 'CV', 'Articles', 'Bookshelf']
 
   return (
-    <footer className="bg-black px-[clamp(20px,6.6vw,100px)] pb-20 pt-[45px] text-sm font-medium text-white">
-      <div className="mx-auto flex w-full max-w-[1312px] items-center justify-between gap-8 max-[720px]:flex-col max-[720px]:items-start">
-        <nav className="flex items-center gap-[54px] max-[720px]:flex-wrap max-[720px]:gap-6">
+    <footer className="bg-black px-[clamp(20px,6.6vw,100px)] pb-14 pt-9 text-sm font-medium text-white md:pb-20 md:pt-[45px]">
+      <div className="mx-auto flex w-full max-w-[1312px] items-center justify-between gap-8 max-[860px]:flex-col max-[860px]:items-start">
+        <nav className="flex items-center gap-8 max-[860px]:flex-wrap max-[860px]:gap-6 lg:gap-[54px]">
           {footerLinks.map((link) => (
             <a key={link} href="/#projects" className="text-white no-underline">
               {link}
