@@ -1,13 +1,20 @@
 import { Card, CardContent } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 
 type StatCardProps = {
   value: string
   label: string
+  className?: string
 }
 
-export function StatCard({ value, label }: StatCardProps) {
+export function StatCard({ value, label, className }: StatCardProps) {
   return (
-    <Card className="justify-center rounded-3xl border-[#e5e7eb] bg-white px-6 py-9 shadow-none md:px-8 md:py-12 lg:py-16">
+    <Card
+      className={cn(
+        'justify-center rounded-3xl border-[#e5e7eb] bg-white px-6 py-9 shadow-none md:px-8 md:py-12 lg:py-16',
+        className,
+      )}
+    >
       <CardContent className="px-0">
         <p className="m-0 text-2xl font-semibold leading-tight text-[#4b5563] md:text-3xl lg:text-[40px]">
           {value}
