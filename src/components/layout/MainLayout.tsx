@@ -5,7 +5,7 @@ import { Header } from './Header'
 
 export function MainLayout() {
   return (
-    <div className="site-shell">
+    <div className="min-h-svh bg-[var(--color-bg)] text-[var(--color-text)]">
       <ScrollToHash />
       <Header />
       <main>

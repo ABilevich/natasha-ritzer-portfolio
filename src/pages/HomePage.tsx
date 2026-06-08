@@ -5,7 +5,7 @@ import { SkillsSection } from '../features/home/components/SkillsSection'
 
 export function HomePage() {
   return (
-    <div className="home-page">
+    <div className="overflow-hidden">
       <HeroSection />
       <AboutSection />
       <SkillsSection />
