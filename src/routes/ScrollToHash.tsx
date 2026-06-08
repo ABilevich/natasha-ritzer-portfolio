@@ -12,9 +12,14 @@ export function ScrollToHash() {
 
     const targetId = decodeURIComponent(hash.replace('#', ''))
 
-    window.requestAnimationFrame(() => {
-      document.getElementById(targetId)?.scrollIntoView()
-    })
+    const scrollToTarget = () => {
+      document.getElementById(targetId)?.scrollIntoView({ block: 'start' })
+    }
+
+    window.requestAnimationFrame(scrollToTarget)
+    const timeoutId = window.setTimeout(scrollToTarget, 100)
+
+    return () => window.clearTimeout(timeoutId)
   }, [hash, pathname])
 
   return null
