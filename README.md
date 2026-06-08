@@ -71,3 +71,5 @@ export default defineConfig([
   },
 ])
 ```
+
+npx shadcn@latest init --preset b7DMx6hFo --template vite
