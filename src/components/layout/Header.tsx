@@ -4,6 +4,7 @@ import nrLogo from '@/assets/figma/nr-logo.svg'
 
 const navigationItems = [
   { label: 'About', href: '/#about' },
+  { label: 'Skills', href: '/#skills' },
   { label: 'Projects', href: '/#projects' },
   { label: 'CV', href: '/#about' },
 ]
