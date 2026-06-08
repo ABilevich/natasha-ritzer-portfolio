@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Minus, Plus } from 'lucide-react'
 import projectPlaceholder from '@/assets/figma/project-placeholder.png'
 import { projectCategories } from '../homeContent'
@@ -5,6 +6,22 @@ import { ProjectPreviewCard } from './ProjectPreviewCard'
 import { SectionTitle } from './SectionTitle'
 
 export function ProjectsSection() {
+  const [expandedCategories, setExpandedCategories] = useState(() =>
+    Object.fromEntries(
+      projectCategories.map((category) => [
+        category.title,
+        category.defaultExpanded,
+      ]),
+    ),
+  )
+
+  const toggleCategory = (title: string) => {
+    setExpandedCategories((current) => ({
+      ...current,
+      [title]: !current[title],
+    }))
+  }
+
   return (
     <section
       id="projects"
@@ -15,11 +32,21 @@ export function ProjectsSection() {
         <SectionTitle title="Projects" />
         <div className="flex flex-col gap-6 md:gap-10">
           {projectCategories.map((category) => {
-            const Icon = category.expanded ? Minus : Plus
+            const isExpanded = expandedCategories[category.title]
+            const Icon = isExpanded ? Minus : Plus
+            const panelId = `projects-${category.title
+              .toLowerCase()
+              .replaceAll(' ', '-')}`
 
             return (
               <article key={category.title} className="w-full">
-                <div className="flex items-center gap-4 border-b-2 border-[#e5e7eb] py-6 md:gap-8 md:py-8">
+                <button
+                  type="button"
+                  aria-controls={panelId}
+                  aria-expanded={isExpanded}
+                  onClick={() => toggleCategory(category.title)}
+                  className="flex w-full cursor-pointer items-center gap-4 border-0 border-b-2 border-solid border-[#e5e7eb] bg-transparent px-0 py-6 text-left md:gap-8 md:py-8"
+                >
                   <Icon
                     className="size-5 shrink-0 text-[#4b5563] md:size-6"
                     aria-hidden="true"
@@ -27,9 +54,12 @@ export function ProjectsSection() {
                   <h3 className="m-0 text-2xl font-semibold leading-tight text-[#4b5563] md:text-[40px]">
                     {category.title}
                   </h3>
-                </div>
-                {category.expanded && (
-                  <div className="grid grid-cols-1 gap-5 pt-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 lg:pt-10">
+                </button>
+                {isExpanded && (
+                  <div
+                    id={panelId}
+                    className="grid grid-cols-1 gap-5 pt-6 sm:grid-cols-2 lg:gap-8 lg:pt-10"
+                  >
                     {category.projects.map((project, index) => (
                       <ProjectPreviewCard
                         key={`${project.title}-${index}`}

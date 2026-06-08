@@ -44,20 +44,20 @@ export const skills = [
 export const projectCategories = [
   {
     title: 'UX UI Design',
-    expanded: true,
+    defaultExpanded: true,
     projects: [
       {
-        title: 'Project title',
+        title: 'UX UI Project',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
       },
       {
-        title: 'Project title',
+        title: 'Product Design Case Study',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
       },
       {
-        title: 'Project title',
+        title: 'Design System Project',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
       },
@@ -65,12 +65,44 @@ export const projectCategories = [
   },
   {
     title: 'Graphic Design',
-    expanded: false,
-    projects: [],
+    defaultExpanded: false,
+    projects: [
+      {
+        title: 'Brand Identity',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+      {
+        title: 'Visual System',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+      {
+        title: 'Editorial Design',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+    ],
   },
   {
     title: 'Project Management',
-    expanded: false,
-    projects: [],
+    defaultExpanded: false,
+    projects: [
+      {
+        title: 'Launch Planning',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+      {
+        title: 'Team Workflow',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+      {
+        title: 'Roadmap Coordination',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacus ullamcorper sem vulputate pharetra.',
+      },
+    ],
   },
 ]
