@@ -1,3 +1,5 @@
+import { Badge } from '@/components/ui/badge'
+
 export function SkillsSection() {
   return (
     <section
@@ -6,9 +8,12 @@ export function SkillsSection() {
       aria-labelledby="skills-title"
     >
       <div className="mx-auto w-[min(1120px,calc(100%_-_40px))]">
-        <p className="mb-4 mt-0 text-[0.78rem] font-extrabold text-[var(--color-accent)]">
+        <Badge
+          variant="outline"
+          className="mb-4 border-[var(--color-accent)] bg-transparent text-[0.78rem] font-extrabold text-[var(--color-accent)]"
+        >
           02
-        </p>
+        </Badge>
         <h2
           id="skills-title"
           className="m-0 font-[var(--font-display)] text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-heading)]"
