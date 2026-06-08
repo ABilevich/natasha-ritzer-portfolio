@@ -1,75 +1,114 @@
-# React + TypeScript + Vite
+# Natasha Ritzer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with React, TypeScript, Vite, Tailwind CSS v4, shadcn/ui, and React Router.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Install dependencies:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Start the local development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
 
-npx shadcn@latest init --preset b7DMx6hFo --template vite
+Vite will print the local URL, usually:
+
+```text
+http://127.0.0.1:5173/
+```
+
+## Available Scripts
+
+```bash
+npm run dev
+```
+
+Runs the app locally with hot module replacement.
+
+```bash
+npm run build
+```
+
+Runs TypeScript build checks and creates a production build in `dist/`.
+
+```bash
+npm run lint
+```
+
+Runs ESLint.
+
+```bash
+npm run preview
+```
+
+Serves the production build locally for review.
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite 8
+- React Router
+- Tailwind CSS v4
+- shadcn/ui
+- lucide-react icons
+- Instrument Sans via `@fontsource-variable/instrument-sans`
+
+## Project Structure
+
+```text
+src/
+  components/
+    layout/       Shared header, footer, and page layout
+    ui/           shadcn/ui components
+  features/
+    home/         Homepage feature module
+      components/ Homepage sections and reusable home UI
+      hooks/      Homepage-specific hooks
+      homeContent.ts
+  routes/         Router and scroll helpers
+  pages/          Route-level page components
+  assets/         Local assets
+```
+
+## Development Notes
+
+- Keep pages modular. Route-level files should compose feature sections rather than contain large layouts.
+- Prefer reusable components for repeated patterns such as cards, section titles, stats, skills, and project previews.
+- Use `src/features/home/homeContent.ts` for homepage content that can be edited as data.
+- Use shadcn/ui primitives where they fit the interface.
+- Keep global CSS minimal; prefer Tailwind classes and local component-level code.
+- Design for mobile, tablet, and desktop from the start.
+
+## Responsive QA
+
+Useful viewport widths to check:
+
+- `320px` small mobile
+- `390px` mobile
+- `768px` tablet
+- `1024px` tablet/desktop boundary
+- desktop widths such as `1280px`
+
+The page should avoid horizontal overflow at all supported sizes.
+
+## Adding shadcn Components
+
+The project uses the `@/*` alias for `src/*`.
+
+Example:
+
+```bash
+npx shadcn@4.11.0 add card
+```
+
+Generated components should land in `src/components/ui/`.
+
+## Agent Notes
+
+Future coding agents should read [AGENTS.md](./AGENTS.md) before making changes. It contains the project conventions, architecture notes, and implementation guidance.
