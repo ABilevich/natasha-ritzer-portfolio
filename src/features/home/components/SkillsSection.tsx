@@ -1,25 +1,21 @@
-import { Badge } from '@/components/ui/badge'
+import { skills } from '../homeContent'
+import { SectionTitle } from './SectionTitle'
+import { SkillCard } from './SkillCard'
 
 export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="flex min-h-[78svh] scroll-mt-[72px] items-center border-t border-[var(--color-border)] bg-[var(--color-bg)] max-[720px]:min-h-[64svh] max-[720px]:scroll-mt-16"
+      className="scroll-mt-8 bg-white px-[clamp(20px,6.6vw,100px)] pb-16 pt-8"
       aria-labelledby="skills-title"
     >
-      <div className="mx-auto w-[min(1120px,calc(100%_-_40px))]">
-        <Badge
-          variant="outline"
-          className="mb-4 border-[var(--color-accent)] bg-transparent text-[0.78rem] font-extrabold text-[var(--color-accent)]"
-        >
-          02
-        </Badge>
-        <h2
-          id="skills-title"
-          className="m-0 font-[var(--font-display)] text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-[var(--color-heading)]"
-        >
-          Skills
-        </h2>
+      <div className="mx-auto flex max-w-[1312px] flex-col gap-[72px]">
+        <SectionTitle title="Skills" />
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-[90px]">
+          {skills.map((skill) => (
+            <SkillCard key={skill.title} {...skill} />
+          ))}
+        </div>
       </div>
     </section>
   )

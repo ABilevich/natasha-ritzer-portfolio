@@ -1,30 +1,28 @@
 import { NavLink } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+import nrLogo from '@/assets/figma/nr-logo.svg'
 
 const navigationItems = [
   { label: 'About', href: '/#about' },
-  { label: 'Skills', href: '/#skills' },
   { label: 'Projects', href: '/#projects' },
+  { label: 'CV', href: '/#about' },
 ]
 
 export function Header() {
   const linkClassName =
-    "relative h-auto rounded-none px-0 py-0 text-[0.78rem] font-bold uppercase text-[var(--color-heading)] no-underline hover:bg-transparent hover:text-[var(--color-heading)] focus-visible:ring-[var(--color-accent)] after:absolute after:inset-x-0 after:-bottom-2 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[var(--color-accent)] after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100 max-[720px]:text-[0.7rem]"
+    "relative h-auto rounded-none px-0 py-0 text-sm font-medium text-[#4b5563] no-underline hover:bg-transparent hover:text-[#111928] focus-visible:ring-[#111928] after:absolute after:inset-x-0 after:-bottom-2 after:h-px after:origin-left after:scale-x-0 after:bg-[#111928] after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100 max-[720px]:text-xs"
 
   return (
-    <header className="fixed inset-x-0 top-0 z-10 flex min-h-[72px] items-center justify-between border-b border-[var(--color-border)] bg-[color-mix(in_srgb,var(--color-bg)_88%,transparent)] px-[clamp(20px,5vw,72px)] backdrop-blur-[18px] max-[720px]:min-h-16">
-      <Button
-        asChild
-        variant="ghost"
-        size="icon-lg"
-        className="size-[42px] rounded-full border border-[var(--color-heading)] bg-transparent text-[0.78rem] font-bold text-[var(--color-heading)] hover:bg-transparent hover:text-[var(--color-heading)] focus-visible:ring-[var(--color-accent)] max-[720px]:size-[38px]"
+    <header className="absolute left-1/2 top-8 z-20 flex h-12 w-[min(1312px,calc(100%_-_40px))] -translate-x-1/2 items-center justify-between max-[720px]:top-5 max-[720px]:h-10">
+      <NavLink
+        to="/"
+        aria-label="Natasha Ritzer home"
+        className="block h-[45px] w-16 max-[720px]:h-8 max-[720px]:w-11"
       >
-        <NavLink to="/" aria-label="Natasha Ritzer home">
-          NR
-        </NavLink>
-      </Button>
+        <img src={nrLogo} alt="" className="size-full object-contain" />
+      </NavLink>
       <nav
-        className="flex items-center gap-[clamp(16px,3vw,40px)] max-[720px]:gap-3.5"
+        className="flex items-center justify-center gap-[45px] max-[720px]:gap-4"
         aria-label="Primary navigation"
       >
         {navigationItems.map((item) => (
@@ -39,6 +37,14 @@ export function Header() {
           </Button>
         ))}
       </nav>
+      <Button
+        asChild
+        variant="outline"
+        size="sm"
+        className="h-12 rounded-full border-[#111928] bg-transparent px-[18px] text-sm font-medium text-[#111928] hover:bg-[#111928] hover:text-white max-[720px]:hidden"
+      >
+        <a href="mailto:hello@natasharitzer.com">Contact Me</a>
+      </Button>
     </header>
   )
 }
