@@ -1,29 +1,39 @@
-import projectPlaceholder from '@/assets/figma/project-placeholder.png'
+
+import { useHeroParallax } from '../hooks/useHeroParallax'
+import image0 from '@/assets/figma/s-l1200.png'
+import image1 from '@/assets/figma/Baby.webp'
+
+const speed = 2
 
 const heroTiles = [
-  'left-0 top-0',
-  'left-[18%] top-[32%]',
-  'left-[8%] top-[68%]',
-  'left-[58%] top-0',
-  'right-[8%] top-[36%]',
-  'left-[52%] top-[66%]',
-  'right-[5%] top-[86%]',
+  { image: image1, position: 'left-0 top-0', speed: 0.1 * speed, offset: 0 },
+  { image: image0, position: 'left-[18%] top-[32%]', speed: 0.18 * speed, offset: -12 },
+  { image: image1, position: 'left-[8%] top-[68%]', speed: 0.14 * speed, offset: 0 },
+  { image: image0, position: 'left-[58%] top-0', speed: 0.08 * speed, offset: 0 },
+  { image: image0, position: 'right-[8%] top-[36%]', speed: 0.2 * speed, offset: -12 },
+  { image: image1, position: 'left-[52%] top-[66%]', speed: 0.16 * speed, offset: 0 },
+  { image: image0, position: 'right-[5%] top-[86%]', speed: 0.12 * speed, offset: -12 },
+  { image: image1, position: 'right-[55%] top-[85%]', speed: 0.06 * speed, offset: 0 },
 ]
 
 export function HeroSection() {
+  const scrollY = useHeroParallax()
+
   return (
     <section
       className="relative min-h-svh overflow-hidden bg-white/70 md:min-h-[920px]"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        {heroTiles.map((position, index) => (
+        {heroTiles.map((tile) => (
           <img
-            key={position}
-            src={projectPlaceholder}
+            key={tile.position}
+            src={tile.image}
             alt=""
-            className={`absolute h-[155px] w-[155px] object-cover opacity-80 md:h-[249px] md:w-[246px] ${position}`}
-            style={{ transform: index % 2 ? 'translateY(-12%)' : undefined }}
+            className={`absolute h-[155px] w-[155px] object-cover opacity-80 will-change-transform md:h-[249px] md:w-[246px] ${tile.position}`}
+            style={{
+              transform: `translate3d(0, ${tile.offset - scrollY * tile.speed}px, 0)`,
+            }}
           />
         ))}
       </div>
