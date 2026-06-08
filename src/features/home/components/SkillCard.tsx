@@ -12,7 +12,7 @@ export function SkillCard({ title, items }: SkillCardProps) {
         <h3 className="m-0 text-2xl font-semibold leading-tight text-[#4b5563] md:text-3xl lg:text-[40px]">
           {title}
         </h3>
-        <ul className="mb-0 mt-5 list-none space-y-1.5 p-0 text-base leading-7 text-[#4b5563] md:mt-6 md:text-xl md:leading-9 lg:text-2xl lg:leading-[44px]">
+        <ul className="mb-0 mt-5 list-none space-y-1.5 p-0 text-base leading-7 text-[#4b5563] md:mt-6 md:text-xl md:leading-9 lg:text-xl lg:leading-9">
           {items.map((item) => (
             <li key={item}>{item}</li>
           ))}
