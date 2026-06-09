@@ -32,7 +32,6 @@ export function ParallaxGallerySection() {
                   item.mobilePosition.top ?? item.position.top ?? 'auto',
                 '--gallery-mobile-bottom':
                   item.mobilePosition.bottom ?? item.position.bottom ?? 'auto',
-                aspectRatio: item.aspectRatio,
                 transform: `translate3d(0, calc(var(--gallery-shift, 0px) * ${item.speed}), 0) rotate(${item.rotation}deg)`,
               } as CSSProperties
             }
@@ -40,8 +39,9 @@ export function ParallaxGallerySection() {
             <img
               src={item.image}
               alt={item.alt}
-              loading="lazy"
-              className="size-full object-contain"
+              loading="eager"
+              decoding="async"
+              className="block h-auto w-full"
             />
           </figure>
         ))}
