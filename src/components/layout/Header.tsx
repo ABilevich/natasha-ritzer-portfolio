@@ -15,7 +15,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const linkClassName =
-    'relative h-auto rounded-none px-0 py-0 text-sm font-medium text-white no-underline hover:bg-transparent hover:text-white focus-visible:ring-white after:absolute after:inset-x-0 after:-bottom-2 after:h-px after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100'
+    'relative h-auto rounded-none px-0 py-0 text-[16px] font-medium text-white no-underline hover:bg-transparent hover:text-white focus-visible:ring-white after:absolute after:inset-x-0 after:-bottom-2 after:h-px after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100'
 
   const mobileLinkClassName =
     'text-right text-3xl font-semibold leading-tight text-white no-underline transition-opacity hover:opacity-75'
