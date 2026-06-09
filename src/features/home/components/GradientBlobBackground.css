@@ -1,0 +1,183 @@
+.gradient-blob-background {
+  background:
+    radial-gradient(
+      circle at 22% 68%,
+      rgba(var(--gradient-fifth), 0.42),
+      transparent 28%
+    ),
+    linear-gradient(
+      130deg,
+      rgb(var(--gradient-background-start)) 0%,
+      rgb(var(--gradient-background-end)) 100%
+    );
+  isolation: isolate;
+}
+
+.gradient-blob-background::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: soft-light;
+  opacity: 0.38;
+}
+
+.gradient-blob-stage {
+  position: absolute;
+  inset: 0;
+  filter: url('#gradient-blob-goo') blur(42px);
+  transform: translateZ(0);
+}
+
+.gradient-blob {
+  position: absolute;
+  width: var(--gradient-size);
+  height: var(--gradient-size);
+  border-radius: 9999px;
+  mix-blend-mode: var(--gradient-blending);
+  opacity: 0.72;
+  will-change: transform;
+}
+
+.gradient-blob-first {
+  left: calc(50% - var(--gradient-size) / 2);
+  top: calc(50% - var(--gradient-size) / 2);
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--gradient-first), 0.78) 0,
+      rgba(var(--gradient-first), 0) 50%
+    )
+    no-repeat;
+  transform-origin: center center;
+  animation: gradient-blob-move-vertical 14s ease infinite;
+}
+
+.gradient-blob-second {
+  left: calc(50% - var(--gradient-size) / 2);
+  top: calc(50% - var(--gradient-size) / 2);
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--gradient-second), 0.7) 0,
+      rgba(var(--gradient-second), 0) 48%
+    )
+    no-repeat;
+  transform-origin: calc(50% - 18rem);
+  animation: gradient-blob-move-circle 13s reverse infinite;
+}
+
+.gradient-blob-third {
+  left: calc(50% - var(--gradient-size) / 2 - 10rem);
+  top: calc(50% - var(--gradient-size) / 2 + 3rem);
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--gradient-third), 0.66) 0,
+      rgba(var(--gradient-third), 0) 50%
+    )
+    no-repeat;
+  transform-origin: calc(50% + 18rem);
+  animation: gradient-blob-move-circle 18s linear infinite;
+}
+
+.gradient-blob-fourth {
+  left: calc(50% - var(--gradient-size) / 2);
+  top: calc(50% - var(--gradient-size) / 2);
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--gradient-fourth), 0.62) 0,
+      rgba(var(--gradient-fourth), 0) 50%
+    )
+    no-repeat;
+  transform-origin: calc(50% - 10rem);
+  animation: gradient-blob-move-horizontal 16s ease infinite;
+}
+
+.gradient-blob-fifth {
+  left: calc(50% - var(--gradient-size) / 2 + 8rem);
+  top: calc(50% - var(--gradient-size) / 2 - 8rem);
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--gradient-fifth), 0.6) 0,
+      rgba(var(--gradient-fifth), 0) 48%
+    )
+    no-repeat;
+  transform-origin: calc(50% + 12rem);
+  animation: gradient-blob-move-circle 10s ease infinite;
+}
+
+.gradient-blob-interactive {
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--gradient-pointer), 0.34) 0,
+      rgba(var(--gradient-pointer), 0) 48%
+    )
+    no-repeat;
+  mix-blend-mode: var(--gradient-blending);
+  opacity: 0.52;
+  transform: translate3d(50vw, 50vh, 0);
+  transition: transform 420ms ease-out;
+  will-change: transform;
+}
+
+@keyframes gradient-blob-move-horizontal {
+  0% {
+    transform: translateX(-34%) translateY(-8%);
+  }
+
+  50% {
+    transform: translateX(34%) translateY(8%);
+  }
+
+  100% {
+    transform: translateX(-34%) translateY(-8%);
+  }
+}
+
+@keyframes gradient-blob-move-circle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-blob-move-vertical {
+  0% {
+    transform: translateY(-34%);
+  }
+
+  50% {
+    transform: translateY(34%);
+  }
+
+  100% {
+    transform: translateY(-34%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-blob,
+  .gradient-blob-interactive {
+    animation: none;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .gradient-blob {
+    opacity: 0.56;
+  }
+}

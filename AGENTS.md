@@ -28,7 +28,7 @@ Before handing off code changes, run `npm run build` and `npm run lint` whenever
 - `src/features/home/`: homepage feature module.
 - `src/features/home/components/`: homepage sections and reusable homepage-specific UI.
 - `src/features/home/homeContent.ts`: editable structured homepage content.
-- `src/features/home/hooks/`: homepage-specific hooks, such as parallax behavior.
+- `src/features/home/hooks/`: homepage-specific hooks when needed.
 - `src/assets/figma/`: local assets derived from the Figma design or temporary image placeholders.
 - `src/index.css`: Tailwind imports, shadcn theme variables, global design tokens, and global reset.
 
@@ -65,8 +65,8 @@ Responsiveness is a core requirement, not a final polish pass.
 
 ## Homepage Notes
 
-- `HeroSection` includes floating image tiles and a parallax effect via `useHeroParallax`.
-- The hero image assets are placeholders and may be replaced later. Preserve the modular tile data shape when changing them.
+- `HeroSection` uses `GradientBlobBackground` for the animated homepage hero background.
+- Keep the hero background decorative, subtle, pointer-events-free, and respectful of reduced-motion preferences.
 - `AboutSection`, `SkillsSection`, and `ProjectsSection` should remain independent sections.
 - `StatCard`, `SkillCard`, and `SectionTitle` are reusable homepage building blocks.
 - `ConnectSection` is separate from the global footer because it is part of the homepage content flow.
