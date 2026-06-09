@@ -1,9 +1,48 @@
 import { useState } from 'react'
 import { Minus, Plus } from 'lucide-react'
 import projectPlaceholder from '@/assets/figma/project-placeholder.png'
+import { cn } from '@/lib/utils'
 import { projectCategories } from '../homeContent'
 import { ProjectPreviewCard } from './ProjectPreviewCard'
 import { SectionTitle } from './SectionTitle'
+
+type ProjectCategoryPanelProps = {
+  category: (typeof projectCategories)[number]
+  isExpanded: boolean
+  panelId: string
+}
+
+function ProjectCategoryPanel({
+  category,
+  isExpanded,
+  panelId,
+}: ProjectCategoryPanelProps) {
+  return (
+    <div
+      id={panelId}
+      aria-hidden={!isExpanded}
+      className={cn(
+        'overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out motion-reduce:transition-none',
+        isExpanded
+          ? 'max-h-[760px] opacity-100 md:max-h-[340px] lg:max-h-[430px]'
+          : 'max-h-0 opacity-0',
+      )}
+    >
+      <div className="pt-6 lg:pt-10">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-8">
+          {category.projects.map((project, index) => (
+            <ProjectPreviewCard
+              key={`${project.title}-${index}`}
+              image={projectPlaceholder}
+              isInteractive={isExpanded}
+              {...project}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export function ProjectsSection() {
   const [expandedCategories, setExpandedCategories] = useState(() =>
@@ -55,20 +94,11 @@ export function ProjectsSection() {
                     {category.title}
                   </h3>
                 </button>
-                {isExpanded && (
-                  <div
-                    id={panelId}
-                    className="grid grid-cols-1 gap-5 pt-6 sm:grid-cols-2 lg:gap-8 lg:pt-10"
-                  >
-                    {category.projects.map((project, index) => (
-                      <ProjectPreviewCard
-                        key={`${project.title}-${index}`}
-                        image={projectPlaceholder}
-                        {...project}
-                      />
-                    ))}
-                  </div>
-                )}
+                <ProjectCategoryPanel
+                  category={category}
+                  isExpanded={isExpanded}
+                  panelId={panelId}
+                />
               </article>
             )
           })}

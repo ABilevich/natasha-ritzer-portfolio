@@ -7,18 +7,20 @@ type ProjectPreviewCardProps = {
   title: string
   description: string
   image: string
+  isInteractive?: boolean
 }
 
 export function ProjectPreviewCard({
   title,
   description,
   image,
+  isInteractive = true,
 }: ProjectPreviewCardProps) {
   const [isRevealed, setIsRevealed] = useState(false)
 
   return (
     <article
-      tabIndex={0}
+      tabIndex={isInteractive ? 0 : -1}
       aria-label={`${title}: ${description}`}
       onBlur={() => setIsRevealed(false)}
       onFocus={() => setIsRevealed(true)}
