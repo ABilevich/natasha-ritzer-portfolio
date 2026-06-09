@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { Minus, Plus } from 'lucide-react'
-import projectPlaceholder from '@/assets/figma/project-placeholder.png'
+import { projectCategoryGroups } from '@/features/projects/projectsContent'
 import { cn } from '@/lib/utils'
-import { projectCategories } from '../homeContent'
 import { ProjectPreviewCard } from './ProjectPreviewCard'
 import { SectionTitle } from './SectionTitle'
 
 type ProjectCategoryPanelProps = {
-  category: (typeof projectCategories)[number]
+  category: (typeof projectCategoryGroups)[number]
   isExpanded: boolean
   panelId: string
 }
@@ -30,10 +29,9 @@ function ProjectCategoryPanel({
     >
       <div className="pt-6 lg:pt-10">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-8">
-          {category.projects.map((project, index) => (
+          {category.projects.map((project) => (
             <ProjectPreviewCard
-              key={`${project.title}-${index}`}
-              image={projectPlaceholder}
+              key={project.slug}
               isInteractive={isExpanded}
               {...project}
             />
@@ -47,7 +45,7 @@ function ProjectCategoryPanel({
 export function ProjectsSection() {
   const [expandedCategories, setExpandedCategories] = useState(() =>
     Object.fromEntries(
-      projectCategories.map((category) => [
+      projectCategoryGroups.map((category) => [
         category.title,
         category.defaultExpanded,
       ]),
@@ -70,7 +68,7 @@ export function ProjectsSection() {
       <div className="mx-auto flex max-w-[1312px] flex-col gap-10 md:gap-16">
         <SectionTitle title="Projects" />
         <div className="flex flex-col gap-6 md:gap-10">
-          {projectCategories.map((category) => {
+          {projectCategoryGroups.map((category) => {
             const isExpanded = expandedCategories[category.title]
             const Icon = isExpanded ? Minus : Plus
             const panelId = `projects-${category.title
