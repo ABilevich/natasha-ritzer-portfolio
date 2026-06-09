@@ -13,30 +13,69 @@ type GradientBlobColors = {
   pointer?: string
 }
 
+type GradientBlobSizes = {
+  first?: string
+  second?: string
+  third?: string
+  fourth?: string
+  fifth?: string
+  pointer?: string
+}
+
 type GradientBlobBackgroundProps = {
   colors?: GradientBlobColors
+  blobSizes?: GradientBlobSizes
   interactive?: boolean
   blendingValue?: string
-  size?: string
   className?: string
 }
 
 const defaultColors = {
-  backgroundStart: '174, 86, 110',
-  backgroundEnd: '50, 63, 186',
-  first: '255, 178, 45',
-  second: '25, 79, 255',
-  third: '255, 93, 31',
-  fourth: '140, 76, 214',
-  fifth: '255, 218, 68',
-  pointer: '255, 255, 255',
+  backgroundStart: '#0040b7',
+  backgroundEnd: '#5d00ba',
+  first: '#c87e00',
+  second: '#0099ff',
+  third: '#d63d00',
+  fourth: '#c664ff',
+  fifth: '#ad6e00',
+  pointer: '#b3ff00',
 } satisfies Required<GradientBlobColors>
+
+const defaultBlobSizes = {
+  first: '86%',
+  second: '82%',
+  third: '78%',
+  fourth: '84%',
+  fifth: '70%',
+  pointer: '100%',
+} satisfies Required<GradientBlobSizes>
+
+function getRgbChannels(hexColor: string) {
+  const normalizedColor = hexColor.replace('#', '').trim()
+  const expandedColor =
+    normalizedColor.length === 3
+      ? normalizedColor
+          .split('')
+          .map((character) => character + character)
+          .join('')
+      : normalizedColor
+
+  if (!/^[\da-f]{6}$/i.test(expandedColor)) {
+    return hexColor
+  }
+
+  const red = Number.parseInt(expandedColor.slice(0, 2), 16)
+  const green = Number.parseInt(expandedColor.slice(2, 4), 16)
+  const blue = Number.parseInt(expandedColor.slice(4, 6), 16)
+
+  return `${red}, ${green}, ${blue}`
+}
 
 export function GradientBlobBackground({
   colors,
+  blobSizes,
   interactive = true,
   blendingValue = 'hard-light',
-  size = '84%',
   className,
 }: GradientBlobBackgroundProps) {
   const backgroundRef = useRef<HTMLDivElement>(null)
@@ -46,6 +85,22 @@ export function GradientBlobBackground({
   const resolvedColors = {
     ...defaultColors,
     ...colors,
+  }
+
+  const resolvedBlobSizes = {
+    ...defaultBlobSizes,
+    ...blobSizes,
+  }
+
+  const colorChannels = {
+    backgroundStart: getRgbChannels(resolvedColors.backgroundStart),
+    backgroundEnd: getRgbChannels(resolvedColors.backgroundEnd),
+    first: getRgbChannels(resolvedColors.first),
+    second: getRgbChannels(resolvedColors.second),
+    third: getRgbChannels(resolvedColors.third),
+    fourth: getRgbChannels(resolvedColors.fourth),
+    fifth: getRgbChannels(resolvedColors.fifth),
+    pointer: getRgbChannels(resolvedColors.pointer),
   }
 
   useEffect(() => {
@@ -103,15 +158,20 @@ export function GradientBlobBackground({
       )}
       style={
         {
-          '--gradient-background-start': resolvedColors.backgroundStart,
-          '--gradient-background-end': resolvedColors.backgroundEnd,
-          '--gradient-first': resolvedColors.first,
-          '--gradient-second': resolvedColors.second,
-          '--gradient-third': resolvedColors.third,
-          '--gradient-fourth': resolvedColors.fourth,
-          '--gradient-fifth': resolvedColors.fifth,
-          '--gradient-pointer': resolvedColors.pointer,
-          '--gradient-size': size,
+          '--gradient-background-start': colorChannels.backgroundStart,
+          '--gradient-background-end': colorChannels.backgroundEnd,
+          '--gradient-first': colorChannels.first,
+          '--gradient-second': colorChannels.second,
+          '--gradient-third': colorChannels.third,
+          '--gradient-fourth': colorChannels.fourth,
+          '--gradient-fifth': colorChannels.fifth,
+          '--gradient-pointer': colorChannels.pointer,
+          '--gradient-size-first': resolvedBlobSizes.first,
+          '--gradient-size-second': resolvedBlobSizes.second,
+          '--gradient-size-third': resolvedBlobSizes.third,
+          '--gradient-size-fourth': resolvedBlobSizes.fourth,
+          '--gradient-size-fifth': resolvedBlobSizes.fifth,
+          '--gradient-size-pointer': resolvedBlobSizes.pointer,
           '--gradient-blending': blendingValue,
         } as CSSProperties
       }

@@ -6,7 +6,16 @@ export function HeroSection() {
       className="relative min-h-[760px] overflow-hidden bg-white sm:min-h-svh lg:min-h-[920px]"
       aria-labelledby="hero-title"
     >
-      <GradientBlobBackground />
+      <GradientBlobBackground
+        blobSizes={{
+          first: '120%',
+          second: '120%',
+          third: '120%',
+          fourth: '120%',
+          fifth: '120%',
+          pointer: '120%',
+        }}
+      />
       <div className="absolute left-1/2 top-1/2 z-10 flex w-full max-w-[min(760px,calc(100%_-_40px))] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-5 px-5 text-center md:gap-8">
         <h1
           id="hero-title"

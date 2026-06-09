@@ -34,8 +34,6 @@
 
 .gradient-blob {
   position: absolute;
-  width: var(--gradient-size);
-  height: var(--gradient-size);
   border-radius: 9999px;
   mix-blend-mode: var(--gradient-blending);
   opacity: 0.72;
@@ -43,8 +41,10 @@
 }
 
 .gradient-blob-first {
-  left: calc(50% - var(--gradient-size) / 2);
-  top: calc(50% - var(--gradient-size) / 2);
+  left: calc(50% - var(--gradient-size-first) / 2);
+  top: calc(50% - var(--gradient-size-first) / 2);
+  width: var(--gradient-size-first);
+  height: var(--gradient-size-first);
   background: radial-gradient(
       circle at center,
       rgba(var(--gradient-first), 0.78) 0,
@@ -56,8 +56,10 @@
 }
 
 .gradient-blob-second {
-  left: calc(50% - var(--gradient-size) / 2);
-  top: calc(50% - var(--gradient-size) / 2);
+  left: calc(50% - var(--gradient-size-second) / 2);
+  top: calc(50% - var(--gradient-size-second) / 2);
+  width: var(--gradient-size-second);
+  height: var(--gradient-size-second);
   background: radial-gradient(
       circle at center,
       rgba(var(--gradient-second), 0.7) 0,
@@ -69,8 +71,10 @@
 }
 
 .gradient-blob-third {
-  left: calc(50% - var(--gradient-size) / 2 - 10rem);
-  top: calc(50% - var(--gradient-size) / 2 + 3rem);
+  left: calc(50% - var(--gradient-size-third) / 2 - 10rem);
+  top: calc(50% - var(--gradient-size-third) / 2 + 3rem);
+  width: var(--gradient-size-third);
+  height: var(--gradient-size-third);
   background: radial-gradient(
       circle at center,
       rgba(var(--gradient-third), 0.66) 0,
@@ -82,8 +86,10 @@
 }
 
 .gradient-blob-fourth {
-  left: calc(50% - var(--gradient-size) / 2);
-  top: calc(50% - var(--gradient-size) / 2);
+  left: calc(50% - var(--gradient-size-fourth) / 2);
+  top: calc(50% - var(--gradient-size-fourth) / 2);
+  width: var(--gradient-size-fourth);
+  height: var(--gradient-size-fourth);
   background: radial-gradient(
       circle at center,
       rgba(var(--gradient-fourth), 0.62) 0,
@@ -95,8 +101,10 @@
 }
 
 .gradient-blob-fifth {
-  left: calc(50% - var(--gradient-size) / 2 + 8rem);
-  top: calc(50% - var(--gradient-size) / 2 - 8rem);
+  left: calc(50% - var(--gradient-size-fifth) / 2 + 8rem);
+  top: calc(50% - var(--gradient-size-fifth) / 2 - 8rem);
+  width: var(--gradient-size-fifth);
+  height: var(--gradient-size-fifth);
   background: radial-gradient(
       circle at center,
       rgba(var(--gradient-fifth), 0.6) 0,
@@ -111,8 +119,8 @@
   position: absolute;
   left: -50%;
   top: -50%;
-  width: 100%;
-  height: 100%;
+  width: var(--gradient-size-pointer);
+  height: var(--gradient-size-pointer);
   background: radial-gradient(
       circle at center,
       rgba(var(--gradient-pointer), 0.34) 0,
