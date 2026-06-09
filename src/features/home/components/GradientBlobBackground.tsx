@@ -34,10 +34,10 @@ const defaultColors = {
   backgroundStart: '#0059ff',
   backgroundEnd: '#bf00ff',
   first: '#cd8200',
-  second: '#005c99',
-  third: '#c63800',
-  fourth: '#8c00dd',
-  fifth: '#b97500',
+  second: '#0099ff',
+  third: '#ff4800',
+  fourth: '#a200ff',
+  fifth: '#ffa200',
   pointer: '#b3ff00',
 } satisfies Required<GradientBlobColors>
 
