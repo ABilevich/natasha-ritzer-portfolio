@@ -1,19 +1,25 @@
 
 import { useHeroParallax } from '../hooks/useHeroParallax'
-import image0 from '@/assets/figma/s-l1200.png'
-import image1 from '@/assets/figma/Baby.webp'
+import image0 from '@/assets/projects-hero/urbetrack-1.jpg'
+import image1 from '@/assets/projects-hero/D1-1.jpg'
+import image2 from '@/assets/projects-hero/portsalus-1.jpg'
+import image3 from '@/assets/projects-hero/regalalo-1.jpg'
+import image4 from '@/assets/projects-hero/mercado pago-1.jpg'
+import image5 from '@/assets/projects-hero/me-connect1.jpg'
+import image6 from '@/assets/projects-hero/halfbike-1.jpg'
+import image7 from '@/assets/projects-hero/HB1.jpg'
 
 const speed = 2
 
 const heroTiles = [
-  { image: image1, position: 'left-0 top-0', speed: 0.1 * speed, offset: 0 },
-  { image: image0, position: 'left-[18%] top-[32%]', speed: 0.18 * speed, offset: -12 },
-  { image: image1, position: 'left-[8%] top-[68%]', speed: 0.14 * speed, offset: 0 },
-  { image: image0, position: 'left-[58%] top-0', speed: 0.08 * speed, offset: 0 },
-  { image: image0, position: 'right-[8%] top-[36%]', speed: 0.2 * speed, offset: -12 },
-  { image: image1, position: 'left-[52%] top-[66%]', speed: 0.16 * speed, offset: 0 },
-  { image: image0, position: 'right-[5%] top-[86%]', speed: 0.12 * speed, offset: -12 },
-  { image: image1, position: 'right-[55%] top-[85%]', speed: 0.06 * speed, offset: 0 },
+  { image: image0, position: 'left-0 top-0', speed: 0.1 * speed, offset: 0 },
+  { image: image1, position: 'left-[18%] top-[32%]', speed: 0.18 * speed, offset: -12 },
+  { image: image2, position: 'left-[8%] top-[68%]', speed: 0.14 * speed, offset: 0 },
+  { image: image3, position: 'left-[58%] top-0', speed: 0.08 * speed, offset: 0 },
+  { image: image4, position: 'right-[8%] top-[36%]', speed: 0.2 * speed, offset: -12 },
+  { image: image5, position: 'left-[52%] top-[66%]', speed: 0.16 * speed, offset: 0 },
+  { image: image6, position: 'right-[5%] top-[86%]', speed: 0.12 * speed, offset: -12 },
+  { image: image7, position: 'right-[55%] top-[85%]', speed: 0.06 * speed, offset: 0 },
 ]
 
 export function HeroSection() {
