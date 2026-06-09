@@ -15,12 +15,11 @@ export function ParallaxGallerySection() {
         {parallaxGalleryItems.map((item) => (
           <figure
             key={item.id}
-            className="absolute left-[var(--gallery-left)] right-[var(--gallery-right)] top-[var(--gallery-top)] bottom-[var(--gallery-bottom)] m-0 w-[var(--gallery-width)] max-w-[var(--gallery-max-width)] overflow-hidden border border-white/60 bg-white/30 shadow-[0_28px_80px_rgba(31,42,55,0.16)] motion-reduce:!transform-none max-[640px]:left-[var(--gallery-mobile-left)] max-[640px]:right-[var(--gallery-mobile-right)] max-[640px]:top-[var(--gallery-mobile-top)] max-[640px]:bottom-[var(--gallery-mobile-bottom)] max-[640px]:w-[var(--gallery-mobile-width)]"
+            className="absolute left-[var(--gallery-left)] right-[var(--gallery-right)] top-[var(--gallery-top)] bottom-[var(--gallery-bottom)] m-0 w-[var(--gallery-width)] overflow-hidden border border-white/60 bg-white/30 shadow-[0_28px_80px_rgba(31,42,55,0.16)] motion-reduce:!transform-none max-[640px]:left-[var(--gallery-mobile-left)] max-[640px]:right-[var(--gallery-mobile-right)] max-[640px]:top-[var(--gallery-mobile-top)] max-[640px]:bottom-[var(--gallery-mobile-bottom)] max-[640px]:w-[min(var(--gallery-mobile-width),92vw)]"
             style={
               {
-                '--gallery-width': item.size.width,
-                '--gallery-max-width': item.size.maxWidth,
-                '--gallery-mobile-width': item.size.mobileWidth,
+                '--gallery-width': `${item.size}vw`,
+                '--gallery-mobile-width': `${item.size * 1.85}vw`,
                 '--gallery-left': item.position.left ?? 'auto',
                 '--gallery-right': item.position.right ?? 'auto',
                 '--gallery-top': item.position.top ?? 'auto',
