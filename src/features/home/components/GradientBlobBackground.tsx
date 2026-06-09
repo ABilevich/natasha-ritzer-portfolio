@@ -31,13 +31,13 @@ type GradientBlobBackgroundProps = {
 }
 
 const defaultColors = {
-  backgroundStart: '#0040b7',
-  backgroundEnd: '#5d00ba',
-  first: '#c87e00',
-  second: '#0099ff',
-  third: '#d63d00',
-  fourth: '#c664ff',
-  fifth: '#ad6e00',
+  backgroundStart: '#0059ff',
+  backgroundEnd: '#bf00ff',
+  first: '#cd8200',
+  second: '#005c99',
+  third: '#c63800',
+  fourth: '#8c00dd',
+  fifth: '#b97500',
   pointer: '#b3ff00',
 } satisfies Required<GradientBlobColors>
 
