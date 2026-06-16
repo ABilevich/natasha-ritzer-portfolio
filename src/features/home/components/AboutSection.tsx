@@ -6,10 +6,10 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="scroll-mt-8 bg-white px-[clamp(20px,6.6vw,100px)] pb-12 pt-6 md:pb-16 md:pt-8"
+      className="flex min-h-svh scroll-mt-8 bg-white px-[clamp(20px,6.6vw,100px)] pb-12 pt-6 md:items-center md:pb-16 md:pt-8"
       aria-labelledby="about-title"
     >
-      <div className="mx-auto flex max-w-[1312px] flex-col gap-10 md:gap-14 lg:gap-[72px]">
+      <div className="mx-auto flex w-full max-w-[1312px] flex-col gap-10 md:gap-14 lg:gap-[72px]">
         <SectionTitle title="About" showResumeButton />
         <div className="grid grid-cols-1 lg:grid-cols-[445px_1fr]">
           <p className="m-0 max-w-[760px] text-base leading-6 text-[#1f2a37] lg:col-start-2 lg:max-w-none">
