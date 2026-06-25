@@ -36,10 +36,10 @@ export function ProjectPreviewCard({
         alt=""
         className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
       />
-      <div className="project-preview-overlay absolute inset-0 bg-gradient-to-b from-white/0 from-35% to-white transition-opacity duration-300" />
+      <div className="project-preview-overlay absolute inset-0 bg-gradient-to-b from-white/0 from-15% via-white/85 via-60% to-white transition-opacity duration-300" />
       <div className="project-preview-content relative flex w-full flex-col gap-2 transition-all duration-300">
         <div className="flex items-center justify-between gap-4">
-          <h4 className="m-0 text-xl font-normal leading-[30px] text-[#111928] md:text-2xl">
+          <h4 className="m-0 text-xl font-semibold leading-[30px] text-[#111928] md:text-2xl">
             {title}
           </h4>
           <ArrowRight className="size-6 shrink-0 text-[#111928]" />

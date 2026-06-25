@@ -1,4 +1,7 @@
 import projectPlaceholder from '@/assets/figma/project-placeholder.png'
+import agendaVitalImage from '@/assets/figma/Agenda-Vital.jpg'
+import bncImage from '@/assets/figma/BNC.jpg'
+import delphiOneImage from '@/assets/figma/D1.jpg'
 
 export type ProjectCategoryTitle =
   | 'UX UI Design'
@@ -22,21 +25,21 @@ export const projects: PortfolioProject[] = [
     title: 'Delphi One',
     category: 'UX UI Design',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: delphiOneImage,
   },
   {
     slug: 'bnc',
     title: 'BNC',
     category: 'UX UI Design',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: bncImage,
   },
   {
     slug: 'agenda-vital',
     title: 'Agenda Vital',
     category: 'UX UI Design',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: agendaVitalImage,
   },
   {
     slug: 'regalalo',

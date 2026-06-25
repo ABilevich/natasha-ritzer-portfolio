@@ -1,5 +1,5 @@
 import TSP from '@/assets/figma/TSP.png'
-import delphiOneImage from '@/assets/figma/D1.png'
+import delphiOneImage from '@/assets/figma/mockup-d1.png'
 import AV from '@/assets/figma/AV.png'
 import HD from '@/assets/figma/HB1.jpg'
 import halfbikeImage from '@/assets/figma/halfbike-1.jpg'
@@ -63,7 +63,7 @@ export const parallaxGalleryItems = [
     alt: '',
     speed: 0.48,
     rotation: 0,
-    size: 30,
+    size: 25,
     position: { left: '1%', top: '7%' } satisfies GalleryPosition,
     mobilePosition: { left: '-18%', top: '8%' } satisfies GalleryPosition,
   },
