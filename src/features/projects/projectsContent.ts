@@ -1,7 +1,12 @@
-import projectPlaceholder from '@/assets/figma/project-placeholder.png'
 import agendaVitalImage from '@/assets/figma/Agenda-Vital.jpg'
 import bncImage from '@/assets/figma/BNC.jpg'
+import delphiOneProjectManagementImage from '@/assets/figma/D1-PM.jpg'
 import delphiOneImage from '@/assets/figma/D1.jpg'
+import habitDrivenImage from '@/assets/figma/HD.jpg'
+import mazalosaProjectManagementImage from '@/assets/figma/Mazalosa-pm.jpg'
+import pasimediaProjectManagementImage from '@/assets/figma/Pasimedia-pm.jpg'
+import regalaloImage from '@/assets/figma/Regalalo.jpg'
+import portSalusImage from '@/assets/figma/port-salus.jpg'
 
 export type ProjectCategoryTitle =
   | 'UX UI Design'
@@ -46,42 +51,42 @@ export const projects: PortfolioProject[] = [
     title: 'Regalalo',
     category: 'Graphic Design',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: regalaloImage,
   },
   {
-    slug: 'aurum',
-    title: 'Aurum',
+    slug: 'port-salus',
+    title: 'Port Salus',
     category: 'Graphic Design',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: portSalusImage,
   },
   {
     slug: 'habit-driven',
     title: 'Habit Driven',
     category: 'Graphic Design',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: habitDrivenImage,
   },
   {
     slug: 'delphi-one-project-management',
     title: 'Delphi One',
     category: 'Project Management',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: delphiOneProjectManagementImage,
   },
   {
     slug: 'pasimedia',
     title: 'Pasimedia',
     category: 'Project Management',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: pasimediaProjectManagementImage,
   },
   {
     slug: 'mazalosa',
     title: 'Mazalosa',
     category: 'Project Management',
     description: placeholderDescription,
-    image: projectPlaceholder,
+    image: mazalosaProjectManagementImage,
   },
 ]
 
