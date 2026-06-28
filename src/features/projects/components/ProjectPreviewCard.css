@@ -7,6 +7,24 @@
   transform: translateY(0);
 }
 
+.project-preview-card--center-mobile .project-preview-overlay,
+.project-preview-card--center-mobile .project-preview-content {
+  opacity: 0;
+}
+
+.project-preview-card--center-mobile .project-preview-content {
+  transform: translateY(1rem);
+}
+
+.project-preview-card--center-mobile.is-revealed .project-preview-overlay,
+.project-preview-card--center-mobile.is-revealed .project-preview-content {
+  opacity: 1;
+}
+
+.project-preview-card--center-mobile.is-revealed .project-preview-content {
+  transform: translateY(0);
+}
+
 @media (min-width: 640px) {
   .project-preview-overlay,
   .project-preview-content {

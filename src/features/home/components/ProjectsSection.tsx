@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Minus, Plus } from 'lucide-react'
 import { projectCategoryGroups } from '@/features/projects/projectsContent'
+import { ProjectPreviewCard } from '@/features/projects/components/ProjectPreviewCard'
 import { cn } from '@/lib/utils'
-import { ProjectPreviewCard } from './ProjectPreviewCard'
 import { SectionTitle } from './SectionTitle'
 
 type ProjectCategoryPanelProps = {

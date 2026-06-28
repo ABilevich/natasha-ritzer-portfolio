@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import './ProjectPreviewCard.css'
@@ -8,6 +8,7 @@ type ProjectPreviewCardProps = {
   description: string
   image: string
   isInteractive?: boolean
+  revealOnCenterOnMobile?: boolean
 }
 
 export function ProjectPreviewCard({
@@ -15,11 +16,47 @@ export function ProjectPreviewCard({
   description,
   image,
   isInteractive = true,
+  revealOnCenterOnMobile = false,
 }: ProjectPreviewCardProps) {
   const [isRevealed, setIsRevealed] = useState(false)
+  const cardRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!revealOnCenterOnMobile) {
+      return
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 639px)')
+
+    function updateRevealState() {
+      if (!cardRef.current || !mediaQuery.matches) {
+        setIsRevealed(false)
+        return
+      }
+
+      const rect = cardRef.current.getBoundingClientRect()
+      const cardCenter = rect.top + rect.height / 2
+      const viewportCenter = window.innerHeight / 2
+      const revealRange = Math.min(window.innerHeight * 0.18, rect.height * 0.45)
+
+      setIsRevealed(Math.abs(cardCenter - viewportCenter) <= revealRange)
+    }
+
+    updateRevealState()
+    window.addEventListener('scroll', updateRevealState, { passive: true })
+    window.addEventListener('resize', updateRevealState)
+    mediaQuery.addEventListener('change', updateRevealState)
+
+    return () => {
+      window.removeEventListener('scroll', updateRevealState)
+      window.removeEventListener('resize', updateRevealState)
+      mediaQuery.removeEventListener('change', updateRevealState)
+    }
+  }, [revealOnCenterOnMobile])
 
   return (
     <article
+      ref={cardRef}
       tabIndex={isInteractive ? 0 : -1}
       aria-label={`${title}: ${description}`}
       onBlur={() => setIsRevealed(false)}
@@ -27,7 +64,8 @@ export function ProjectPreviewCard({
       onMouseEnter={() => setIsRevealed(true)}
       onMouseLeave={() => setIsRevealed(false)}
       className={cn(
-        'project-preview-card group relative flex h-[220px] w-full items-end overflow-hidden p-5 text-left no-underline outline-none md:h-[300px] md:p-6 lg:h-[372px]',
+        'project-preview-card group relative flex h-[340px] w-full items-end overflow-hidden p-5 text-left no-underline outline-none max-[360px]:h-[310px] md:h-[300px] md:p-6 lg:h-[372px]',
+        revealOnCenterOnMobile && 'project-preview-card--center-mobile',
         isRevealed && 'is-revealed',
       )}
     >

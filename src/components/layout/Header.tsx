@@ -1,21 +1,36 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import nrLogo from '@/assets/figma/nr-logo.svg'
 
 const navigationItems = [
   { label: 'About', href: '/#about' },
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Projects', href: '/#projects' },
+  { label: 'Projects', href: '/projects' },
   { label: 'CV', href: '/#about' },
 ]
 
 export function Header() {
+  const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const isHomePage = location.pathname === '/'
+  const isLightOnDark = isHomePage
 
-  const linkClassName =
-    'relative h-auto rounded-none px-0 py-0 text-[16px] font-medium text-white no-underline hover:bg-transparent hover:text-white focus-visible:ring-white after:absolute after:inset-x-0 after:-bottom-2 after:h-px after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100'
+  const linkClassName = (href: string) => {
+    const isActive =
+      href === '/projects'
+        ? location.pathname === '/projects'
+        : location.pathname === '/' && location.hash === href.replace('/', '')
+
+    return cn(
+      'relative h-auto rounded-none px-0 py-0 text-[16px] font-medium no-underline hover:bg-transparent focus-visible:ring-0 after:absolute after:inset-x-0 after:-bottom-2 after:h-px after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100',
+      isLightOnDark
+        ? 'text-white hover:text-white after:bg-white'
+        : 'text-[#111928] hover:text-[#111928] after:bg-[#111928]',
+      isActive && 'after:scale-x-100',
+    )
+  }
 
   const mobileLinkClassName =
     'text-right text-3xl font-semibold leading-tight text-white no-underline transition-opacity hover:opacity-75'
@@ -48,7 +63,10 @@ export function Header() {
           <img
             src={nrLogo}
             alt=""
-            className="size-full object-contain brightness-0 invert"
+            className={cn(
+              'size-full object-contain',
+              isLightOnDark && 'brightness-0 invert',
+            )}
           />
         </NavLink>
         <nav
@@ -57,13 +75,13 @@ export function Header() {
         >
           {navigationItems.map((item) => (
             <Button
-              key={item.href}
+              key={item.label}
               asChild
               variant="ghost"
               size="sm"
-              className={linkClassName}
+              className={linkClassName(item.href)}
             >
-              <a href={item.href}>{item.label}</a>
+              <NavLink to={item.href}>{item.label}</NavLink>
             </Button>
           ))}
         </nav>
@@ -71,7 +89,12 @@ export function Header() {
           asChild
           variant="outline"
           size="sm"
-          className="relative z-50 h-12 shrink-0 rounded-full border-white bg-transparent px-[18px] text-sm font-medium text-white hover:bg-transparent hover:text-white max-[720px]:hidden"
+          className={cn(
+            'relative z-50 h-12 shrink-0 rounded-full bg-transparent px-[18px] text-sm font-medium hover:bg-transparent max-[720px]:hidden',
+            isLightOnDark
+              ? 'border-white text-white hover:text-white'
+              : 'border-[#111928] text-[#111928] hover:text-[#111928]',
+          )}
         >
           <a href="mailto:hello@natasharitzer.com">Contact Me</a>
         </Button>
@@ -80,7 +103,12 @@ export function Header() {
             asChild
             variant="outline"
             size="sm"
-            className="h-9 rounded-full border-white bg-transparent px-4 text-sm font-medium text-white hover:bg-transparent hover:text-white"
+            className={cn(
+              'h-9 rounded-full bg-transparent px-4 text-sm font-medium hover:bg-transparent',
+              isLightOnDark
+                ? 'border-white text-white hover:text-white'
+                : 'border-[#111928] text-[#111928] hover:text-[#111928]',
+            )}
           >
             <a href="mailto:hello@natasharitzer.com">Contact Me</a>
           </Button>
@@ -92,7 +120,12 @@ export function Header() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             onClick={() => setIsMenuOpen((current) => !current)}
-            className="size-10 rounded-full bg-transparent text-white hover:bg-transparent hover:text-white focus-visible:ring-white"
+            className={cn(
+              'size-10 rounded-full bg-transparent hover:bg-transparent focus-visible:ring-0',
+              isLightOnDark
+                ? 'text-white hover:text-white'
+                : 'text-[#111928] hover:text-[#111928]',
+            )}
           >
             {isMenuOpen ? (
               <X className="size-6" aria-hidden="true" />
@@ -124,7 +157,7 @@ export function Header() {
         >
           {navigationItems.map((item) => (
             <a
-              key={item.href}
+              key={item.label}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
               tabIndex={isMenuOpen ? undefined : -1}

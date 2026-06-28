@@ -21,71 +21,77 @@ export type PortfolioProject = {
   image: string
 }
 
-const placeholderDescription =
-  'Project description coming soon. Replace this text with a short summary for the homepage card.'
-
 export const projects: PortfolioProject[] = [
   {
     slug: 'delphi-one-ux-ui',
     title: 'Delphi One',
     category: 'UX UI Design',
-    description: placeholderDescription,
+    description:
+      'A crypto community platform redesigned around clearer navigation, sharper content flows, and easier decision-making.',
     image: delphiOneImage,
   },
   {
     slug: 'bnc',
     title: 'BNC',
     category: 'UX UI Design',
-    description: placeholderDescription,
+    description:
+      'A product configurator experience that simplifies carport customization from first selection to final quote.',
     image: bncImage,
   },
   {
     slug: 'agenda-vital',
     title: 'Agenda Vital',
     category: 'UX UI Design',
-    description: placeholderDescription,
+    description:
+      'A wellness scheduling concept focused on calmer booking flows, service discovery, and everyday planning.',
     image: agendaVitalImage,
   },
   {
     slug: 'regalalo',
     title: 'Regalalo',
     category: 'Graphic Design',
-    description: placeholderDescription,
+    description:
+      'A visual identity and gifting experience built around playful discovery, clear product moments, and memorable packaging.',
     image: regalaloImage,
   },
   {
     slug: 'port-salus',
     title: 'Port Salus',
     category: 'Graphic Design',
-    description: placeholderDescription,
+    description:
+      'A coastal brand system with calm visual direction, editorial layouts, and polished campaign assets.',
     image: portSalusImage,
   },
   {
     slug: 'habit-driven',
     title: 'Habit Driven',
     category: 'Graphic Design',
-    description: placeholderDescription,
+    description:
+      'A lifestyle brand exploration shaped around habit-building, motivational visuals, and flexible digital content.',
     image: habitDrivenImage,
   },
   {
     slug: 'delphi-one-project-management',
     title: 'Delphi One',
     category: 'Project Management',
-    description: placeholderDescription,
+    description:
+      'A product delivery workflow coordinating design, content, and implementation across a fast-moving crypto platform.',
     image: delphiOneProjectManagementImage,
   },
   {
     slug: 'pasimedia',
     title: 'Pasimedia',
     category: 'Project Management',
-    description: placeholderDescription,
+    description:
+      'A production management effort aligning creative direction, team priorities, and launch-ready deliverables.',
     image: pasimediaProjectManagementImage,
   },
   {
     slug: 'mazalosa',
     title: 'Mazalosa',
     category: 'Project Management',
-    description: placeholderDescription,
+    description:
+      'A coordinated brand and operations project focused on timelines, stakeholder alignment, and final asset delivery.',
     image: mazalosaProjectManagementImage,
   },
 ]
