@@ -12,27 +12,26 @@ type ProjectCaseStudyLayoutProps = {
 
 function ProjectGalleryImage({
   item,
-  index,
+  className,
 }: {
   item: ProjectCaseStudyGalleryItem
-  index: number
+  className?: string
 }) {
   return (
     <figure
       className={cn(
         'm-0 flex overflow-hidden bg-[#f3f4f6]',
-        item.variant === 'tall'
-          ? 'aspect-[1196/1682] items-start justify-center lg:aspect-auto lg:row-span-2'
-          : 'aspect-[1368/764] items-center justify-center lg:aspect-auto',
-        index === 0 && 'lg:[grid-column:1] lg:[grid-row:1/span_2]',
-        index === 1 && 'lg:[grid-column:2] lg:[grid-row:1]',
-        index === 2 && 'lg:[grid-column:2] lg:[grid-row:2]',
+        item.variant === 'tall' &&
+          'aspect-[1256/1682] items-start lg:aspect-auto lg:h-full',
+        item.id === 'flow' && 'aspect-[1184/813] items-center',
+        item.id === 'interface' && 'aspect-[1184/790] items-center',
+        className,
       )}
     >
       <img
         src={item.image}
         alt={item.alt}
-        className="h-full w-full object-contain object-center"
+        className="h-full w-full object-cover object-center"
       />
     </figure>
   )
@@ -41,6 +40,8 @@ function ProjectGalleryImage({
 export function ProjectCaseStudyLayout({
   project,
 }: ProjectCaseStudyLayoutProps) {
+  const [primaryGalleryItem, ...secondaryGalleryItems] = project.gallery
+
   return (
     <article className="bg-white text-[#111928]">
       <section className="px-[clamp(20px,6.6vw,100px)] pb-14 pt-[112px] md:pb-[96px] md:pt-[172px]">
@@ -89,14 +90,18 @@ export function ProjectCaseStudyLayout({
         aria-label={`${project.title} gallery`}
         className="px-[clamp(20px,6.6vw,100px)] pb-16 md:pb-[120px]"
       >
-        <div className="mx-auto grid max-w-[1216px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,593px)] lg:grid-rows-[405.5px_405.5px]">
-          {project.gallery.map((item, index) => (
+        <div className="mx-auto grid max-w-[1216px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,593px)] lg:items-stretch">
+          {primaryGalleryItem ? (
             <ProjectGalleryImage
-              key={item.id}
-              item={item}
-              index={index}
+              key={primaryGalleryItem.id}
+              item={primaryGalleryItem}
             />
-          ))}
+          ) : null}
+          <div className="grid gap-5 md:gap-[30px]">
+            {secondaryGalleryItems.map((item) => (
+              <ProjectGalleryImage key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       </section>
     </article>
