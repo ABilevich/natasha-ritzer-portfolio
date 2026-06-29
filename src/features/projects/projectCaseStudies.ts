@@ -1,6 +1,17 @@
+import createDebateImage from '@/assets/figma/Delphi One/create-debate.jpg'
+import outlookImage from '@/assets/figma/Delphi One/Outlook.jpg'
+import onboardingImage from '@/assets/figma/Delphi One/onboarding.jpg'
+
 export type ProjectCaseStudyDetail = {
   label: string
   value: string
+}
+
+export type ProjectCaseStudyGalleryItem = {
+  id: string
+  image: string
+  alt: string
+  variant: 'tall' | 'wide'
 }
 
 export type ProjectCaseStudy = {
@@ -8,10 +19,7 @@ export type ProjectCaseStudy = {
   category: string
   intro: string[]
   details: ProjectCaseStudyDetail[]
-  gallery: Array<{
-    id: string
-    aspectClassName: string
-  }>
+  gallery: ProjectCaseStudyGalleryItem[]
 }
 
 export const delphiOneCaseStudy = {
@@ -34,15 +42,21 @@ export const delphiOneCaseStudy = {
   gallery: [
     {
       id: 'overview',
-      aspectClassName: 'aspect-[1312/620]',
+      image: outlookImage,
+      alt: 'Delphi One outlook profile and research view',
+      variant: 'tall',
     },
     {
       id: 'flow',
-      aspectClassName: 'aspect-[641/520]',
+      image: onboardingImage,
+      alt: 'Delphi One onboarding upload research screen',
+      variant: 'wide',
     },
     {
       id: 'interface',
-      aspectClassName: 'aspect-[641/520]',
+      image: createDebateImage,
+      alt: 'Delphi One create a debate screen',
+      variant: 'wide',
     },
   ],
 } satisfies ProjectCaseStudy
