@@ -32,6 +32,7 @@ function ProjectCategoryPanel({
           {category.projects.map((project) => (
             <ProjectPreviewCard
               key={project.slug}
+              href={project.detailPath}
               isInteractive={isExpanded}
               {...project}
             />

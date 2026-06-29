@@ -19,6 +19,7 @@ export type PortfolioProject = {
   category: ProjectCategoryTitle
   description: string
   image: string
+  detailPath?: string
 }
 
 export const projects: PortfolioProject[] = [
@@ -29,6 +30,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A crypto community platform redesigned around clearer navigation, sharper content flows, and easier decision-making.',
     image: delphiOneImage,
+    detailPath: '/projects/delphi-one',
   },
   {
     slug: 'bnc',

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import './ProjectPreviewCard.css'
@@ -7,6 +8,7 @@ type ProjectPreviewCardProps = {
   title: string
   description: string
   image: string
+  href?: string
   isInteractive?: boolean
   revealOnCenterOnMobile?: boolean
 }
@@ -15,6 +17,7 @@ export function ProjectPreviewCard({
   title,
   description,
   image,
+  href,
   isInteractive = true,
   revealOnCenterOnMobile = false,
 }: ProjectPreviewCardProps) {
@@ -54,21 +57,14 @@ export function ProjectPreviewCard({
     }
   }, [revealOnCenterOnMobile])
 
-  return (
-    <article
-      ref={cardRef}
-      tabIndex={isInteractive ? 0 : -1}
-      aria-label={`${title}: ${description}`}
-      onBlur={() => setIsRevealed(false)}
-      onFocus={() => setIsRevealed(true)}
-      onMouseEnter={() => setIsRevealed(true)}
-      onMouseLeave={() => setIsRevealed(false)}
-      className={cn(
-        'project-preview-card group relative flex h-[340px] w-full items-end overflow-hidden p-5 text-left no-underline outline-none max-[360px]:h-[310px] md:h-[300px] md:p-6 lg:h-[372px]',
-        revealOnCenterOnMobile && 'project-preview-card--center-mobile',
-        isRevealed && 'is-revealed',
-      )}
-    >
+  const rootClassName = cn(
+    'project-preview-card group relative flex h-[340px] w-full items-end overflow-hidden p-5 text-left no-underline outline-none max-[360px]:h-[310px] md:h-[300px] md:p-6 lg:h-[372px]',
+    revealOnCenterOnMobile && 'project-preview-card--center-mobile',
+    isRevealed && 'is-revealed',
+  )
+
+  const cardContent = (
+    <>
       <img
         src={image}
         alt=""
@@ -86,6 +82,41 @@ export function ProjectPreviewCard({
           {description}
         </p>
       </div>
+    </>
+  )
+
+  if (href) {
+    return (
+      <Link
+        ref={(node) => {
+          cardRef.current = node
+        }}
+        to={href}
+        aria-label={`${title}: ${description}`}
+        tabIndex={isInteractive ? undefined : -1}
+        onBlur={() => setIsRevealed(false)}
+        onFocus={() => setIsRevealed(true)}
+        onMouseEnter={() => setIsRevealed(true)}
+        onMouseLeave={() => setIsRevealed(false)}
+        className={rootClassName}
+      >
+        {cardContent}
+      </Link>
+    )
+  }
+
+  return (
+    <article
+      ref={cardRef}
+      tabIndex={isInteractive ? 0 : -1}
+      aria-label={`${title}: ${description}`}
+      onBlur={() => setIsRevealed(false)}
+      onFocus={() => setIsRevealed(true)}
+      onMouseEnter={() => setIsRevealed(true)}
+      onMouseLeave={() => setIsRevealed(false)}
+      className={rootClassName}
+    >
+      {cardContent}
     </article>
   )
 }

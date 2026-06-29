@@ -20,7 +20,7 @@ export function Header() {
   const linkClassName = (href: string) => {
     const isActive =
       href === '/projects'
-        ? location.pathname === '/projects'
+        ? location.pathname.startsWith('/projects')
         : location.pathname === '/' && location.hash === href.replace('/', '')
 
     return cn(
@@ -152,8 +152,10 @@ export function Header() {
         />
         <nav
           aria-label="Mobile navigation"
-          className="absolute top-0 flex h-dvh w-[min(78vw,300px)] flex-col items-end gap-7 bg-black/65 px-8 pb-10 pt-24 text-right backdrop-blur-md"
-          style={{ right: isMenuOpen ? '0px' : 'calc(-1 * min(78vw, 300px))' }}
+          className="absolute right-0 top-0 flex h-dvh w-[min(78vw,300px)] flex-col items-end gap-7 bg-black/65 px-8 pb-10 pt-24 text-right backdrop-blur-md transition-transform duration-200"
+          style={{
+            transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
+          }}
         >
           {navigationItems.map((item) => (
             <a

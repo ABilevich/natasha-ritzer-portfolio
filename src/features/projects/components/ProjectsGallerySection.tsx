@@ -130,6 +130,7 @@ export function ProjectsGallerySection() {
           {filteredProjects.map((project) => (
             <ProjectPreviewCard
               key={project.slug}
+              href={project.detailPath}
               revealOnCenterOnMobile
               {...project}
             />
