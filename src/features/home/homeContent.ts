@@ -1,5 +1,5 @@
 import TSP from '@/assets/figma/TSP.png'
-import delphiOneImage from '@/assets/figma/mockup-d1.png'
+import delphiOneImage from '@/assets/projects/delphi-one/home-parallax.png'
 import AV from '@/assets/figma/AV.png'
 import HD from '@/assets/figma/HB1.jpg'
 import halfbikeImage from '@/assets/figma/halfbike-1.jpg'

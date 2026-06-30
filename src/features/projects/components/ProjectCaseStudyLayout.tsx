@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import type {
   ProjectCaseStudy,
   ProjectCaseStudyGalleryItem,
-} from '../projectCaseStudies'
+} from '../case-studies/types'
 
 type ProjectCaseStudyLayoutProps = {
   project: ProjectCaseStudy
