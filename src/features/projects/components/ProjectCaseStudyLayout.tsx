@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react'
-import type { MouseEvent, PointerEvent } from 'react'
+import { useEffect, useState } from 'react'
+import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type {
   ProjectCaseStudy,
@@ -15,67 +15,19 @@ type ProjectCaseStudyLayoutProps = {
 function ProjectGalleryImage({
   item,
   className,
+  onOpen,
 }: {
   item: ProjectCaseStudyGalleryItem
   className?: string
+  onOpen: (item: ProjectCaseStudyGalleryItem) => void
 }) {
-  const [isZoomed, setIsZoomed] = useState(false)
-  const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 })
-  const lastPointerType = useRef<PointerEvent<HTMLButtonElement>['pointerType']>('mouse')
-
-  const updateZoomPosition = (event: PointerEvent<HTMLButtonElement>) => {
-    const bounds = event.currentTarget.getBoundingClientRect()
-    const x = ((event.clientX - bounds.left) / bounds.width) * 100
-    const y = ((event.clientY - bounds.top) / bounds.height) * 100
-
-    setZoomPosition({
-      x: Math.min(100, Math.max(0, x)),
-      y: Math.min(100, Math.max(0, y)),
-    })
-  }
-
-  const resetZoom = () => {
-    setIsZoomed(false)
-    setZoomPosition({ x: 50, y: 50 })
-  }
-
-  const toggleTouchOrKeyboardZoom = (
-    event: MouseEvent<HTMLButtonElement>,
-  ) => {
-    if (lastPointerType.current === 'mouse' && event.detail !== 0) return
-
-    setIsZoomed((current) => !current)
-  }
-
   return (
     <button
       type="button"
-      aria-label={`Zoom ${item.alt}`}
-      aria-pressed={isZoomed}
-      onClick={toggleTouchOrKeyboardZoom}
-      onFocus={() => setIsZoomed(true)}
-      onBlur={resetZoom}
-      onPointerEnter={(event) => {
-        lastPointerType.current = event.pointerType
-        updateZoomPosition(event)
-        if (event.pointerType !== 'touch') setIsZoomed(true)
-      }}
-      onPointerLeave={() => {
-        if (lastPointerType.current !== 'touch') resetZoom()
-      }}
-      onPointerMove={(event) => {
-        lastPointerType.current = event.pointerType
-        if (event.pointerType !== 'touch' || isZoomed) {
-          updateZoomPosition(event)
-        }
-      }}
-      style={{
-        backgroundImage: `url(${item.image})`,
-        backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
-        backgroundSize: isZoomed ? '220%' : 'cover',
-      }}
+      aria-label={`Open ${item.alt}`}
+      onClick={() => onOpen(item)}
       className={cn(
-        'm-0 flex overflow-hidden bg-[#f3f4f6] bg-no-repeat p-0 text-left transition-[background-size] duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928]',
+        'm-0 flex cursor-zoom-in overflow-hidden bg-[#f3f4f6] p-0 text-left transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928]',
         item.variant === 'tall' &&
           'aspect-[1256/1682] items-start lg:aspect-auto lg:h-full',
         item.id === 'flow' && 'aspect-[1184/813] items-center',
@@ -86,12 +38,98 @@ function ProjectGalleryImage({
       <img
         src={item.image}
         alt={item.alt}
-        className={cn(
-          'h-full w-full object-cover object-center transition-opacity duration-200',
-          isZoomed && 'opacity-0',
-        )}
+        className="h-full w-full object-cover object-center"
       />
     </button>
+  )
+}
+
+function ProjectImageViewer({
+  item,
+  onClose,
+}: {
+  item: ProjectCaseStudyGalleryItem | null
+  onClose: () => void
+}) {
+  const [isZoomed, setIsZoomed] = useState(false)
+  const [zoomOrigin, setZoomOrigin] = useState({ x: 50, y: 50 })
+
+  useEffect(() => {
+    if (!item) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose()
+    }
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = originalOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [item, onClose])
+
+  if (!item) return null
+
+  const updateZoomOrigin = (event: MouseEvent<HTMLImageElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = ((event.clientX - bounds.left) / bounds.width) * 100
+    const y = ((event.clientY - bounds.top) / bounds.height) * 100
+
+    setZoomOrigin({
+      x: Math.min(100, Math.max(0, x)),
+      y: Math.min(100, Math.max(0, y)),
+    })
+  }
+
+  const handleImageClick = (event: MouseEvent<HTMLImageElement>) => {
+    event.stopPropagation()
+    updateZoomOrigin(event)
+    setIsZoomed((current) => !current)
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-white/95"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Project image viewer"
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        className="absolute right-4 top-4 z-10 inline-flex size-11 items-center justify-center border border-[#E5E7EB] bg-white text-[#111928] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928] sm:right-6 sm:top-6"
+        aria-label="Close image viewer"
+      >
+        <X className="size-5" aria-hidden="true" />
+      </button>
+
+      <div
+        className="flex h-full w-full items-center justify-center overflow-hidden px-4 py-4 sm:px-6 sm:py-6"
+      >
+        <img
+          src={item.image}
+          alt={item.alt}
+          draggable={false}
+          onClick={handleImageClick}
+          onMouseMove={(event) => {
+            if (isZoomed) updateZoomOrigin(event)
+          }}
+          className={cn(
+            'max-h-full max-w-full select-none object-contain',
+            isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in',
+            !isZoomed && 'transition-transform duration-300 ease-out',
+          )}
+          style={{
+            transform: isZoomed ? 'scale(1.85)' : 'scale(1)',
+            transformOrigin: `${zoomOrigin.x}% ${zoomOrigin.y}%`,
+          }}
+        />
+      </div>
+    </div>
   )
 }
 
@@ -99,6 +137,8 @@ export function ProjectCaseStudyLayout({
   project,
 }: ProjectCaseStudyLayoutProps) {
   const [primaryGalleryItem, ...secondaryGalleryItems] = project.gallery
+  const [activeGalleryItem, setActiveGalleryItem] =
+    useState<ProjectCaseStudyGalleryItem | null>(null)
 
   return (
     <article className="bg-white text-[#111928]">
@@ -153,15 +193,25 @@ export function ProjectCaseStudyLayout({
             <ProjectGalleryImage
               key={primaryGalleryItem.id}
               item={primaryGalleryItem}
+              onOpen={setActiveGalleryItem}
             />
           ) : null}
           <div className="grid gap-5 md:gap-[30px]">
             {secondaryGalleryItems.map((item) => (
-              <ProjectGalleryImage key={item.id} item={item} />
+              <ProjectGalleryImage
+                key={item.id}
+                item={item}
+                onOpen={setActiveGalleryItem}
+              />
             ))}
           </div>
         </div>
       </section>
+      <ProjectImageViewer
+        key={activeGalleryItem?.id ?? 'closed'}
+        item={activeGalleryItem}
+        onClose={() => setActiveGalleryItem(null)}
+      />
     </article>
   )
 }
