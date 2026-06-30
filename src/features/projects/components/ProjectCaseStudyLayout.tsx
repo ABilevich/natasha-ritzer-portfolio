@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft, X } from 'lucide-react'
+import { ChevronLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type {
   ProjectCaseStudy,
@@ -101,10 +101,20 @@ function ProjectImageViewer({
       <button
         type="button"
         onClick={onClose}
-        className="absolute right-4 top-4 z-10 inline-flex size-11 items-center justify-center border border-[#E5E7EB] bg-white text-[#111928] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928] sm:right-6 sm:top-6"
+        className="absolute right-4 top-4 z-10 inline-flex size-8 items-center justify-center bg-transparent p-0 text-[#111928] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928] sm:right-6 sm:top-6"
         aria-label="Close image viewer"
       >
-        <X className="size-5" aria-hidden="true" />
+        <svg
+          aria-hidden="true"
+          className="size-8"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M18.3 5.71 12 12l6.3 6.29-1.41 1.41L10.59 13.41 4.29 19.71 2.88 18.3 9.17 12 2.88 5.71 4.29 4.29l6.3 6.3 6.3-6.3z"
+            fill="currentColor"
+          />
+        </svg>
       </button>
 
       <div

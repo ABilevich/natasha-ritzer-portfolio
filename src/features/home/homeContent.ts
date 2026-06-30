@@ -61,6 +61,7 @@ export const parallaxGalleryItems = [
     id: 'studio-process',
     image: delphiOneImage,
     alt: '',
+    href: '/projects/delphi-one',
     speed: 0.48,
     rotation: 0,
     size: 25,

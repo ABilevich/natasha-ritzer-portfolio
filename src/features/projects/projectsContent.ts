@@ -79,6 +79,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A product delivery workflow coordinating design, content, and implementation across a fast-moving crypto platform.',
     image: delphiOneProjectManagementImage,
+    detailPath: '/projects/delphi-one',
   },
   {
     slug: 'pasimedia',
