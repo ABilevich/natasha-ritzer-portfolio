@@ -4,7 +4,7 @@ import AV from '@/assets/projects/agenda-vital/home-parallax.png'
 import HD from '@/assets/figma/HB1.jpg'
 import halfbikeImage from '@/assets/figma/halfbike-1.jpg'
 import mercadoPagoImage from '@/assets/figma/mercado pago-1.jpg'
-import regalaloImage from '@/assets/figma/regalalo-1.jpg'
+import regalaloImage from '@/assets/projects/regalalo/home-parallax.jpg'
 
 export const aboutStats = [
   { value: 'Vienna', label: 'Based in' },
@@ -72,7 +72,9 @@ export const parallaxGalleryItems = [
   {
     id: 'visual-detail',
     image: regalaloImage,
+    title: 'Regalalo',
     alt: '',
+    href: '/projects/regalalo',
     speed: 1.5,
     rotation: 0,
     size: 20,

@@ -5,8 +5,8 @@ import delphiOneImage from '@/assets/projects/delphi-one/card-ux-ui.jpg'
 import habitDrivenImage from '@/assets/figma/HD.jpg'
 import mazalosaProjectManagementImage from '@/assets/figma/Mazalosa-pm.jpg'
 import pasimediaProjectManagementImage from '@/assets/figma/Pasimedia-pm.jpg'
-import regalaloImage from '@/assets/figma/Regalalo.jpg'
-import portSalusImage from '@/assets/figma/port-salus.jpg'
+import regalaloImage from '@/assets/projects/regalalo/card-graphic-design.jpg'
+import portSalusImage from '@/assets/projects/port-salus/card-graphic-design.jpg'
 
 export type ProjectCategoryTitle =
   | 'UX UI Design'
@@ -57,6 +57,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A visual identity and gifting experience built around playful discovery, clear product moments, and memorable packaging.',
     image: regalaloImage,
+    detailPath: '/projects/regalalo',
   },
   {
     slug: 'port-salus',
@@ -65,6 +66,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A coastal brand system with calm visual direction, editorial layouts, and polished campaign assets.',
     image: portSalusImage,
+    detailPath: '/projects/port-salus',
   },
   {
     slug: 'habit-driven',
