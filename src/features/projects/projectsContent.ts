@@ -1,5 +1,5 @@
 import agendaVitalImage from '@/assets/projects/agenda-vital/card-ux-ui.jpg'
-import bncImage from '@/assets/figma/BNC.jpg'
+import bncImage from '@/assets/projects/bnc/card-ux-ui.jpg'
 import delphiOneProjectManagementImage from '@/assets/projects/delphi-one/card-project-management.jpg'
 import delphiOneImage from '@/assets/projects/delphi-one/card-ux-ui.jpg'
 import habitDrivenImage from '@/assets/figma/HD.jpg'
@@ -39,6 +39,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A product configurator experience that simplifies carport customization from first selection to final quote.',
     image: bncImage,
+    detailPath: '/projects/bnc',
   },
   {
     slug: 'agenda-vital',

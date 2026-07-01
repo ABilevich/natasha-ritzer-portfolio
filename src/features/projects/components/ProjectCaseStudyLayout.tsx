@@ -34,6 +34,8 @@ function ProjectGalleryImage({
           'aspect-[1256/1682] items-start lg:aspect-auto lg:h-full',
         item.id === 'flow' && 'aspect-[1184/813] items-center',
         item.id === 'interface' && 'aspect-[1184/790] items-center',
+        item.id === 'structure' && 'aspect-[684/390] items-center',
+        item.id === 'crm' && 'aspect-[684/421] items-center',
         className,
       )}
     >

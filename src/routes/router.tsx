@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { MainLayout } from '../components/layout/MainLayout'
 import { HomePage } from '../pages/HomePage'
 import { ProjectAgendaVitalPage } from '../pages/ProjectAgendaVitalPage'
+import { ProjectBncPage } from '../pages/ProjectBncPage'
 import { ProjectDelphiOnePage } from '../pages/ProjectDelphiOnePage'
 import { ProjectsPage } from '../pages/ProjectsPage'
 
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: 'projects/agenda-vital',
         element: <ProjectAgendaVitalPage />,
+      },
+      {
+        path: 'projects/bnc',
+        element: <ProjectBncPage />,
       },
     ],
   },
