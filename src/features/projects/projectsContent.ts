@@ -1,4 +1,4 @@
-import agendaVitalImage from '@/assets/figma/Agenda-Vital.jpg'
+import agendaVitalImage from '@/assets/projects/agenda-vital/card-ux-ui.jpg'
 import bncImage from '@/assets/figma/BNC.jpg'
 import delphiOneProjectManagementImage from '@/assets/projects/delphi-one/card-project-management.jpg'
 import delphiOneImage from '@/assets/projects/delphi-one/card-ux-ui.jpg'
@@ -47,6 +47,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A wellness scheduling concept focused on calmer booking flows, service discovery, and everyday planning.',
     image: agendaVitalImage,
+    detailPath: '/projects/agenda-vital',
   },
   {
     slug: 'regalalo',

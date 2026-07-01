@@ -1,6 +1,6 @@
 import TSP from '@/assets/figma/TSP.png'
 import delphiOneImage from '@/assets/projects/delphi-one/home-parallax.png'
-import AV from '@/assets/figma/AV.png'
+import AV from '@/assets/projects/agenda-vital/home-parallax.png'
 import HD from '@/assets/figma/HB1.jpg'
 import halfbikeImage from '@/assets/figma/halfbike-1.jpg'
 import mercadoPagoImage from '@/assets/figma/mercado pago-1.jpg'
@@ -60,6 +60,7 @@ export const parallaxGalleryItems = [
   {
     id: 'studio-process',
     image: delphiOneImage,
+    title: 'Delphi One',
     alt: '',
     href: '/projects/delphi-one',
     speed: 0.48,
@@ -91,7 +92,9 @@ export const parallaxGalleryItems = [
   {
     id: 'research-notes',
     image: AV,
+    title: 'Agenda Vital',
     alt: '',
+    href: '/projects/agenda-vital',
     speed: 0.38,
     rotation: 0,
     size: 32,

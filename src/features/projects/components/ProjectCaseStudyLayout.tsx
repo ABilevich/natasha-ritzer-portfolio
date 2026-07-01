@@ -15,10 +15,12 @@ type ProjectCaseStudyLayoutProps = {
 function ProjectGalleryImage({
   item,
   className,
+  imageClassName,
   onOpen,
 }: {
   item: ProjectCaseStudyGalleryItem
   className?: string
+  imageClassName?: string
   onOpen: (item: ProjectCaseStudyGalleryItem) => void
 }) {
   return (
@@ -38,9 +40,52 @@ function ProjectGalleryImage({
       <img
         src={item.image}
         alt={item.alt}
-        className="h-full w-full object-cover object-center"
+        className={cn('h-full w-full object-cover object-center', imageClassName)}
       />
     </button>
+  )
+}
+
+function ProjectGallery({
+  project,
+  onOpen,
+}: {
+  project: ProjectCaseStudy
+  onOpen: (item: ProjectCaseStudyGalleryItem) => void
+}) {
+  if (project.galleryLayout === 'grid-2x2') {
+    return (
+      <div className="mx-auto grid max-w-[1216px] gap-5 md:gap-[30px] lg:grid-cols-2">
+        {project.gallery.map((item) => (
+          <ProjectGalleryImage
+            key={item.id}
+            item={item}
+            className="aspect-[593/360] items-center bg-[#effffa]"
+            imageClassName="object-cover"
+            onOpen={onOpen}
+          />
+        ))}
+      </div>
+    )
+  }
+
+  const [primaryGalleryItem, ...secondaryGalleryItems] = project.gallery
+
+  return (
+    <div className="mx-auto grid max-w-[1216px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,593px)] lg:items-stretch">
+      {primaryGalleryItem ? (
+        <ProjectGalleryImage
+          key={primaryGalleryItem.id}
+          item={primaryGalleryItem}
+          onOpen={onOpen}
+        />
+      ) : null}
+      <div className="grid gap-5 md:gap-[30px]">
+        {secondaryGalleryItems.map((item) => (
+          <ProjectGalleryImage key={item.id} item={item} onOpen={onOpen} />
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -146,13 +191,14 @@ function ProjectImageViewer({
 export function ProjectCaseStudyLayout({
   project,
 }: ProjectCaseStudyLayoutProps) {
-  const [primaryGalleryItem, ...secondaryGalleryItems] = project.gallery
   const [activeGalleryItem, setActiveGalleryItem] =
     useState<ProjectCaseStudyGalleryItem | null>(null)
 
   return (
     <article className="bg-white text-[#111928]">
-      <section className="px-[clamp(20px,6.6vw,100px)] pb-14 pt-[112px] md:pb-[96px] md:pt-[172px]">
+      <section
+        className="px-[clamp(20px,6.6vw,100px)] pb-[54px] pt-[112px] md:pt-[172px]"
+      >
         <div className="mx-auto w-full max-w-[1216px]">
           <Link
             to="/projects"
@@ -176,11 +222,16 @@ export function ProjectCaseStudyLayout({
             </div>
           </div>
 
-          <dl className="m-0 self-start overflow-hidden rounded-[10px] border border-[#E5E7EB] bg-white">
+          <dl
+            className="m-0 self-stretch overflow-hidden rounded-[10px] border border-[#E5E7EB] bg-white lg:flex lg:flex-col"
+          >
             {project.details.map((detail) => (
               <div
                 key={detail.label}
-                className="grid min-h-[56px] grid-cols-[88px_minmax(0,1fr)] items-center gap-4 border-b border-[#E5E7EB] px-4 py-4 last:border-b-0 max-[360px]:grid-cols-1 max-[360px]:gap-1 sm:grid-cols-[118px_minmax(0,1fr)] sm:gap-6 md:px-6"
+                className={cn(
+                  'grid min-h-[56px] grid-cols-[88px_minmax(0,1fr)] items-center gap-4 border-b border-[#E5E7EB] px-4 py-4 last:border-b-0 max-[360px]:grid-cols-1 max-[360px]:gap-1 sm:grid-cols-[118px_minmax(0,1fr)] sm:gap-6 md:px-6',
+                  'lg:flex-1',
+                )}
               >
                 <dt className="text-base font-normal leading-6 text-[#6b7280]">
                   {detail.label}
@@ -198,24 +249,7 @@ export function ProjectCaseStudyLayout({
         aria-label={`${project.title} gallery`}
         className="px-[clamp(20px,6.6vw,100px)] pb-16 md:pb-[120px]"
       >
-        <div className="mx-auto grid max-w-[1216px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,593px)] lg:items-stretch">
-          {primaryGalleryItem ? (
-            <ProjectGalleryImage
-              key={primaryGalleryItem.id}
-              item={primaryGalleryItem}
-              onOpen={setActiveGalleryItem}
-            />
-          ) : null}
-          <div className="grid gap-5 md:gap-[30px]">
-            {secondaryGalleryItems.map((item) => (
-              <ProjectGalleryImage
-                key={item.id}
-                item={item}
-                onOpen={setActiveGalleryItem}
-              />
-            ))}
-          </div>
-        </div>
+        <ProjectGallery project={project} onOpen={setActiveGalleryItem} />
       </section>
       <ProjectImageViewer
         key={activeGalleryItem?.id ?? 'closed'}

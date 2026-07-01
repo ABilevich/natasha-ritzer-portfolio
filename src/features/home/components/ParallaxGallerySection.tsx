@@ -51,7 +51,7 @@ export function ParallaxGallerySection() {
               <Link
                 key={item.id}
                 to={item.href}
-                aria-label="Open Delphi One project"
+                aria-label={`Open ${item.title ?? 'project'} project`}
                 className={`${galleryItemClassName} pointer-events-auto transition-transform duration-300 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928]`}
                 style={galleryItemStyle}
               >
