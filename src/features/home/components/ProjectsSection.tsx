@@ -3,10 +3,20 @@ import { Minus, Plus } from 'lucide-react'
 import { projectCategoryGroups } from '@/features/projects/projectsContent'
 import { ProjectPreviewCard } from '@/features/projects/components/ProjectPreviewCard'
 import { cn } from '@/lib/utils'
+import { homepageProjectManagementShortcuts } from '../homeContent'
 import { SectionTitle } from './SectionTitle'
 
+const homepageProjectCategoryGroups = projectCategoryGroups.map((category) =>
+  category.title === 'Project Management'
+    ? {
+        ...category,
+        projects: [...homepageProjectManagementShortcuts, ...category.projects],
+      }
+    : category,
+)
+
 type ProjectCategoryPanelProps = {
-  category: (typeof projectCategoryGroups)[number]
+  category: (typeof homepageProjectCategoryGroups)[number]
   isExpanded: boolean
   panelId: string
 }
@@ -46,7 +56,7 @@ function ProjectCategoryPanel({
 export function ProjectsSection() {
   const [expandedCategories, setExpandedCategories] = useState(() =>
     Object.fromEntries(
-      projectCategoryGroups.map((category) => [
+      homepageProjectCategoryGroups.map((category) => [
         category.title,
         category.defaultExpanded,
       ]),
@@ -69,7 +79,7 @@ export function ProjectsSection() {
       <div className="mx-auto flex max-w-[1312px] flex-col gap-10 md:gap-16">
         <SectionTitle title="Projects" />
         <div className="flex flex-col gap-6 md:gap-10">
-          {projectCategoryGroups.map((category) => {
+          {homepageProjectCategoryGroups.map((category) => {
             const isExpanded = expandedCategories[category.title]
             const Icon = isExpanded ? Minus : Plus
             const panelId = `projects-${category.title

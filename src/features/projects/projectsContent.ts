@@ -1,6 +1,5 @@
 import agendaVitalImage from '@/assets/projects/agenda-vital/card-ux-ui.jpg'
 import bncImage from '@/assets/projects/bnc/card-ux-ui.jpg'
-import delphiOneProjectManagementImage from '@/assets/projects/delphi-one/card-project-management.jpg'
 import delphiOneImage from '@/assets/projects/delphi-one/card-ux-ui.jpg'
 import habitDrivenImage from '@/assets/figma/HD.jpg'
 import mazalosaProjectManagementImage from '@/assets/figma/Mazalosa-pm.jpg'
@@ -75,15 +74,6 @@ export const projects: PortfolioProject[] = [
     description:
       'A lifestyle brand exploration shaped around habit-building, motivational visuals, and flexible digital content.',
     image: habitDrivenImage,
-  },
-  {
-    slug: 'delphi-one-project-management',
-    title: 'Delphi One',
-    category: 'Project Management',
-    description:
-      'A product delivery workflow coordinating design, content, and implementation across a fast-moving crypto platform.',
-    image: delphiOneProjectManagementImage,
-    detailPath: '/projects/delphi-one',
   },
   {
     slug: 'pasimedia',

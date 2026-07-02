@@ -1,10 +1,12 @@
 import TSP from '@/assets/figma/TSP.png'
 import delphiOneImage from '@/assets/projects/delphi-one/home-parallax.png'
+import delphiOneProjectManagementImage from '@/assets/projects/delphi-one/card-project-management.jpg'
 import AV from '@/assets/projects/agenda-vital/home-parallax.png'
 import HD from '@/assets/figma/HB1.jpg'
 import halfbikeImage from '@/assets/figma/halfbike-1.jpg'
 import mercadoPagoImage from '@/assets/figma/mercado pago-1.jpg'
 import regalaloImage from '@/assets/projects/regalalo/home-parallax.jpg'
+import type { PortfolioProject } from '@/features/projects/projectsContent'
 
 export const aboutStats = [
   { value: 'Vienna', label: 'Based in' },
@@ -46,6 +48,18 @@ export const skills = [
       'Strategy & Analysis',
       'Jira & Notion',
     ],
+  },
+]
+
+export const homepageProjectManagementShortcuts: PortfolioProject[] = [
+  {
+    slug: 'delphi-one-project-management',
+    title: 'Delphi One',
+    category: 'Project Management',
+    description:
+      'A product delivery workflow coordinating design, content, and implementation across a fast-moving crypto platform.',
+    image: delphiOneProjectManagementImage,
+    detailPath: '/projects/delphi-one',
   },
 ]
 

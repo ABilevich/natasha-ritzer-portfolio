@@ -1,47 +1,51 @@
-import cardImage from '@/assets/projects/port-salus/card-graphic-design.jpg'
+import brandGuideImage from '@/assets/projects/port-salus/Image-big-2.jpg'
+import brandLockupImage from '@/assets/projects/port-salus/Image-big.jpg'
+import logoConstructionImage from '@/assets/projects/port-salus/Group 1000004193.jpg'
+import logoOptionsImage from '@/assets/projects/port-salus/Image-big-1.jpg'
 import type { ProjectCaseStudy } from '../types'
 
 export const portSalusCaseStudy = {
   title: 'Port Salus',
   category: 'Graphic Design',
   intro: [
-    'Port Salus is a coastal brand system with calm visual direction, editorial layouts, and polished campaign assets.',
-    'This placeholder case study follows the same 2x2 gallery structure as Agenda Vital while the final project copy and image set are being prepared.',
+    'PortSalus is a wealth management brand that needed a refined and trustworthy visual identity to support its communication across digital and corporate touchpoints.',
+    "For this project, I designed the logo, visual direction, color system, typography guidelines, and usage rules that shaped the brand's look and feel. The work focused on creating a sophisticated and consistent identity, balancing financial credibility with a calm, maritime-inspired visual language.",
   ],
   details: [
-    { label: 'Client', value: 'Port Salus' },
-    { label: 'Industry', value: 'Hospitality' },
+    { label: 'Client', value: 'Web Design Pilots' },
+    { label: 'Industry', value: 'Wealth Management' },
     { label: 'Role', value: 'Graphic Designer' },
     {
       label: 'Scope',
-      value: 'Visual Identity · Editorial Design · Campaign Assets · Handoff',
+      value:
+        'Logo Design · Visual Identity · Brand Guidelines · Color System · Typography · Usage Rules',
     },
-    { label: 'Duration', value: 'To be defined' },
+    { label: 'Duration', value: '1Month' },
   ],
   galleryLayout: 'grid-2x2',
   gallery: [
     {
-      id: 'brand-preview',
-      image: cardImage,
-      alt: 'Port Salus brand preview',
+      id: 'logo-construction',
+      image: logoConstructionImage,
+      alt: 'Port Salus logo construction on a blue grid',
       variant: 'wide',
     },
     {
-      id: 'visual-system',
-      image: cardImage,
-      alt: 'Port Salus visual system placeholder',
+      id: 'logo-options',
+      image: logoOptionsImage,
+      alt: 'Port Salus logo exploration options',
       variant: 'wide',
     },
     {
-      id: 'editorial-layout',
-      image: cardImage,
-      alt: 'Port Salus editorial layout placeholder',
+      id: 'brand-lockup',
+      image: brandLockupImage,
+      alt: 'Port Salus wealth management brand lockup',
       variant: 'wide',
     },
     {
-      id: 'campaign-assets',
-      image: cardImage,
-      alt: 'Port Salus campaign assets placeholder',
+      id: 'brand-guidelines',
+      image: brandGuideImage,
+      alt: 'Port Salus brand guidelines overview',
       variant: 'wide',
     },
   ],
