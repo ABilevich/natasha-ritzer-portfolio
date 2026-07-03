@@ -36,13 +36,19 @@ function ProjectGalleryImage({
         item.id === 'interface' && 'aspect-[1184/790] items-center',
         item.id === 'structure' && 'aspect-[684/390] items-center',
         item.id === 'crm' && 'aspect-[684/421] items-center',
+        item.id === 'app-showcase' && 'aspect-[593/360] items-center',
+        item.id === 'brand-showcase' && 'aspect-[593/360] items-center',
         className,
       )}
     >
       <img
         src={item.image}
         alt={item.alt}
-        className={cn('h-full w-full object-cover object-center', imageClassName)}
+        className={cn(
+          'h-full w-full object-center',
+          item.id === 'brand-showcase' ? 'object-contain' : 'object-cover',
+          imageClassName,
+        )}
       />
     </button>
   )
