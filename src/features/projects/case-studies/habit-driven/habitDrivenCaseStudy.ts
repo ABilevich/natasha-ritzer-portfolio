@@ -1,48 +1,43 @@
-import appImage from '@/assets/figma/HB1.jpg'
-import brandImage from '@/assets/figma/HD.jpg'
+import appShowcaseImage from '@/assets/projects/habit-driven/Image-big.jpg'
+import brandShowcaseImage from '@/assets/projects/habit-driven/Image-big-1.jpg'
+import landingPageImage from '@/assets/projects/habit-driven/Frame 5315.jpg'
 import type { ProjectCaseStudy } from '../types'
 
 export const habitDrivenCaseStudy = {
   title: 'Habit Driven',
   category: 'Graphic Design',
   intro: [
-    'Habit Driven is a lifestyle brand exploration shaped around habit-building, motivational visuals, and flexible digital content.',
-    'This placeholder case study follows the same 2x2 gallery structure as Agenda Vital while the final project copy and image set are being prepared.',
+    'Habit Driven was a habit tracking app designed to help users build better routines through progress tracking, personalized motivation, and an AI-powered chat experience.',
+    'For this project, I worked across both product and brand design, creating the visual identity, mascot, UX/UI, AI chat experience, and brand assets for different communication channels. The goal was to build a friendly and motivating product experience that could feel approachable inside the app while staying consistent across social media, email marketing, app store graphics, banners, and landing pages.',
   ],
   details: [
     { label: 'Client', value: 'Habit Driven' },
-    { label: 'Industry', value: 'Lifestyle' },
-    { label: 'Role', value: 'Graphic Designer' },
+    { label: 'Industry', value: 'Wellness / Productivity' },
+    { label: 'Role', value: 'Product Designer / Visual Designer' },
     {
       label: 'Scope',
-      value: 'Visual Identity · Digital Content · Brand Direction · Handoff',
+      value:
+        'Brand Identity · UX/UI · AI Chat · Social Media Assets · Email Marketing · Landing Pages',
     },
-    { label: 'Duration', value: 'To be defined' },
+    { label: 'Duration', value: '1 Year' },
   ],
-  galleryLayout: 'grid-2x2',
   gallery: [
     {
-      id: 'brand-preview',
-      image: brandImage,
-      alt: 'Habit Driven brand preview',
+      id: 'landing-page',
+      image: landingPageImage,
+      alt: 'Habit Driven landing page overview',
+      variant: 'tall',
+    },
+    {
+      id: 'app-showcase',
+      image: appShowcaseImage,
+      alt: 'Habit Driven mobile app habit tracking showcase',
       variant: 'wide',
     },
     {
-      id: 'app-preview',
-      image: appImage,
-      alt: 'Habit Driven app preview',
-      variant: 'wide',
-    },
-    {
-      id: 'visual-system',
-      image: brandImage,
-      alt: 'Habit Driven visual system placeholder',
-      variant: 'wide',
-    },
-    {
-      id: 'digital-content',
-      image: appImage,
-      alt: 'Habit Driven digital content placeholder',
+      id: 'brand-showcase',
+      image: brandShowcaseImage,
+      alt: 'Habit Driven brand and app presentation',
       variant: 'wide',
     },
   ],
