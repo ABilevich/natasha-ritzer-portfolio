@@ -74,6 +74,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A lifestyle brand exploration shaped around habit-building, motivational visuals, and flexible digital content.',
     image: habitDrivenImage,
+    detailPath: '/projects/habit-driven',
   },
   {
     slug: 'pasimedia',
