@@ -29,9 +29,9 @@ function ProjectGalleryImage({
       aria-label={`Open ${item.alt}`}
       onClick={() => onOpen(item)}
       className={cn(
-        'm-0 flex cursor-zoom-in overflow-hidden bg-[#f3f4f6] p-0 text-left transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928]',
+        'm-0 flex cursor-zoom-in items-center justify-center overflow-hidden bg-[#f3f4f6] p-0 text-left transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928]',
         item.variant === 'tall' &&
-          'aspect-[1256/1682] items-start lg:aspect-auto lg:h-full',
+          'aspect-[1256/1682] lg:aspect-auto lg:h-full',
         item.id === 'flow' && 'aspect-[1184/813] items-center',
         item.id === 'interface' && 'aspect-[1184/790] items-center',
         item.id === 'structure' && 'aspect-[684/390] items-center',
@@ -44,11 +44,7 @@ function ProjectGalleryImage({
       <img
         src={item.image}
         alt={item.alt}
-        className={cn(
-          'h-full w-full object-center',
-          item.id === 'brand-showcase' ? 'object-contain' : 'object-cover',
-          imageClassName,
-        )}
+        className={cn('h-full w-full object-contain object-center', imageClassName)}
       />
     </button>
   )
@@ -63,13 +59,12 @@ function ProjectGallery({
 }) {
   if (project.galleryLayout === 'grid-2x2') {
     return (
-      <div className="mx-auto grid max-w-[1216px] gap-5 md:gap-[30px] lg:grid-cols-2">
+      <div className="mx-auto grid max-w-[1312px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,689px)]">
         {project.gallery.map((item) => (
           <ProjectGalleryImage
             key={item.id}
             item={item}
-            className="aspect-[593/360] items-center bg-[#effffa]"
-            imageClassName="object-cover"
+            className="aspect-[593/360] items-center bg-[#effffa] lg:aspect-auto lg:h-[369px]"
             onOpen={onOpen}
           />
         ))}
@@ -80,7 +75,7 @@ function ProjectGallery({
   const [primaryGalleryItem, ...secondaryGalleryItems] = project.gallery
 
   return (
-    <div className="mx-auto grid max-w-[1216px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,593px)] lg:items-stretch">
+    <div className="mx-auto grid max-w-[1312px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,689px)] lg:items-stretch">
       {primaryGalleryItem ? (
         <ProjectGalleryImage
           key={primaryGalleryItem.id}
@@ -90,7 +85,12 @@ function ProjectGallery({
       ) : null}
       <div className="grid gap-5 md:gap-[30px]">
         {secondaryGalleryItems.map((item) => (
-          <ProjectGalleryImage key={item.id} item={item} onOpen={onOpen} />
+          <ProjectGalleryImage
+            key={item.id}
+            item={item}
+            className="lg:aspect-auto lg:h-[405px]"
+            onOpen={onOpen}
+          />
         ))}
       </div>
     </div>
@@ -207,7 +207,7 @@ export function ProjectCaseStudyLayout({
       <section
         className="px-[clamp(20px,6.6vw,100px)] pb-[54px] pt-[112px] md:pt-[172px]"
       >
-        <div className="mx-auto w-full max-w-[1216px]">
+        <div className="mx-auto w-full max-w-[1312px]">
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 text-[20px] font-normal leading-7 tracking-normal text-[#111928] no-underline transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928]"
@@ -216,7 +216,7 @@ export function ProjectCaseStudyLayout({
             Projects
           </Link>
         </div>
-        <div className="mx-auto mt-10 grid w-full max-w-[1216px] items-stretch gap-10 md:mt-[54px] lg:grid-cols-[minmax(0,593px)_minmax(0,593px)] lg:justify-between lg:gap-[30px]">
+        <div className="mx-auto mt-10 grid w-full max-w-[1312px] items-stretch gap-10 md:mt-[54px] lg:grid-cols-[minmax(0,593px)_minmax(0,689px)] lg:justify-between lg:gap-[30px]">
           <div className="flex max-w-[593px] flex-col lg:justify-between">
             <h1 className="m-0 text-[clamp(44px,12vw,60px)] font-bold leading-[1.08] tracking-normal text-[#111928]">
               {project.title}
