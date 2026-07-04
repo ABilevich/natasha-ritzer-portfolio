@@ -40,4 +40,9 @@ export const delphiOneCaseStudy = {
       variant: 'wide',
     },
   ],
+  galleryNote: {
+    paragraphs: [
+      'Alongside the design work, I managed project coordination, aligning client needs, priorities, timelines, and handoff between design and development to keep the website, configurator, and CRM connected as one product ecosystem.',
+    ],
+  },
 } satisfies ProjectCaseStudy

@@ -7,6 +7,7 @@ import type {
   ProjectCaseStudy,
   ProjectCaseStudyGalleryItem,
 } from '../case-studies/types'
+import { ProjectTextBlock } from './ProjectTextBlock'
 
 type ProjectCaseStudyLayoutProps = {
   project: ProjectCaseStudy
@@ -77,18 +78,36 @@ function ProjectGallery({
   return (
     <div className="mx-auto grid max-w-[1312px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,689px)] lg:items-stretch">
       {primaryGalleryItem ? (
-        <ProjectGalleryImage
-          key={primaryGalleryItem.id}
-          item={primaryGalleryItem}
-          onOpen={onOpen}
-        />
+        <div
+          className={cn(
+            'grid gap-6 md:gap-[30px]',
+            project.galleryNote
+              ? 'lg:h-full lg:grid-rows-[minmax(0,1fr)_auto]'
+              : 'content-start',
+          )}
+        >
+          <ProjectGalleryImage
+            key={primaryGalleryItem.id}
+            item={primaryGalleryItem}
+            className={project.galleryNote ? 'relative min-h-0 lg:aspect-auto lg:h-full' : undefined}
+            imageClassName={
+              project.galleryNote
+                ? 'absolute inset-0 object-cover object-top'
+                : undefined
+            }
+            onOpen={onOpen}
+          />
+          {project.galleryNote ? (
+            <ProjectTextBlock block={project.galleryNote} />
+          ) : null}
+        </div>
       ) : null}
       <div className="grid gap-5 md:gap-[30px]">
         {secondaryGalleryItems.map((item) => (
           <ProjectGalleryImage
             key={item.id}
             item={item}
-            className="lg:aspect-auto lg:h-[405px]"
+            className="xl:aspect-auto xl:h-[405px]"
             onOpen={onOpen}
           />
         ))}
