@@ -1,5 +1,38 @@
 # Latest Updates
 
+Date: 2026-07-06
+
+## Footer Social Links
+
+- Updated the homepage `ConnectSection` social icons to use local SVG assets for:
+  - LinkedIn
+  - Dribbble
+  - Behance
+- Updated the white shared footer variant to include:
+  - Left navigation: About, Projects, CV
+  - Right-aligned social icons grouped with the copyright
+  - LinkedIn, Behance, and Dribbble icons rendered at `32x32px`
+- Added the final social URLs:
+  - LinkedIn: `https://www.linkedin.com/in/natasha-ritzer-ux-ui/`
+  - Behance: `https://www.behance.net/natasha-ritzer-ux-ui`
+  - Dribbble: `https://dribbble.com/Natiritzer27`
+- Social links open in a new tab with `rel="noreferrer"`.
+- Added local icon assets:
+  - `src/assets/linkedin-icon.svg`
+  - `src/assets/behance-icon.svg`
+  - `src/assets/dribbble-icon.svg`
+- Verified the white footer on desktop and `390px` mobile:
+  - Icons render as actual icon shapes, not filled squares.
+  - Icons measure `32x32px`.
+  - No horizontal overflow.
+
+## Validation
+
+- `npm run build` passed.
+- `npm run lint` passed.
+
+---
+
 Date: 2026-07-04
 
 ## Project Case Study System

@@ -1,13 +1,27 @@
-import { AtSign, Globe2, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import behanceIcon from '@/assets/behance-icon.svg'
+import dribbbleIcon from '@/assets/dribbble-icon.svg'
+import linkedinIcon from '@/assets/linkedin-icon.svg'
 
 const contactMailto =
   'mailto:di.ritzer@gmail.com?subject=Natasha%20Ritzer%20contact%20request&body=Hi%20Natasha%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch%20about...'
 
 const socialLinks = [
-  { label: 'Portfolio', href: 'https://www.natasharitzer.com', Icon: Globe2 },
-  { label: 'Social', href: 'https://www.linkedin.com', Icon: AtSign },
-  { label: 'Email', href: contactMailto, Icon: Mail },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/natasha-ritzer-ux-ui/',
+    icon: linkedinIcon,
+  },
+  {
+    label: 'Dribbble',
+    href: 'https://dribbble.com/Natiritzer27',
+    icon: dribbbleIcon,
+  },
+  {
+    label: 'Behance',
+    href: 'https://www.behance.net/natasha-ritzer-ux-ui',
+    icon: behanceIcon,
+  },
 ]
 
 export function ConnectSection() {
@@ -18,14 +32,21 @@ export function ConnectSection() {
           Let’s Connect
         </h2>
         <div className="flex flex-wrap items-center gap-6 md:gap-12 lg:gap-16">
-          {socialLinks.map(({ label, href, Icon }) => (
+          {socialLinks.map(({ label, href, icon }) => (
             <a
               key={label}
               href={href}
               aria-label={label}
-              className="text-white transition-opacity hover:opacity-70"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-opacity hover:opacity-70"
             >
-              <Icon className="size-7 md:size-8" aria-hidden="true" />
+              <img
+                src={icon}
+                alt=""
+                className="size-8"
+                aria-hidden="true"
+              />
             </a>
           ))}
           <Button

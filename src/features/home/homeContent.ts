@@ -11,7 +11,7 @@ import type { PortfolioProject } from '@/features/projects/projectsContent'
 export const aboutStats = [
   { value: 'Vienna', label: 'Based in' },
   { value: '4 years', label: 'Experience' },
-  { value: '+25', label: 'Projects completed' },
+  { value: '+10', label: 'Projects completed' },
 ]
 
 export const skills = [
