@@ -83,6 +83,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A production management effort aligning creative direction, team priorities, and launch-ready deliverables.',
     image: pasimediaProjectManagementImage,
+    detailPath: '/projects/pasimedia',
   },
   {
     slug: 'mazalosa',

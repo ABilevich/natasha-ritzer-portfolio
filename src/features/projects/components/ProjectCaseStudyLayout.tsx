@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { MouseEvent } from 'react'
+import type { MouseEvent, SyntheticEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -11,6 +11,35 @@ import { ProjectTextBlock } from './ProjectTextBlock'
 
 type ProjectCaseStudyLayoutProps = {
   project: ProjectCaseStudy
+}
+
+function getAverageImageLuminance(image: HTMLImageElement) {
+  const canvas = document.createElement('canvas')
+  const context = canvas.getContext('2d', { willReadFrequently: true })
+
+  if (!context || image.naturalWidth === 0 || image.naturalHeight === 0) {
+    return null
+  }
+
+  canvas.width = 32
+  canvas.height = 32
+  let imageData: ImageData
+
+  try {
+    context.drawImage(image, 0, 0, canvas.width, canvas.height)
+    imageData = context.getImageData(0, 0, canvas.width, canvas.height)
+  } catch {
+    return null
+  }
+
+  const { data } = imageData
+  let luminance = 0
+
+  for (let index = 0; index < data.length; index += 4) {
+    luminance += data[index] * 0.2126 + data[index + 1] * 0.7152 + data[index + 2] * 0.0722
+  }
+
+  return luminance / (data.length / 4)
 }
 
 function ProjectGalleryImage({
@@ -124,6 +153,7 @@ function ProjectImageViewer({
   onClose: () => void
 }) {
   const [isZoomed, setIsZoomed] = useState(false)
+  const [isDarkImage, setIsDarkImage] = useState(false)
   const [zoomOrigin, setZoomOrigin] = useState({ x: 50, y: 50 })
 
   useEffect(() => {
@@ -162,6 +192,14 @@ function ProjectImageViewer({
     setIsZoomed((current) => !current)
   }
 
+  const handleImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
+    const luminance = getAverageImageLuminance(event.currentTarget)
+
+    if (luminance !== null) {
+      setIsDarkImage(luminance < 115)
+    }
+  }
+
   return (
     <div
       className="fixed inset-0 z-50 bg-white/95"
@@ -173,7 +211,12 @@ function ProjectImageViewer({
       <button
         type="button"
         onClick={onClose}
-        className="absolute right-4 top-4 z-10 inline-flex size-8 items-center justify-center bg-transparent p-0 text-[#111928] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928] sm:right-6 sm:top-6"
+        className={cn(
+          'absolute right-4 top-4 z-10 inline-flex size-9 items-center justify-center rounded-full p-0 shadow-[0_8px_24px_rgba(17,25,40,0.14)] backdrop-blur-sm transition-colors hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 sm:right-6 sm:top-6',
+          isDarkImage
+            ? 'bg-[#111928]/45 text-white focus-visible:outline-white'
+            : 'bg-white/75 text-[#111928] focus-visible:outline-[#111928]',
+        )}
         aria-label="Close image viewer"
       >
         <svg
@@ -196,6 +239,7 @@ function ProjectImageViewer({
           src={item.image}
           alt={item.alt}
           draggable={false}
+          onLoad={handleImageLoad}
           onClick={handleImageClick}
           onMouseMove={(event) => {
             if (isZoomed) updateZoomOrigin(event)
