@@ -29,6 +29,9 @@ Before handing off code changes, run `npm run build` and `npm run lint` whenever
 - `src/features/home/components/`: homepage sections and reusable homepage-specific UI.
 - `src/features/home/homeContent.ts`: editable structured homepage content.
 - `src/features/home/hooks/`: homepage-specific hooks when needed.
+- `src/features/projects/`: projects listing and project case-study feature module.
+- `src/features/projects/case-studies/`: typed case-study content objects.
+- `src/features/projects/components/`: reusable project page, gallery, preview, and case-study UI.
 - `src/assets/figma/`: local assets derived from the Figma design or temporary image placeholders.
 - `src/index.css`: Tailwind imports, shadcn theme variables, global design tokens, and global reset.
 
@@ -70,6 +73,15 @@ Responsiveness is a core requirement, not a final polish pass.
 - `AboutSection`, `SkillsSection`, and `ProjectsSection` should remain independent sections.
 - `StatCard`, `SkillCard`, and `SectionTitle` are reusable homepage building blocks.
 - `ConnectSection` is separate from the global footer because it is part of the homepage content flow.
+
+## Project Case Study Notes
+
+- `ProjectCaseStudyLayout` renders project detail pages from structured content in `src/features/projects/case-studies/`.
+- Keep project-specific copy in the relevant case-study content file rather than hard-coding it in page components.
+- Optional gallery notes use the `galleryNote` field and render through `ProjectTextBlock`.
+- `ProjectTextBlock` is reusable for case-study text blocks and currently uses `18px` text with a subtle top border.
+- For Delphi One, the gallery note sits under the left gallery image and aligns to the bottom of the lower right image.
+- In that note layout, the left image container fills the remaining column height and the image uses top-centered cover behavior (`object-cover object-top`) so the top of the screenshot is not cropped.
 
 ## shadcn/ui
 

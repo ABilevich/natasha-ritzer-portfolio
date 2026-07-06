@@ -12,11 +12,16 @@ export type ProjectCaseStudyGalleryItem = {
 
 export type ProjectCaseStudyGalleryLayout = 'feature-stack' | 'grid-2x2'
 
+export type ProjectCaseStudyTextBlock = {
+  paragraphs: string[]
+}
+
 export type ProjectCaseStudy = {
   title: string
   category: string
   intro: string[]
   details: ProjectCaseStudyDetail[]
   galleryLayout?: ProjectCaseStudyGalleryLayout
+  galleryNote?: ProjectCaseStudyTextBlock
   gallery: ProjectCaseStudyGalleryItem[]
 }

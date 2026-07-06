@@ -7,5 +7,6 @@ export { agendaVitalCaseStudy } from './case-studies/agenda-vital/agendaVitalCas
 export { bncCaseStudy } from './case-studies/bnc/bncCaseStudy'
 export { delphiOneCaseStudy } from './case-studies/delphi-one/delphiOneCaseStudy'
 export { habitDrivenCaseStudy } from './case-studies/habit-driven/habitDrivenCaseStudy'
+export { mazalosaCaseStudy } from './case-studies/mazalosa/mazalosaCaseStudy'
 export { portSalusCaseStudy } from './case-studies/port-salus/portSalusCaseStudy'
 export { regalaloCaseStudy } from './case-studies/regalalo/regalaloCaseStudy'

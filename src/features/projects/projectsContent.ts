@@ -91,6 +91,7 @@ export const projects: PortfolioProject[] = [
     description:
       'A coordinated brand and operations project focused on timelines, stakeholder alignment, and final asset delivery.',
     image: mazalosaProjectManagementImage,
+    detailPath: '/projects/mazalosa',
   },
 ]
 

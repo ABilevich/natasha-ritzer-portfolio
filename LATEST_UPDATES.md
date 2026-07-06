@@ -106,6 +106,16 @@ Date: 2026-07-04
   - One tall image on the left.
   - Two stacked images on the right.
 - Tuned the gallery containers so the left and right columns align visually.
+- Added an optional reusable case-study text block for project notes under gallery imagery.
+- Added the Delphi One gallery note under the left image:
+  - Text source lives in `src/features/projects/case-studies/delphi-one/delphiOneCaseStudy.ts`.
+  - Shared renderer lives in `src/features/projects/components/ProjectTextBlock.tsx`.
+  - Type support lives in `src/features/projects/case-studies/types.ts` as `galleryNote`.
+- Updated the Delphi One note layout so:
+  - The note aligns to the bottom of the gallery row with the lower right image.
+  - The image container above the note expands to fill the remaining left-column space.
+  - The image fills the container with `object-cover object-top`, preserving the top of the screenshot.
+  - The note text is `18px`.
 
 ## Full-Size Image Viewer
 
