@@ -21,7 +21,7 @@ export function SectionTitle({
           variant="ghost"
           className="h-10 rounded-full px-3 text-sm font-medium text-[#111928] hover:bg-[#f3f4f6] md:h-12 md:px-[18px] md:text-base"
         >
-          <a href="/#about">
+          <a href="/natasha-ritzer-cv.pdf" download="Natasha-Ritzer-CV.pdf">
             <Download className="size-6" aria-hidden="true" />
             My resume
           </a>

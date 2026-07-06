@@ -8,8 +8,15 @@ import nrLogo from '@/assets/figma/nr-logo.svg'
 const navigationItems = [
   { label: 'About', href: '/#about' },
   { label: 'Projects', href: '/projects' },
-  { label: 'CV', href: '/#about' },
+  {
+    label: 'CV',
+    href: '/natasha-ritzer-cv.pdf',
+    download: 'Natasha-Ritzer-CV.pdf',
+  },
 ]
+
+const contactMailto =
+  'mailto:di.ritzer@gmail.com?subject=Natasha%20Ritzer%20contact%20request&body=Hi%20Natasha%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch%20about...'
 
 export function Header() {
   const location = useLocation()
@@ -81,7 +88,13 @@ export function Header() {
               size="sm"
               className={linkClassName(item.href)}
             >
-              <NavLink to={item.href}>{item.label}</NavLink>
+              {'download' in item ? (
+                <a href={item.href} download={item.download}>
+                  {item.label}
+                </a>
+              ) : (
+                <NavLink to={item.href}>{item.label}</NavLink>
+              )}
             </Button>
           ))}
         </nav>
@@ -96,7 +109,7 @@ export function Header() {
               : 'border-[#111928] text-[#111928] hover:text-[#111928]',
           )}
         >
-          <a href="mailto:hello@natasharitzer.com">Contact Me</a>
+          <a href={contactMailto}>Contact Me</a>
         </Button>
         <div className="relative z-50 hidden items-center gap-3 max-[720px]:flex">
           <Button
@@ -110,7 +123,7 @@ export function Header() {
                 : 'border-[#111928] text-[#111928] hover:text-[#111928]',
             )}
           >
-            <a href="mailto:hello@natasharitzer.com">Contact Me</a>
+            <a href={contactMailto}>Contact Me</a>
           </Button>
           <Button
             type="button"
@@ -161,6 +174,7 @@ export function Header() {
             <a
               key={item.label}
               href={item.href}
+              download={'download' in item ? item.download : undefined}
               onClick={() => setIsMenuOpen(false)}
               tabIndex={isMenuOpen ? undefined : -1}
               className={mobileLinkClassName}

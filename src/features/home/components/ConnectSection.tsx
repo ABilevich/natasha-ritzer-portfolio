@@ -1,10 +1,13 @@
 import { AtSign, Globe2, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
+const contactMailto =
+  'mailto:di.ritzer@gmail.com?subject=Natasha%20Ritzer%20contact%20request&body=Hi%20Natasha%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch%20about...'
+
 const socialLinks = [
   { label: 'Portfolio', href: 'https://www.natasharitzer.com', Icon: Globe2 },
   { label: 'Social', href: 'https://www.linkedin.com', Icon: AtSign },
-  { label: 'Email', href: 'mailto:hello@natasharitzer.com', Icon: Mail },
+  { label: 'Email', href: contactMailto, Icon: Mail },
 ]
 
 export function ConnectSection() {
@@ -30,7 +33,7 @@ export function ConnectSection() {
             variant="outline"
             className="h-11 rounded-full border-white bg-transparent px-5 text-white hover:bg-white hover:text-black md:h-12 md:px-6"
           >
-            <a href="mailto:hello@natasharitzer.com">Contact Me</a>
+            <a href={contactMailto}>Contact Me</a>
           </Button>
         </div>
       </div>

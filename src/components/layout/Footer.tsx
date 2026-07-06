@@ -6,7 +6,11 @@ export function Footer() {
   const isHomePage = location.pathname === '/'
   const footerLinks = [
     { label: 'Projects', href: '/projects' },
-    { label: 'CV', href: '/#about' },
+    {
+      label: 'CV',
+      href: '/natasha-ritzer-cv.pdf',
+      download: 'Natasha-Ritzer-CV.pdf',
+    },
     { label: 'Articles', href: '/#projects' },
     { label: 'Bookshelf', href: '/#projects' },
   ]
@@ -24,6 +28,7 @@ export function Footer() {
             <a
               key={link.label}
               href={link.href}
+              download={'download' in link ? link.download : undefined}
               className="text-current no-underline"
             >
               {link.label}
