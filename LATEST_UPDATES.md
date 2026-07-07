@@ -1,30 +1,52 @@
 # Latest Updates
 
-Date: 2026-07-06
+Date: 2026-07-07
 
-## Footer Social Links
+## Mobile Homepage Review
 
-- Updated the homepage `ConnectSection` social icons to use local SVG assets for:
+- Refined the homepage parallax gallery for mobile only:
+  - Fixed stretched image containers by clearing conflicting mobile `top` / `bottom` and `left` / `right` offsets.
+  - Increased the mobile gallery image scale so the collage better matches the desktop concept.
+  - Reordered mobile image positions to preserve the desktop-style layered composition.
+  - Nudged left and right edge images toward the center so they remain visible on phone widths.
+  - Tuned the Regalalo red bag image lower so it is less covered by the large monitor image.
+  - Moved the Mercado Pago image slightly upward in the mobile composition.
+- Updated the homepage Projects accordion on mobile:
+  - Raised the expanded mobile panel height so all three project cards can show in each category.
+  - Kept tablet and desktop accordion heights unchanged.
+  - Applied the same mobile scroll-centered reveal behavior used on the full Projects page, so project card title and text appear as each card reaches the viewport center.
+- Verified the mobile behavior at `390px` and `320px` during the review:
+  - No horizontal overflow.
+  - Gallery image containers no longer stretch vertically.
+  - Project subsections can display all three project cards.
+
+## Footer and Social Link Finalization
+
+- Updated the homepage black `ConnectSection` social icons to use local SVG assets for:
   - LinkedIn
   - Dribbble
   - Behance
+- Connected the homepage social icons to the final external profile URLs.
+- Social links open in a new tab with `rel="noreferrer"`.
+- Kept the contact button linked to the existing email `mailto:`.
 - Updated the white shared footer variant to include:
   - Left navigation: About, Projects, CV
   - Right-aligned social icons grouped with the copyright
   - LinkedIn, Behance, and Dribbble icons rendered at `32x32px`
-- Updated the homepage footer navigation to About, Projects, and CV, removing inactive Articles and Bookshelf links until those sections or pages exist.
+- Updated the homepage black footer navigation to About, Projects, and CV.
+- Removed inactive Articles and Bookshelf links from the footer until those sections or pages exist.
 - Added the final social URLs:
   - LinkedIn: `https://www.linkedin.com/in/natasha-ritzer-ux-ui/`
   - Behance: `https://www.behance.net/natasha-ritzer-ux-ui`
   - Dribbble: `https://dribbble.com/Natiritzer27`
-- Social links open in a new tab with `rel="noreferrer"`.
 - Added local icon assets:
   - `src/assets/linkedin-icon.svg`
   - `src/assets/behance-icon.svg`
   - `src/assets/dribbble-icon.svg`
-- Verified the white footer on desktop and `390px` mobile:
+- Verified the footer on desktop and `390px` mobile:
   - Icons render as actual icon shapes, not filled squares.
   - Icons measure `32x32px`.
+  - The white footer social icons align with the right-side copyright cluster.
   - No horizontal overflow.
 
 ## Validation
