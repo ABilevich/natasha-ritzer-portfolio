@@ -33,7 +33,7 @@ function ProjectCategoryPanel({
       className={cn(
         'overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out motion-reduce:transition-none',
         isExpanded
-          ? 'max-h-[760px] opacity-100 md:max-h-[340px] lg:max-h-[430px]'
+          ? 'max-h-[1200px] opacity-100 md:max-h-[340px] lg:max-h-[430px]'
           : 'max-h-0 opacity-0',
       )}
     >
@@ -44,6 +44,7 @@ function ProjectCategoryPanel({
               key={project.slug}
               href={project.detailPath}
               isInteractive={isExpanded}
+              revealOnCenterOnMobile
               {...project}
             />
           ))}
