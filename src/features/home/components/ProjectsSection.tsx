@@ -73,10 +73,10 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="scroll-mt-8 bg-white px-[clamp(20px,6.6vw,100px)] pb-12 pt-8 md:pb-16 md:pt-[42px]"
+      className="scroll-mt-8 bg-white px-[clamp(20px,6.6vw,100px)] pb-12 pt-8 md:flex md:min-h-svh md:items-center md:pb-16 md:pt-[42px]"
       aria-labelledby="projects-title"
     >
-      <div className="mx-auto flex max-w-[1312px] flex-col gap-10 md:gap-16">
+      <div className="mx-auto flex w-full max-w-[1312px] flex-col gap-10 md:gap-16">
         <SectionTitle title="Projects" />
         <div className="flex flex-col gap-6 md:gap-10">
           {homepageProjectCategoryGroups.map((category) => {

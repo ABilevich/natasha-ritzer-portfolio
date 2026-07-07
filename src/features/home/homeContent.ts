@@ -81,7 +81,7 @@ export const parallaxGalleryItems = [
     rotation: 0,
     size: 25,
     position: { left: '1%', top: '7%' } satisfies GalleryPosition,
-    mobilePosition: { left: '-18%', top: '8%' } satisfies GalleryPosition,
+    mobilePosition: { left: '-4%', top: '7%' } satisfies GalleryPosition,
   },
   {
     id: 'visual-detail',
@@ -93,7 +93,7 @@ export const parallaxGalleryItems = [
     rotation: 0,
     size: 20,
     position: { right: '1%', top: '5%' } satisfies GalleryPosition,
-    mobilePosition: { right: '-24%', top: '19%' } satisfies GalleryPosition,
+    mobilePosition: { right: '-3%', top: '31%' } satisfies GalleryPosition,
   },
   {
     id: 'portfolio-moment',
@@ -103,7 +103,7 @@ export const parallaxGalleryItems = [
     rotation: 0,
     size: 25,
     position: { left: '25%', bottom: '10%' } satisfies GalleryPosition,
-    mobilePosition: { left: '14%', top: '38%' } satisfies GalleryPosition,
+    mobilePosition: { left: '8%', top: '34%' } satisfies GalleryPosition,
   },
   {
     id: 'research-notes',
@@ -115,7 +115,7 @@ export const parallaxGalleryItems = [
     rotation: 0,
     size: 32,
     position: { left: '35%', top: '4%' } satisfies GalleryPosition,
-    mobilePosition: { left: '36%', top: '5%' } satisfies GalleryPosition,
+    mobilePosition: { left: '32%', top: '4%' } satisfies GalleryPosition,
   },
   {
     id: 'brand-system',
@@ -125,7 +125,7 @@ export const parallaxGalleryItems = [
     rotation: 0,
     size: 25,
     position: { right: '20%', bottom: '20%' } satisfies GalleryPosition,
-    mobilePosition: { right: '18%', bottom: '9%' } satisfies GalleryPosition,
+    mobilePosition: { right: '18%', bottom: '5%' } satisfies GalleryPosition,
   },
   {
     id: 'concept-board',
@@ -135,7 +135,7 @@ export const parallaxGalleryItems = [
     rotation: 0,
     size: 25,
     position: { right: '0%', bottom: '5%' } satisfies GalleryPosition,
-    mobilePosition: { right: '-32%', top: '55%' } satisfies GalleryPosition,
+    mobilePosition: { right: '-3%', top: '55%' } satisfies GalleryPosition,
   },
   {
     id: 'product-thinking',
@@ -145,6 +145,6 @@ export const parallaxGalleryItems = [
     rotation: 0,
     size: 20,
     position: { left: '5%', bottom: '5%' } satisfies GalleryPosition,
-    mobilePosition: { left: '-18%', bottom: '24%' } satisfies GalleryPosition,
+    mobilePosition: { left: '-3%', bottom: '23%' } satisfies GalleryPosition,
   },
 ]

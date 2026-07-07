@@ -3,7 +3,7 @@ import { GradientBlobBackground } from './GradientBlobBackground'
 export function HeroSection() {
   return (
     <section
-      className="relative min-h-[760px] overflow-hidden bg-white sm:min-h-svh lg:min-h-[920px]"
+      className="relative min-h-[760px] overflow-hidden bg-white md:min-h-svh"
       aria-labelledby="hero-title"
     >
       <GradientBlobBackground

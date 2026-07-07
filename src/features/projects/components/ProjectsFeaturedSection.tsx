@@ -25,9 +25,9 @@ export function ProjectsFeaturedSection() {
   return (
     <section
       aria-labelledby="featured-projects-title"
-      className="min-h-screen px-[clamp(20px,6.6vw,100px)] pb-[30px] pt-[132px] md:pt-[172px]"
+      className="min-h-screen px-[clamp(20px,6.6vw,100px)] pb-[30px] pt-[132px] md:flex md:min-h-svh md:items-center md:py-0"
     >
-      <div className="mx-auto grid w-full max-w-[1312px] gap-12 lg:grid-cols-[minmax(280px,0.72fr)_minmax(560px,1.28fr)] lg:items-start lg:gap-[clamp(48px,5vw,80px)]">
+      <div className="mx-auto grid w-full max-w-[1312px] gap-12 lg:grid-cols-[minmax(280px,0.72fr)_minmax(560px,1.28fr)] lg:items-center lg:gap-[clamp(48px,5vw,80px)]">
         <div className="flex min-w-0 flex-col">
           <div className="mb-14 flex items-start justify-between gap-8 pb-8 md:mb-16">
             <div>
@@ -169,7 +169,7 @@ export function ProjectsFeaturedSection() {
           </ul>
         </div>
         {activeProject ? (
-          <div className="hidden lg:sticky lg:top-24 lg:block">
+          <div className="relative hidden lg:sticky lg:top-24 lg:block">
             {activeProject.detailPath ? (
               <Link
                 to={activeProject.detailPath}
@@ -189,7 +189,7 @@ export function ProjectsFeaturedSection() {
                 className="h-[clamp(300px,48vw,520px)] md:h-[clamp(420px,47vw,600px)] lg:h-[min(58vh,620px)]"
               />
             )}
-            <div className="mt-5 flex items-start justify-between gap-8 max-sm:flex-col max-sm:gap-4">
+            <div className="absolute left-0 right-0 top-full mt-5 flex items-start justify-between gap-8 max-sm:flex-col max-sm:gap-4">
               <p className="m-0 max-w-[680px] text-base font-normal leading-6 tracking-normal text-[#6b7280]">
                 {activeProject.description}
               </p>

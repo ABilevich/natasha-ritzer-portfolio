@@ -9,29 +9,36 @@ export function ParallaxGallerySection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-svh min-h-[620px] overflow-hidden bg-white max-[640px]:min-h-[560px]"
+      className="relative h-svh min-h-0 overflow-hidden bg-white"
       aria-label="Portfolio image gallery"
     >
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 max-[640px]:-translate-y-[clamp(14px,2.5svh,20px)]">
         {parallaxGalleryItems.map((item) => {
-          const galleryItemStyle =
-              {
-                '--gallery-width': `${item.size}vw`,
-                '--gallery-mobile-width': `${item.size * 1.85}vw`,
-                '--gallery-left': item.position.left ?? 'auto',
-                '--gallery-right': item.position.right ?? 'auto',
-                '--gallery-top': item.position.top ?? 'auto',
-                '--gallery-bottom': item.position.bottom ?? 'auto',
-                '--gallery-mobile-left':
-                  item.mobilePosition.left ?? item.position.left ?? 'auto',
-                '--gallery-mobile-right':
-                  item.mobilePosition.right ?? item.position.right ?? 'auto',
-                '--gallery-mobile-top':
-                  item.mobilePosition.top ?? item.position.top ?? 'auto',
-                '--gallery-mobile-bottom':
-                  item.mobilePosition.bottom ?? item.position.bottom ?? 'auto',
-                transform: `translate3d(0, calc(var(--gallery-shift, 0px) * ${item.speed}), 0) rotate(${item.rotation}deg)`,
-              } as CSSProperties
+          const mobileLeft =
+            item.mobilePosition.left ??
+            (item.mobilePosition.right ? 'auto' : item.position.left ?? 'auto')
+          const mobileRight =
+            item.mobilePosition.right ??
+            (item.mobilePosition.left ? 'auto' : item.position.right ?? 'auto')
+          const mobileTop =
+            item.mobilePosition.top ??
+            (item.mobilePosition.bottom ? 'auto' : item.position.top ?? 'auto')
+          const mobileBottom =
+            item.mobilePosition.bottom ??
+            (item.mobilePosition.top ? 'auto' : item.position.bottom ?? 'auto')
+          const galleryItemStyle = {
+            '--gallery-width': `${item.size}vw`,
+            '--gallery-mobile-width': `${item.size * 2.15}vw`,
+            '--gallery-left': item.position.left ?? 'auto',
+            '--gallery-right': item.position.right ?? 'auto',
+            '--gallery-top': item.position.top ?? 'auto',
+            '--gallery-bottom': item.position.bottom ?? 'auto',
+            '--gallery-mobile-left': mobileLeft,
+            '--gallery-mobile-right': mobileRight,
+            '--gallery-mobile-top': mobileTop,
+            '--gallery-mobile-bottom': mobileBottom,
+            transform: `translate3d(0, calc(var(--gallery-shift, 0px) * ${item.speed}), 0) rotate(${item.rotation}deg)`,
+          } as CSSProperties
 
           const galleryItemClassName =
             'absolute left-[var(--gallery-left)] right-[var(--gallery-right)] top-[var(--gallery-top)] bottom-[var(--gallery-bottom)] m-0 block w-[var(--gallery-width)] overflow-hidden border border-white/60 bg-white/30 shadow-[0_28px_80px_rgba(31,42,55,0.16)] motion-reduce:!transform-none max-[640px]:left-[var(--gallery-mobile-left)] max-[640px]:right-[var(--gallery-mobile-right)] max-[640px]:top-[var(--gallery-mobile-top)] max-[640px]:bottom-[var(--gallery-mobile-bottom)] max-[640px]:w-[min(var(--gallery-mobile-width),92vw)]'
