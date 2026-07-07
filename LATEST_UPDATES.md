@@ -12,6 +12,7 @@ Date: 2026-07-06
   - Left navigation: About, Projects, CV
   - Right-aligned social icons grouped with the copyright
   - LinkedIn, Behance, and Dribbble icons rendered at `32x32px`
+- Updated the homepage footer navigation to About, Projects, and CV, removing inactive Articles and Bookshelf links until those sections or pages exist.
 - Added the final social URLs:
   - LinkedIn: `https://www.linkedin.com/in/natasha-ritzer-ux-ui/`
   - Behance: `https://www.behance.net/natasha-ritzer-ux-ui`

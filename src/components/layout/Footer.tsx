@@ -8,14 +8,13 @@ export function Footer() {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
   const homeFooterLinks = [
+    { label: 'About', href: '/#about' },
     { label: 'Projects', href: '/projects' },
     {
       label: 'CV',
       href: '/natasha-ritzer-cv.pdf',
       download: 'Natasha-Ritzer-CV.pdf',
     },
-    { label: 'Articles', href: '/#projects' },
-    { label: 'Bookshelf', href: '/#projects' },
   ]
   const whiteFooterLinks = [
     { label: 'About', href: '/#about' },
