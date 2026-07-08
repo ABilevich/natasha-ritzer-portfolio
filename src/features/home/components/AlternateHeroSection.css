@@ -1,0 +1,156 @@
+.alternate-hero-card {
+  --alternate-hero-side-offset: min(34vw, 8rem);
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.alternate-hero-card--left {
+  animation-name: alternate-hero-card-left;
+}
+
+.alternate-hero-card--center {
+  animation-name: alternate-hero-card-center;
+}
+
+.alternate-hero-card--right {
+  animation-name: alternate-hero-card-right;
+}
+
+.alternate-hero-card:focus-visible {
+  animation-play-state: paused;
+  z-index: 40;
+}
+
+@media (min-width: 768px) {
+  .alternate-hero-card {
+    --alternate-hero-side-offset: min(18vw, 16rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alternate-hero-card {
+    animation: none;
+  }
+
+  .alternate-hero-card--left {
+    transform: translate3d(
+        calc(-50% - var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(-3deg) scale(0.9);
+    z-index: 10;
+  }
+
+  .alternate-hero-card--center {
+    transform: translate3d(-50%, -0.75rem, 0) rotate(0deg) scale(1);
+    z-index: 30;
+  }
+
+  .alternate-hero-card--right {
+    transform: translate3d(
+        calc(-50% + var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(3deg) scale(0.9);
+    z-index: 20;
+  }
+}
+
+@keyframes alternate-hero-card-left {
+  0%,
+  22%,
+  100% {
+    transform: translate3d(
+        calc(-50% - var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(-3deg) scale(0.9);
+    z-index: 10;
+  }
+
+  33%,
+  55% {
+    transform: translate3d(-50%, -0.75rem, 0) rotate(0deg) scale(1);
+    z-index: 30;
+  }
+
+  66%,
+  88% {
+    transform: translate3d(
+        calc(-50% + var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(3deg) scale(0.9);
+    z-index: 20;
+  }
+}
+
+@keyframes alternate-hero-card-center {
+  0%,
+  22%,
+  100% {
+    transform: translate3d(-50%, -0.75rem, 0) rotate(0deg) scale(1);
+    z-index: 30;
+  }
+
+  33%,
+  55% {
+    transform: translate3d(
+        calc(-50% + var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(3deg) scale(0.9);
+    z-index: 20;
+  }
+
+  66%,
+  88% {
+    transform: translate3d(
+        calc(-50% - var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(-3deg) scale(0.9);
+    z-index: 10;
+  }
+}
+
+@keyframes alternate-hero-card-right {
+  0%,
+  22%,
+  100% {
+    transform: translate3d(
+        calc(-50% + var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(3deg) scale(0.9);
+    z-index: 20;
+  }
+
+  33%,
+  55% {
+    transform: translate3d(
+        calc(-50% - var(--alternate-hero-side-offset)),
+        1.25rem,
+        0
+      )
+      rotate(-3deg) scale(0.9);
+    z-index: 10;
+  }
+
+  66%,
+  88% {
+    transform: translate3d(-50%, -0.75rem, 0) rotate(0deg) scale(1);
+    z-index: 30;
+  }
+}
