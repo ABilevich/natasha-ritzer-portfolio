@@ -16,10 +16,46 @@ export function ParallaxGallerySection() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-svh min-h-0 overflow-hidden bg-white min-[400px]:max-[640px]:h-[112svh] [@media_(min-width:768px)_and_(max-width:1023px)_and_(min-height:1000px)]:h-[900px]"
+      className="relative overflow-hidden bg-white max-[1280px]:h-auto min-[1281px]:h-svh min-[1281px]:min-h-0"
       aria-label="Portfolio image gallery"
     >
-      <div className="pointer-events-none absolute inset-0 max-[640px]:-translate-y-[clamp(14px,2.5svh,20px)]">
+      <div className="grid grid-cols-2 gap-4 px-5 py-10 min-[641px]:gap-6 min-[641px]:px-8 min-[641px]:py-12 min-[1024px]:max-[1280px]:grid-cols-3 min-[1281px]:hidden">
+        {parallaxGalleryItems.map((item) => {
+          const image = (
+            <img
+              src={item.image}
+              alt={item.alt}
+              loading="eager"
+              decoding="async"
+              className="block h-full w-full object-cover object-center"
+            />
+          )
+
+          const responsiveGalleryClassName =
+            'm-0 block aspect-[4/5] overflow-hidden bg-white'
+
+          if (item.href) {
+            return (
+              <Link
+                key={item.id}
+                to={item.href}
+                aria-label={`Open ${item.title ?? 'project'} project`}
+                className={`${responsiveGalleryClassName} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111928]`}
+              >
+                {image}
+              </Link>
+            )
+          }
+
+          return (
+            <figure key={item.id} className={responsiveGalleryClassName}>
+              {image}
+            </figure>
+          )
+        })}
+      </div>
+
+      <div className="pointer-events-none absolute inset-0 max-[1280px]:hidden">
         {parallaxGalleryItems.map((item) => {
           const tabletPosition: GalleryPosition | undefined =
             'tabletPosition' in item ? item.tabletPosition : undefined
