@@ -21,8 +21,7 @@ const contactMailto =
 export function Header() {
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const isHomePage = location.pathname === '/'
-  const isLightOnDark = isHomePage
+  const isLightOnDark = false
 
   const linkClassName = (href: string) => {
     const isActive =
