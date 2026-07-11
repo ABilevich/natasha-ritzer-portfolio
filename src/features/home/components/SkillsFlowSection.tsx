@@ -1,5 +1,8 @@
 import { useState } from 'react'
+import illustratorIcon from '@/assets/tools/adobe-illustrator.webp'
+import photoshopIcon from '@/assets/tools/adobe-photoshop.webp'
 import figmaIcon from '@/assets/tools/alex-figma.png'
+import clarityIcon from '@/assets/tools/microsoft-clarity.png'
 import { SectionTitle } from './SectionTitle'
 import './SkillsFlowSection.css'
 
@@ -12,11 +15,13 @@ const tools = [
   {
     label: 'Adobe Illustrator',
     description: 'Vector graphics and visual identity work',
+    icon: illustratorIcon,
     shortLabel: 'Ai',
   },
   {
     label: 'Adobe Photoshop',
     description: 'Image editing and visual production',
+    icon: photoshopIcon,
     shortLabel: 'Ps',
   },
   {
@@ -47,6 +52,7 @@ const tools = [
   {
     label: 'Microsoft Clarity',
     description: 'Behavior analytics and usability signals',
+    icon: clarityIcon,
     shortLabel: 'Mc',
   },
   {
@@ -56,7 +62,10 @@ const tools = [
   },
 ]
 
-const featuredProcessTools = tools.slice(0, 4)
+const getToolsByLabel = (labels: string[]) =>
+  labels
+    .map((label) => tools.find((tool) => tool.label === label))
+    .filter((tool): tool is (typeof tools)[number] => Boolean(tool))
 
 const processSteps = [
   {
@@ -69,6 +78,12 @@ const processSteps = [
       ['Competitive Analysis', 'Map patterns, gaps, and market expectations'],
       ['Microsoft Clarity', 'Read behavior signals and session patterns'],
       ['Google Analytics', 'Track traffic, conversion, and usage insights'],
+    ],
+    toolLabels: [
+      'Microsoft Clarity',
+      'Google Analytics',
+      'Claude AI',
+      'Notion',
     ],
   },
   {
@@ -83,6 +98,7 @@ const processSteps = [
       ['User Flows', 'Map key paths across tasks and touchpoints'],
       ['Systems Thinking', 'Keep decisions connected across the product'],
     ],
+    toolLabels: ['Figma', 'Notion', 'Claude AI', 'Jira'],
   },
   {
     label: 'Design',
@@ -99,6 +115,12 @@ const processSteps = [
       ['Branding', 'Connect identity decisions to digital experiences'],
       ['Graphic Design', 'Create visual assets that support the system'],
     ],
+    toolLabels: [
+      'Figma',
+      'Adobe Illustrator',
+      'Adobe Photoshop',
+      'Blender',
+    ],
   },
   {
     label: 'Validate',
@@ -113,6 +135,7 @@ const processSteps = [
       ['Microsoft Clarity', 'Validate behavior patterns after release'],
       ['Google Analytics', 'Measure product and traffic performance'],
     ],
+    toolLabels: ['Figma', 'Microsoft Clarity', 'Google Analytics', 'Jira'],
   },
   {
     label: 'Deliver',
@@ -127,6 +150,7 @@ const processSteps = [
       ['Documentation', 'Capture decisions, systems, and implementation notes'],
       ['Jira & Notion', 'Organize delivery, tasks, and shared context'],
     ],
+    toolLabels: ['Jira', 'Notion', 'Codex', 'Figma'],
   },
 ]
 
@@ -155,7 +179,7 @@ export function SkillsFlowSection() {
         className="skills-flow-section__process-tools"
         aria-label="Featured design tools"
       >
-        {featuredProcessTools.map((tool) => (
+        {getToolsByLabel(step.toolLabels).map((tool) => (
           <li key={tool.label} aria-label={tool.label} tabIndex={0}>
             <span className="skills-flow-section__process-tool-label">
               {tool.label}
