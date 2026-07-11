@@ -78,7 +78,7 @@ export function ProjectsSection() {
       aria-labelledby="projects-title"
     >
       <div className="mx-auto flex w-full max-w-[1312px] flex-col gap-10 md:gap-16">
-        <SectionTitle title="Projects" />
+        <SectionTitle title="Projects" titleId="projects-title" />
         <div className="flex flex-col gap-6 md:gap-10">
           {homepageProjectCategoryGroups.map((category) => {
             const isExpanded = expandedCategories[category.title]

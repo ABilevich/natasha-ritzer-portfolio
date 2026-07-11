@@ -10,7 +10,7 @@ export function AboutSection() {
       aria-labelledby="about-title"
     >
       <div className="mx-auto flex w-full max-w-[1312px] flex-col gap-10 md:gap-14 lg:gap-[72px]">
-        <SectionTitle title="About" showResumeButton />
+        <SectionTitle title="About" titleId="about-title" showResumeButton />
         <div className="grid grid-cols-1 lg:grid-cols-[445px_1fr]">
           <p className="m-0 max-w-[760px] text-base leading-6 text-[#1f2a37] lg:col-start-2 lg:max-w-none">
             Hi, I’m Natasha — a Product Designer specialized in UX/UI, graphic

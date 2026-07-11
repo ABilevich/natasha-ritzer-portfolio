@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { alternateHeroProjectCards } from '../homeContent'
 import './AlternateHeroSection.css'
+import { SquareGridBackground } from './SquareGridBackground'
 
 export function AlternateHeroSection() {
   return (
@@ -10,16 +11,10 @@ export function AlternateHeroSection() {
       className="relative flex h-svh min-h-[720px] overflow-hidden bg-white px-[clamp(20px,6.6vw,100px)] pb-0 pt-[clamp(48px,8svh,76px)] md:min-h-[900px] md:py-20 lg:h-auto lg:min-h-[min(880px,calc(100svh_-_72px))] lg:py-24"
       aria-labelledby="alternate-hero-title"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.38]"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-x-0 top-0 h-[72%] bg-[linear-gradient(#e5e7eb_1px,transparent_1px),linear-gradient(90deg,#e5e7eb_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-white/0 via-white to-white" />
-      </div>
+      <SquareGridBackground />
 
       <div className="relative z-10 mx-auto grid h-full w-full max-w-[1312px] grid-rows-[auto_1fr] items-start">
-        <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-10 text-center md:mt-[clamp(2.5rem,7svh,5rem)] md:gap-12 lg:mt-0">
+        <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-10 text-center md:mt-[clamp(2.5rem,7svh,5rem)] md:gap-12 lg:mt-[clamp(2rem,5svh,4rem)]">
           <h2
             id="alternate-hero-title"
             className="m-0 w-full max-w-[22rem] text-[clamp(3.25rem,14.5vw,3.55rem)] font-bold leading-[0.98] tracking-normal text-[#111928] md:max-w-[900px] md:text-[clamp(2.6rem,10vw,5.25rem)] md:leading-[1.02]"
@@ -34,7 +29,7 @@ export function AlternateHeroSection() {
               <span className="relative inline-block whitespace-nowrap">
                 <span className="relative z-10">moving</span>
                 <span
-                  className="absolute -bottom-1 left-1/2 h-[0.22em] w-[112%] -translate-x-1/2 rounded-full bg-[#5475E5]"
+                  className="alternate-hero-underline absolute -bottom-3 left-1/2 h-[0.22em] w-[112%] -translate-x-1/2 rounded-full"
                   aria-hidden="true"
                 />
               </span>
@@ -44,7 +39,7 @@ export function AlternateHeroSection() {
               <span className="relative inline-block whitespace-nowrap">
                 <span className="relative z-10">moving</span>
                 <span
-                  className="absolute -bottom-1 left-1/2 h-[0.22em] w-[112%] -translate-x-1/2 rounded-full bg-[#5475E5]"
+                  className="alternate-hero-underline absolute -bottom-3 left-1/2 h-[0.22em] w-[112%] -translate-x-1/2 rounded-full"
                   aria-hidden="true"
                 />
               </span>

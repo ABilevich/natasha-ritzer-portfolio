@@ -1,13 +1,13 @@
 import TSP from '@/assets/figma/TSP.png'
-import agendaVitalCardImage from '@/assets/projects/agenda-vital/card-ux-ui.jpg'
+import agendaVitalHeroImage from '@/assets/hero-section/AV-scroll.jpg'
+import delphiOneHeroImage from '@/assets/hero-section/D1-scroll.png'
+import habitDrivenHeroImage from '@/assets/hero-section/HD-1.jpg'
 import delphiOneImage from '@/assets/projects/delphi-one/home-parallax.png'
-import delphiOneCardImage from '@/assets/projects/delphi-one/card-ux-ui.jpg'
 import delphiOneProjectManagementImage from '@/assets/projects/delphi-one/card-project-management.jpg'
 import AV from '@/assets/projects/agenda-vital/home-parallax.png'
 import HD from '@/assets/projects/habit-driven/app-preview.jpg'
 import halfbikeImage from '@/assets/figma/halfbike-1.jpg'
 import mercadoPagoImage from '@/assets/figma/mercado pago-1.jpg'
-import regalaloCardImage from '@/assets/projects/regalalo/card-graphic-design.jpg'
 import regalaloImage from '@/assets/projects/regalalo/home-parallax.jpg'
 import type { PortfolioProject } from '@/features/projects/projectsContent'
 
@@ -69,18 +69,18 @@ export const homepageProjectManagementShortcuts: PortfolioProject[] = [
 export const alternateHeroProjectCards = [
   {
     title: 'Agenda Vital',
-    image: agendaVitalCardImage,
-    href: '/projects/agenda-vital',
+    image: agendaVitalHeroImage,
+    href: '/projects/pasimedia',
   },
   {
     title: 'Delphi One',
-    image: delphiOneCardImage,
+    image: delphiOneHeroImage,
     href: '/projects/delphi-one',
   },
   {
-    title: 'Regalalo',
-    image: regalaloCardImage,
-    href: '/projects/regalalo',
+    title: 'Habit Driven',
+    image: habitDrivenHeroImage,
+    href: '/projects/habit-driven',
   },
 ]
 
@@ -140,7 +140,7 @@ export const parallaxGalleryItems = [
     image: AV,
     title: 'Agenda Vital',
     alt: '',
-    href: '/projects/agenda-vital',
+    href: '/projects/pasimedia',
     speed: 0.95,
     rotation: 0,
     size: 32,

@@ -3,16 +3,21 @@ import { Button } from '@/components/ui/button'
 
 type SectionTitleProps = {
   title: string
+  titleId?: string
   showResumeButton?: boolean
 }
 
 export function SectionTitle({
   title,
+  titleId,
   showResumeButton = false,
 }: SectionTitleProps) {
   return (
     <div className="flex w-full items-center justify-between gap-4 border-b border-[#e5e7eb] py-6 md:gap-8 md:py-8">
-      <h2 className="m-0 text-3xl font-bold leading-[1.15] text-[#4b5563] md:text-5xl">
+      <h2
+        id={titleId}
+        className="m-0 text-3xl font-bold leading-[1.15] text-[var(--color-dark)] md:text-5xl"
+      >
         {title}
       </h2>
       {showResumeButton && (

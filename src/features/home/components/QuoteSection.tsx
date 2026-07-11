@@ -1,4 +1,4 @@
-import quoteAuthorImage from '@/assets/figma/me-connect1.jpg'
+import quoteAuthorImage from '@/assets/figma/natasha-quote-avatar.jpeg'
 import { GradientBlobBackground } from './GradientBlobBackground'
 
 export function QuoteSection() {
@@ -24,7 +24,7 @@ export function QuoteSection() {
           <img
             src={quoteAuthorImage}
             alt=""
-            className="size-[54px] shrink-0 rounded-full object-cover object-top"
+            className="size-[54px] shrink-0 rounded-full border-2 border-white object-cover object-top"
             aria-hidden="true"
           />
           <cite className="not-italic text-[clamp(1.125rem,2.1vw,2rem)] font-normal leading-tight">
