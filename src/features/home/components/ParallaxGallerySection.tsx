@@ -131,6 +131,8 @@ export function ParallaxGallerySection() {
             compactMobilePosition?.bottom ??
             (compactMobilePosition?.top ? 'auto' : mobileBottom)
           const galleryItemStyle = {
+            aspectRatio:
+              'cropAspectRatio' in item ? item.cropAspectRatio : undefined,
             '--gallery-width': `${item.size}vw`,
             '--gallery-tablet-width': `${item.size * tabletScale}vw`,
             '--gallery-wide-tablet-width': `${item.size * wideTabletScale}vw`,
@@ -169,7 +171,11 @@ export function ParallaxGallerySection() {
               alt={item.alt}
               loading="eager"
               decoding="async"
-              className="block h-auto w-full"
+              className={
+                'cropAspectRatio' in item
+                  ? 'block h-full w-full object-cover object-center'
+                  : 'block h-auto w-full'
+              }
             />
           )
 

@@ -6,8 +6,8 @@ import delphiOneImage from '@/assets/projects/delphi-one/home-parallax.png'
 import delphiOneProjectManagementImage from '@/assets/projects/delphi-one/card-project-management.jpg'
 import AV from '@/assets/projects/agenda-vital/home-parallax.png'
 import HD from '@/assets/projects/habit-driven/app-preview.jpg'
-import halfbikeImage from '@/assets/figma/halfbike-1.jpg'
 import mercadoPagoImage from '@/assets/figma/mercado pago-1.jpg'
+import portSalusImage from '@/assets/projects/port-salus/home-parallax.png'
 import regalaloImage from '@/assets/projects/regalalo/home-parallax.jpg'
 import type { PortfolioProject } from '@/features/projects/projectsContent'
 
@@ -180,11 +180,12 @@ export const parallaxGalleryItems = [
   },
   {
     id: 'product-thinking',
-    image: halfbikeImage,
+    image: portSalusImage,
     alt: '',
     speed: 0.95,
     rotation: 0,
     size: 20,
+    cropAspectRatio: '460 / 466',
     position: { left: '5%', bottom: '5%' } satisfies GalleryPosition,
     tabletPosition: { left: '6%', bottom: '11%' } satisfies GalleryPosition,
     wideTabletPosition: { left: '6%', bottom: '8%' } satisfies GalleryPosition,
