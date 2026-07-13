@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import nrLogo from '@/assets/figma/nr-logo.svg'
+import './Header.css'
 
 const navigationItems = [
   { label: 'About', href: '/#about' },
@@ -30,7 +31,7 @@ export function Header() {
         : location.pathname === '/' && location.hash === href.replace('/', '')
 
     return cn(
-      'relative h-auto rounded-none px-0 py-0 text-[16px] font-medium no-underline hover:bg-transparent focus-visible:ring-0 after:absolute after:inset-x-0 after:-bottom-2 after:h-px after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100',
+      'site-header__nav-link relative h-auto rounded-none px-0 py-0 text-[16px] font-medium no-underline hover:bg-transparent focus-visible:ring-0 after:absolute after:inset-x-0 after:-bottom-2 after:h-px after:origin-left after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 focus-visible:after:scale-x-100',
       isLightOnDark
         ? 'text-white hover:text-white after:bg-white'
         : 'text-[#111928] hover:text-[#111928] after:bg-[#111928]',
@@ -59,7 +60,7 @@ export function Header() {
 
   return (
     <>
-      <header className="absolute left-1/2 top-8 z-50 flex h-12 w-[min(1312px,calc(100%_-_40px))] -translate-x-1/2 items-center justify-between gap-6 max-[480px]:w-[calc(100%_-_24px)] max-[720px]:top-5 max-[720px]:h-10">
+      <header className="site-header absolute left-1/2 top-8 z-50 flex h-12 w-[min(1312px,calc(100%_-_40px))] -translate-x-1/2 items-center justify-between gap-6 max-[480px]:w-[calc(100%_-_24px)] max-[720px]:top-5 max-[720px]:h-10">
         <NavLink
           to="/"
           aria-label="Natasha Ritzer home"

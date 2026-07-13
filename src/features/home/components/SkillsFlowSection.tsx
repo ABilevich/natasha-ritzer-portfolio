@@ -1,8 +1,15 @@
 import { useState } from 'react'
+import blenderIcon from '@/assets/tools/Blender.webp'
+import claudeIcon from '@/assets/tools/Claude_AI_symbol.svg.webp'
+import notionIcon from '@/assets/tools/Notion-logo.svg.webp'
+import slackIcon from '@/assets/tools/Slack_icon.svg'
 import illustratorIcon from '@/assets/tools/adobe-illustrator.webp'
 import photoshopIcon from '@/assets/tools/adobe-photoshop.webp'
 import figmaIcon from '@/assets/tools/alex-figma.png'
+import analyticsIcon from '@/assets/tools/google-analytics.svg'
+import jiraIcon from '@/assets/tools/images.jpeg'
 import clarityIcon from '@/assets/tools/microsoft-clarity.png'
+import codexIcon from '@/assets/tools/openai-codex-logo-png_seeklogo-669579.png'
 import { SectionTitle } from './SectionTitle'
 import './SkillsFlowSection.css'
 
@@ -16,49 +23,51 @@ const tools = [
     label: 'Adobe Illustrator',
     description: 'Vector graphics and visual identity work',
     icon: illustratorIcon,
-    shortLabel: 'Ai',
   },
   {
     label: 'Adobe Photoshop',
     description: 'Image editing and visual production',
     icon: photoshopIcon,
-    shortLabel: 'Ps',
   },
   {
     label: 'Blender',
     description: '3D explorations and product visuals',
-    shortLabel: 'B',
+    icon: blenderIcon,
   },
   {
     label: 'Notion',
     description: 'Documentation, planning, and project notes',
-    shortLabel: 'N',
+    icon: notionIcon,
   },
   {
     label: 'Jira',
     description: 'Delivery planning and product workflows',
-    shortLabel: 'J',
+    icon: jiraIcon,
+  },
+  {
+    label: 'Slack',
+    description: 'Team communication and collaboration',
+    icon: slackIcon,
   },
   {
     label: 'Codex',
     description: 'AI-assisted implementation and iteration',
-    shortLabel: 'C',
+    icon: codexIcon,
   },
   {
     label: 'Claude AI',
     description: 'Research synthesis and writing support',
-    shortLabel: 'Cl',
+    icon: claudeIcon,
   },
   {
     label: 'Microsoft Clarity',
     description: 'Behavior analytics and usability signals',
     icon: clarityIcon,
-    shortLabel: 'Mc',
   },
   {
     label: 'Google Analytics',
     description: 'Traffic, conversion, and product insights',
-    shortLabel: 'GA',
+    icon: analyticsIcon,
   },
 ]
 
@@ -150,7 +159,7 @@ const processSteps = [
       ['Documentation', 'Capture decisions, systems, and implementation notes'],
       ['Jira & Notion', 'Organize delivery, tasks, and shared context'],
     ],
-    toolLabels: ['Jira', 'Notion', 'Codex', 'Figma'],
+    toolLabels: ['Jira', 'Notion', 'Slack', 'Codex', 'Figma'],
   },
 ]
 
@@ -188,7 +197,7 @@ export function SkillsFlowSection() {
               className="skills-flow-section__process-tool-icon"
               aria-hidden="true"
             >
-              {'icon' in tool ? <img src={tool.icon} alt="" /> : tool.shortLabel}
+              <img src={tool.icon} alt="" />
             </span>
           </li>
         ))}

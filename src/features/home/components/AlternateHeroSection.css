@@ -45,6 +45,41 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1279px) and (orientation: portrait) {
+  .alternate-hero-copy {
+    gap: clamp(4rem, 6svh, 4.75rem);
+  }
+
+  .alternate-hero-cta {
+    font-size: 18px;
+  }
+
+  .alternate-hero-card {
+    bottom: clamp(-3.5rem, -5svh, -2.5rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) and (orientation: landscape) {
+  .alternate-hero-section {
+    height: 100svh;
+    min-height: 720px;
+    padding-bottom: 0;
+    padding-top: clamp(86px, 13svh, 108px);
+  }
+
+  .alternate-hero-gallery {
+    height: 100%;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  .alternate-hero-card {
+    top: auto;
+    bottom: clamp(-7rem, -14svh, -5rem);
+    width: min(30vw, 27rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .alternate-hero-card {
     animation: none;

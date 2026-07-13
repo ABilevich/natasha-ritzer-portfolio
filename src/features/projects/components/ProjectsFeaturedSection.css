@@ -1,0 +1,29 @@
+@media (min-width: 768px) and (max-width: 1279px) and (orientation: portrait) {
+  .projects-featured-section {
+    display: block;
+    min-height: auto;
+    padding-top: clamp(176px, 17svh, 212px);
+    padding-bottom: clamp(48px, 7svh, 80px);
+  }
+
+  .projects-featured-section__title-block {
+    margin-bottom: clamp(64px, 8svh, 88px);
+    border-bottom: 1px solid #e5e7eb;
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+
+  .projects-featured-section__eyebrow {
+    font-size: 16px;
+  }
+
+  .projects-featured-section__mobile-list {
+    gap: clamp(64px, 8svh, 88px);
+  }
+
+  .projects-featured-section__project-heading {
+    margin-bottom: clamp(36px, 4.5svh, 52px);
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 36px;
+  }
+}

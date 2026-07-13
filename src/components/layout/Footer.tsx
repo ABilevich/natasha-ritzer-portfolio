@@ -4,6 +4,7 @@ import behanceIcon from '@/assets/behance-icon.svg'
 import dribbbleIcon from '@/assets/dribbble-icon.svg'
 import linkedinIcon from '@/assets/linkedin-icon.svg'
 import { cn } from '@/lib/utils'
+import './Footer.css'
 
 const contactMailto =
   'mailto:di.ritzer@gmail.com?subject=Natasha%20Ritzer%20contact%20request&body=Hi%20Natasha%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch%20about...'
@@ -51,7 +52,7 @@ export function Footer() {
   return (
     <footer
       className={cn(
-        'px-[clamp(20px,6.6vw,100px)] text-sm font-medium',
+        'site-footer px-[clamp(20px,6.6vw,100px)] text-sm font-medium',
         isHomePage ? 'bg-black text-white' : 'bg-white text-[#111928]',
       )}
     >
@@ -90,7 +91,7 @@ export function Footer() {
               asChild
               variant="outline"
               className={cn(
-                'h-11 rounded-full bg-transparent px-5 md:h-12 md:px-6',
+                'site-footer__contact-button h-11 rounded-full bg-transparent px-5 md:h-12 md:px-6',
                 isHomePage
                   ? 'border-white text-white hover:bg-white hover:text-black'
                   : 'border-[#111928] text-[#111928] hover:bg-[#111928] hover:text-white',
@@ -100,7 +101,12 @@ export function Footer() {
             </Button>
           </div>
         </div>
-        <div className="flex items-center justify-between gap-8 pb-14 pt-9 max-[860px]:flex-col max-[860px]:items-start md:pb-20 md:pt-[45px]">
+        <div
+          className={cn(
+            'flex items-center justify-between gap-8 pb-14 pt-9 max-[860px]:flex-col max-[860px]:items-start md:pb-20',
+            isHomePage ? 'md:pt-[80px]' : 'md:pt-[45px]',
+          )}
+        >
           <nav className="flex items-center gap-8 max-[860px]:flex-wrap max-[860px]:gap-6 lg:gap-[54px]">
             {footerLinks.map((link) => (
               <a

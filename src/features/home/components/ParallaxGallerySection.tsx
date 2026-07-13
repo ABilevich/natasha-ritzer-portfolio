@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { parallaxGalleryItems } from '../homeContent'
 import { useParallaxGallery } from '../hooks/useParallaxGallery'
+import './ParallaxGallerySection.css'
 
 type GalleryPosition = {
   top?: string
@@ -19,7 +20,7 @@ export function ParallaxGallerySection() {
       className="relative overflow-hidden bg-white max-[1280px]:h-auto min-[1281px]:h-svh min-[1281px]:min-h-0"
       aria-label="Portfolio image gallery"
     >
-      <div className="grid grid-cols-2 gap-4 px-5 py-10 min-[641px]:gap-6 min-[641px]:px-8 min-[641px]:py-12 min-[1024px]:max-[1280px]:grid-cols-3 min-[1281px]:hidden">
+      <div className="parallax-gallery-section__responsive-grid grid grid-cols-2 gap-4 px-5 py-10 min-[641px]:gap-6 min-[641px]:px-8 min-[641px]:py-12 min-[1024px]:max-[1280px]:grid-cols-3 min-[1281px]:hidden">
         {parallaxGalleryItems.map((item) => {
           const image = (
             <img

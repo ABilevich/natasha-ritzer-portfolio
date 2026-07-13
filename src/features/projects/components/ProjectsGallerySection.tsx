@@ -7,6 +7,7 @@ import {
   type ProjectCategoryTitle,
 } from '../projectsContent'
 import { ProjectPreviewCard } from './ProjectPreviewCard'
+import './ProjectsGallerySection.css'
 
 type ProjectFilter = 'All' | ProjectCategoryTitle
 
@@ -126,7 +127,7 @@ export function ProjectsGallerySection() {
             ) : null}
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="projects-gallery-section__grid grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project) => (
             <ProjectPreviewCard
               key={project.slug}

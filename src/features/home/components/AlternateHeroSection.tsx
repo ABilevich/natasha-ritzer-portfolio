@@ -8,13 +8,13 @@ import { SquareGridBackground } from './SquareGridBackground'
 export function AlternateHeroSection() {
   return (
     <section
-      className="relative flex h-svh min-h-[720px] overflow-hidden bg-white px-[clamp(20px,6.6vw,100px)] pb-0 pt-[clamp(86px,13svh,108px)] md:min-h-[900px] md:py-20 lg:h-auto lg:min-h-[min(880px,calc(100svh_-_72px))] lg:py-24"
+      className="alternate-hero-section relative flex h-svh min-h-[720px] overflow-hidden bg-white px-[clamp(20px,6.6vw,100px)] pb-0 pt-[clamp(86px,13svh,108px)] md:min-h-[900px] md:py-20 lg:h-auto lg:min-h-[min(880px,calc(100svh_-_72px))] lg:py-24"
       aria-labelledby="alternate-hero-title"
     >
       <SquareGridBackground />
 
       <div className="relative z-10 mx-auto grid h-full w-full max-w-[1312px] grid-rows-[auto_1fr] items-start">
-        <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-10 text-center md:mt-[clamp(2.5rem,7svh,5rem)] md:gap-12 lg:mt-[clamp(2rem,5svh,4rem)]">
+        <div className="alternate-hero-copy mx-auto flex w-full max-w-[900px] flex-col items-center gap-10 text-center md:mt-[clamp(2.5rem,7svh,5rem)] md:gap-12 lg:mt-[clamp(2rem,5svh,4rem)]">
           <h2
             id="alternate-hero-title"
             className="m-0 w-full max-w-[22rem] text-[45px] font-bold leading-[0.98] tracking-normal text-[#111928] md:max-w-[900px] md:text-[clamp(2.6rem,10vw,5.25rem)] md:leading-[1.02]"
@@ -50,7 +50,7 @@ export function AlternateHeroSection() {
             asChild
             variant="outline"
             size="sm"
-            className="h-12 rounded-full border-[#4B5563] bg-transparent px-[18px] text-sm font-medium text-[#4B5563] hover:bg-transparent hover:text-[#4B5563] focus-visible:ring-[#4B5563]/30 md:text-base"
+            className="alternate-hero-cta h-12 rounded-full border-[#4B5563] bg-transparent px-[18px] text-sm font-medium text-[#4B5563] hover:bg-transparent hover:text-[#4B5563] focus-visible:ring-[#4B5563]/30 md:text-base"
           >
             <a href="#projects">
               See my projects
@@ -60,7 +60,7 @@ export function AlternateHeroSection() {
         </div>
 
         <div
-          className="relative mx-auto mt-[clamp(64px,10svh,128px)] h-[420px] w-full md:mt-0 md:h-full md:min-h-0 md:overflow-hidden lg:mt-24 lg:h-[420px] lg:overflow-visible"
+          className="alternate-hero-gallery relative mx-auto mt-[clamp(64px,10svh,128px)] h-[420px] w-full md:mt-0 md:h-full md:min-h-0 md:overflow-hidden lg:mt-24 lg:h-[420px] lg:overflow-visible"
           aria-label="Featured project previews"
         >
           {alternateHeroProjectCards.map((project, index) => {

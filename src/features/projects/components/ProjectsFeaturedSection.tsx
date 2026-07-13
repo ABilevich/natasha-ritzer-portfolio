@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { projects } from '../projectsContent'
 import { ProjectPlaceholderTile } from './ProjectPlaceholderTile'
+import './ProjectsFeaturedSection.css'
 
 const featuredProjects = projects.slice(0, 3)
 
@@ -25,13 +26,13 @@ export function ProjectsFeaturedSection() {
   return (
     <section
       aria-labelledby="featured-projects-title"
-      className="min-h-screen px-[clamp(20px,6.6vw,100px)] pb-[30px] pt-[132px] md:flex md:min-h-svh md:items-center md:py-0"
+      className="projects-featured-section min-h-screen px-[clamp(20px,6.6vw,100px)] pb-[30px] pt-[132px] md:flex md:min-h-svh md:items-center md:py-0"
     >
       <div className="mx-auto grid w-full max-w-[1312px] gap-12 lg:grid-cols-[minmax(280px,0.72fr)_minmax(560px,1.28fr)] lg:items-center lg:gap-[clamp(48px,5vw,80px)]">
         <div className="flex min-w-0 flex-col">
-          <div className="mb-10 flex items-start justify-between gap-8 border-b border-[#e5e7eb] py-6 md:mb-16 md:border-b-0 md:pb-8 md:pt-0">
+          <div className="projects-featured-section__title-block mb-10 flex items-start justify-between gap-8 border-b border-[#e5e7eb] py-6 md:mb-16 md:border-b-0 md:pb-8 md:pt-0">
             <div>
-              <p className="m-0 text-sm font-medium uppercase leading-5 tracking-[0.12em] text-[#6b7280]">
+              <p className="projects-featured-section__eyebrow m-0 text-sm font-medium uppercase leading-5 tracking-[0.12em] text-[#6b7280]">
                 Selected work
               </p>
               <h1
@@ -43,11 +44,11 @@ export function ProjectsFeaturedSection() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-14 lg:hidden">
+          <div className="projects-featured-section__mobile-list flex flex-col gap-14 lg:hidden">
             {featuredProjects.map((project) => {
               const mobileProjectContent = (
                 <>
-                  <div className="mb-5 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-[#e5e7eb] pb-5 md:border-b-0 md:pb-0">
+                  <div className="projects-featured-section__project-heading mb-5 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-[#e5e7eb] pb-5 md:border-b-0 md:pb-0">
                     <h2 className="m-0 text-3xl font-bold leading-[1.15] tracking-normal text-[#111928] md:text-[42px] md:font-semibold md:leading-[46px]">
                       {project.title}
                     </h2>

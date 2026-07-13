@@ -33,12 +33,12 @@ function ProjectCategoryPanel({
       className={cn(
         'overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out motion-reduce:transition-none',
         isExpanded
-          ? 'max-h-[1200px] opacity-100 md:max-h-[340px] lg:max-h-[430px]'
+          ? 'max-h-[1200px] opacity-100 md:max-h-[860px] xl:max-h-[430px]'
           : 'max-h-0 opacity-0',
       )}
     >
       <div className="pt-6 lg:pt-10">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 lg:gap-8">
           {category.projects.map((project) => (
             <ProjectPreviewCard
               key={project.slug}

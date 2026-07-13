@@ -1,4 +1,5 @@
 import { aboutStats } from '../homeContent'
+import './AboutSection.css'
 import { SectionTitle } from './SectionTitle'
 import { StatCard } from './StatCard'
 
@@ -20,7 +21,7 @@ export function AboutSection() {
             research and concept to prototype and launch.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-[19px]">
+        <div className="about-section__stats grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3 xl:gap-[19px]">
           {aboutStats.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}

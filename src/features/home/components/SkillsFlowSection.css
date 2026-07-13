@@ -499,13 +499,17 @@
   }
 
   .skills-flow-section__process-accordion-panel h3 {
-    font-size: 30px;
+    font-size: 24px;
     line-height: 1.08;
   }
 
   .skills-flow-section__process-accordion-panel > p {
-    font-size: 1.08rem;
+    font-size: 18px;
     line-height: 1.5;
+  }
+
+  .skills-flow-section__process-chips li {
+    font-size: 16px;
   }
 }
 
@@ -517,6 +521,32 @@
   .skills-flow-section__process-tab {
     min-height: 4.5rem;
     padding-block: 0.8rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) and (orientation: portrait) {
+  .skills-flow-section__process-accordion-trigger strong {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+  .skills-flow-section__process {
+    align-items: stretch;
+  }
+
+  .skills-flow-section__process-list {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .skills-flow-section__process-tab {
+    flex: 1;
+  }
+
+  .skills-flow-section__process-tab strong {
+    font-size: 24px;
   }
 }
 
