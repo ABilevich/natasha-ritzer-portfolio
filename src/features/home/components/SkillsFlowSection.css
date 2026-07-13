@@ -122,7 +122,7 @@
 .skills-flow-section__process-accordion-panel h3 {
   margin: 0;
   color: #111928;
-  font-size: 38px;
+  font-size: 30px;
   font-weight: 600;
   line-height: 1.05;
 }
@@ -373,7 +373,7 @@
   }
 
   .skills-flow-section__process-accordion-panel h3 {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.08;
   }
 
@@ -499,7 +499,7 @@
   }
 
   .skills-flow-section__process-accordion-panel h3 {
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1.08;
   }
 

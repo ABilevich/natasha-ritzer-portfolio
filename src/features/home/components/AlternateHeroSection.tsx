@@ -8,7 +8,7 @@ import { SquareGridBackground } from './SquareGridBackground'
 export function AlternateHeroSection() {
   return (
     <section
-      className="relative flex h-svh min-h-[720px] overflow-hidden bg-white px-[clamp(20px,6.6vw,100px)] pb-0 pt-[clamp(48px,8svh,76px)] md:min-h-[900px] md:py-20 lg:h-auto lg:min-h-[min(880px,calc(100svh_-_72px))] lg:py-24"
+      className="relative flex h-svh min-h-[720px] overflow-hidden bg-white px-[clamp(20px,6.6vw,100px)] pb-0 pt-[clamp(86px,13svh,108px)] md:min-h-[900px] md:py-20 lg:h-auto lg:min-h-[min(880px,calc(100svh_-_72px))] lg:py-24"
       aria-labelledby="alternate-hero-title"
     >
       <SquareGridBackground />
@@ -17,7 +17,7 @@ export function AlternateHeroSection() {
         <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-10 text-center md:mt-[clamp(2.5rem,7svh,5rem)] md:gap-12 lg:mt-[clamp(2rem,5svh,4rem)]">
           <h2
             id="alternate-hero-title"
-            className="m-0 w-full max-w-[22rem] text-[clamp(3.25rem,14.5vw,3.55rem)] font-bold leading-[0.98] tracking-normal text-[#111928] md:max-w-[900px] md:text-[clamp(2.6rem,10vw,5.25rem)] md:leading-[1.02]"
+            className="m-0 w-full max-w-[22rem] text-[45px] font-bold leading-[0.98] tracking-normal text-[#111928] md:max-w-[900px] md:text-[clamp(2.6rem,10vw,5.25rem)] md:leading-[1.02]"
           >
             <span className="md:hidden">
               Design work

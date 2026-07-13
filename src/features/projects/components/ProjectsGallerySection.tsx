@@ -60,10 +60,10 @@ export function ProjectsGallerySection() {
       className="px-[clamp(20px,6.6vw,100px)] pb-16 pt-[30px] md:pb-24"
     >
       <div className="mx-auto flex max-w-[1312px] flex-col gap-9 md:gap-14">
-        <div className="flex items-center justify-between gap-6 max-[560px]:flex-col max-[560px]:items-start">
+        <div className="flex items-center justify-between gap-6 border-b border-[#e5e7eb] py-6 md:border-b-0 md:py-0 max-[560px]:flex-col max-[560px]:items-start">
           <h2
             id="projects-gallery-title"
-            className="m-0 text-5xl font-bold leading-[58px] tracking-normal text-[#111928]"
+            className="m-0 text-3xl font-bold leading-[1.15] tracking-normal text-[#111928] md:text-5xl md:leading-[58px]"
           >
             Projects
           </h2>

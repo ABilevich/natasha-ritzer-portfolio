@@ -1,6 +1,5 @@
 import { AboutSection } from '../features/home/components/AboutSection'
 import { AlternateHeroSection } from '../features/home/components/AlternateHeroSection'
-import { ConnectSection } from '../features/home/components/ConnectSection'
 import { ParallaxGallerySection } from '../features/home/components/ParallaxGallerySection'
 import { ProjectsSection } from '../features/home/components/ProjectsSection'
 import { QuoteSection } from '../features/home/components/QuoteSection'
@@ -15,7 +14,6 @@ export function HomePage() {
       <SkillsFlowSection />
       <ParallaxGallerySection />
       <ProjectsSection />
-      <ConnectSection />
     </div>
   )
 }
