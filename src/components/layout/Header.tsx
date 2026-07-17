@@ -60,7 +60,7 @@ export function Header() {
 
   return (
     <>
-      <header className="site-header absolute left-1/2 top-8 z-50 flex h-12 w-[min(1312px,calc(100%_-_40px))] -translate-x-1/2 items-center justify-between gap-6 max-[480px]:w-[calc(100%_-_24px)] max-[720px]:top-5 max-[720px]:h-10">
+      <header className="site-header absolute left-1/2 top-8 z-50 flex h-12 w-[min(1312px,calc(100%_-_40px))] -translate-x-1/2 items-center justify-between gap-6 max-[480px]:w-[calc(100%_-_40px)] max-[720px]:top-7 max-[720px]:h-10">
         <NavLink
           to="/"
           aria-label="Natasha Ritzer home"
@@ -111,20 +111,7 @@ export function Header() {
         >
           <a href={contactMailto}>Contact Me</a>
         </Button>
-        <div className="relative z-50 hidden items-center gap-3 max-[720px]:flex">
-          <Button
-            asChild
-            variant="outline"
-            size="sm"
-            className={cn(
-              'h-9 rounded-full bg-transparent px-4 text-sm font-medium hover:bg-transparent',
-              isLightOnDark
-                ? 'border-white text-white hover:text-white'
-                : 'border-[#111928] text-[#111928] hover:text-[#111928]',
-            )}
-          >
-            <a href={contactMailto}>Contact Me</a>
-          </Button>
+        <div className="relative z-50 hidden items-center max-[720px]:flex">
           <Button
             type="button"
             variant="ghost"
@@ -165,7 +152,7 @@ export function Header() {
         />
         <nav
           aria-label="Mobile navigation"
-          className="absolute right-0 top-0 flex h-dvh w-[min(78vw,300px)] flex-col items-end gap-7 bg-black/65 px-8 pb-10 pt-24 text-right backdrop-blur-md transition-transform duration-200"
+          className="absolute right-0 top-0 flex h-dvh w-[min(78vw,300px)] flex-col items-end gap-7 bg-black/65 px-8 pb-10 pt-28 text-right backdrop-blur-md transition-transform duration-200"
           style={{
             transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
           }}
@@ -182,6 +169,14 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <a
+            href={contactMailto}
+            onClick={() => setIsMenuOpen(false)}
+            tabIndex={isMenuOpen ? undefined : -1}
+            className="mt-2 inline-flex h-12 items-center justify-center rounded-full border border-white px-5 text-lg font-medium text-white no-underline transition-colors hover:bg-white hover:text-[#111928]"
+          >
+            Contact Me
+          </a>
         </nav>
       </div>
     </>

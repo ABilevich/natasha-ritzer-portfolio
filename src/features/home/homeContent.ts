@@ -1,7 +1,7 @@
 import TSP from '@/assets/figma/TSP.png'
-import agendaVitalHeroImage from '@/assets/hero-section/AV-scroll.jpg'
-import delphiOneHeroImage from '@/assets/hero-section/D1-scroll.png'
-import habitDrivenHeroImage from '@/assets/hero-section/HD-1.jpg'
+import agendaVitalHeroImage from '@/assets/hero-section/Browser/Safari (Big Sur) - Light-1.jpg'
+import bncHeroImage from '@/assets/hero-section/Browser/Safari (Big Sur) - Light-2.jpg'
+import delphiOneHeroImage from '@/assets/hero-section/Browser/Safari (Big Sur) - Light.jpg'
 import delphiOneImage from '@/assets/projects/delphi-one/home-parallax.png'
 import delphiOneProjectManagementImage from '@/assets/projects/delphi-one/card-project-management.jpg'
 import AV from '@/assets/projects/agenda-vital/home-parallax.png'
@@ -70,17 +70,20 @@ export const alternateHeroProjectCards = [
   {
     title: 'Agenda Vital',
     image: agendaVitalHeroImage,
-    href: '/projects/pasimedia',
+    href: '/projects/agenda-vital',
+    aspectRatio: '3862 / 2408',
   },
   {
     title: 'Delphi One',
     image: delphiOneHeroImage,
     href: '/projects/delphi-one',
+    aspectRatio: '3876 / 2726',
   },
   {
-    title: 'Habit Driven',
-    image: habitDrivenHeroImage,
-    href: '/projects/habit-driven',
+    title: 'BNC',
+    image: bncHeroImage,
+    href: '/projects/bnc',
+    aspectRatio: '3864 / 2660',
   },
 ]
 
