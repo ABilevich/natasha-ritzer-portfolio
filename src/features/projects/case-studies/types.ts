@@ -10,7 +10,7 @@ export type ProjectCaseStudyGalleryItem = {
   variant: 'tall' | 'wide'
 }
 
-export type ProjectCaseStudyGalleryLayout = 'feature-stack' | 'grid-2x2'
+export type ProjectCaseStudyGalleryLayout = 'feature-stack' | 'grid-2x2' | 'feature-stack-natural'
 
 export type ProjectCaseStudyTextBlock = {
   paragraphs: string[]

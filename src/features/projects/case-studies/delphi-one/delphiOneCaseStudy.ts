@@ -5,9 +5,9 @@ import type { ProjectCaseStudy } from '../types'
 
 export const delphiOneCaseStudy = {
   title: 'Delphi One',
-  category: 'UX UI Design',
+  category: 'UX/UI Design',
   intro: [
-    'Delphi One is a financial intelligence platform designed to help investors and analysts structure research, evaluate perspectives, and make more informed decisions around specific assets.',
+    'Delphi One is a financial intelligence platform designed to help investors and analysts structure research, evaluate perspectives, and make more informed decisions about specific assets.',
     'I led the product design process across key areas of the platform, improving usability, information architecture, user flows, and interface consistency while helping shape a clearer and more scalable product experience.',
   ],
   details: [
@@ -18,7 +18,7 @@ export const delphiOneCaseStudy = {
       label: 'Scope',
       value: 'Product Strategy · User Flows · Design System · Testing · Handoff',
     },
-    { label: 'Duration', value: '2025 - Present' },
+    { label: 'Duration', value: '2025–present' },
   ],
   gallery: [
     {
@@ -30,19 +30,19 @@ export const delphiOneCaseStudy = {
     {
       id: 'flow',
       image: onboardingImage,
-      alt: 'Delphi One onboarding upload research screen',
+      alt: 'Delphi One research upload screen during onboarding',
       variant: 'wide',
     },
     {
       id: 'interface',
       image: createDebateImage,
-      alt: 'Delphi One create a debate screen',
+      alt: 'Delphi One screen for creating a debate',
       variant: 'wide',
     },
   ],
   galleryNote: {
     paragraphs: [
-      'Alongside the design work, I managed project coordination, aligning client needs, priorities, timelines, and handoff between design and development to keep the website, configurator, and CRM connected as one product ecosystem.',
+      'Alongside the design work, I managed project coordination, aligning client needs, priorities, timelines, and handoffs between design and development to keep the website, configurator, and CRM connected as one product ecosystem.',
     ],
   },
 } satisfies ProjectCaseStudy

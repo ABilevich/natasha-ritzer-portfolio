@@ -1,19 +1,6 @@
+/* Keep tablet cards readable and every project available in both orientations. */
 @media (min-width: 768px) and (max-width: 1279px) {
   .projects-gallery-section__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .projects-gallery-section__grid > :nth-child(n + 7) {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
-  .projects-gallery-section__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .projects-gallery-section__grid > :nth-child(n + 7) {
-    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

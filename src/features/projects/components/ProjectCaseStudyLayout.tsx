@@ -87,6 +87,25 @@ function ProjectGallery({
   project: ProjectCaseStudy
   onOpen: (item: ProjectCaseStudyGalleryItem) => void
 }) {
+  if (project.galleryLayout === 'feature-stack-natural') {
+    return (
+      <div className="mx-auto grid max-w-[1312px] items-start gap-5 lg:grid-cols-[minmax(0,593fr)_minmax(0,689fr)] md:gap-[30px]">
+        {project.gallery.map((item, index) => (
+          <ProjectGalleryImage
+            key={item.id}
+            item={item}
+            className={cn(
+              'h-auto min-w-0 w-full aspect-auto lg:h-auto',
+              index === 0 && 'lg:row-span-2',
+            )}
+            imageClassName="block h-auto w-full"
+            onOpen={onOpen}
+          />
+        ))}
+      </div>
+    )
+  }
+
   if (project.galleryLayout === 'grid-2x2') {
     return (
       <div className="mx-auto grid max-w-[1312px] gap-5 md:gap-[30px] lg:grid-cols-[minmax(0,593px)_minmax(0,689px)]">

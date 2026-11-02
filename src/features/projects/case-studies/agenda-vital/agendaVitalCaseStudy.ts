@@ -6,9 +6,9 @@ import type { ProjectCaseStudy } from '../types'
 
 export const agendaVitalCaseStudy = {
   title: 'Agenda Vital',
-  category: 'UX UI Design',
+  category: 'UX/UI Design',
   intro: [
-    'Agenda Vital is a digital healthcare platform created to make clinical information easier to access, organize, and share across doctors, patients, and medical teams.',
+    'Agenda Vital is a digital healthcare platform created to make clinical information easier to access, organize, and share among doctors, patients, and medical teams.',
     'My role focused on translating complex healthcare workflows into a clear MVP experience, from research and information architecture to user flows, interface design, and handoff. The goal was to support secure collaboration, reduce friction during consultations, and create a scalable foundation for future patient and doctor features.',
   ],
   details: [
@@ -19,14 +19,14 @@ export const agendaVitalCaseStudy = {
       label: 'Scope',
       value: 'Research · User Flows · Architecture · UI Design · Design System · Handoff',
     },
-    { label: 'Duration', value: '8 Months' },
+    { label: 'Duration', value: '8 months' },
   ],
   galleryLayout: 'grid-2x2',
   gallery: [
     {
       id: 'patient-specialty',
       image: galleryImageOne,
-      alt: 'Agenda Vital add specialty flow',
+      alt: 'Agenda Vital flow for adding a specialty',
       variant: 'wide',
     },
     {

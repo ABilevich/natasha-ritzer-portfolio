@@ -14,9 +14,9 @@ export function AboutSection() {
         <SectionTitle title="About" titleId="about-title" showResumeButton />
         <div className="grid grid-cols-1 lg:grid-cols-[445px_1fr]">
           <p className="m-0 max-w-[760px] text-base leading-6 text-[#1f2a37] lg:col-start-2 lg:max-w-none">
-            Hi, I’m Natasha — a Product Designer specialized in UX/UI, graphic
-            design, and product management. With a background in Industrial
-            Design, I combine technology, culture, and aesthetics to create
+            Hi, I’m Natasha — a product designer specializing in UX/UI, graphic
+            design, and product management. With a background in industrial
+            design, I combine technology, culture, and aesthetics to create
             thoughtful, user-centered experiences, leading projects from
             research and concept to prototype and launch.
           </p>

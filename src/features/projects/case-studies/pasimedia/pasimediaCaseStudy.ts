@@ -7,8 +7,8 @@ export const pasimediaCaseStudy = {
   title: 'Pasimedia',
   category: 'Project Management',
   intro: [
-    'Pasimedia is a digital agency focused on hospitality and competitive socialising brands, creating websites and digital experiences for venues that depend on strong booking and conversion flows.',
-    'During a 6-month maternity leave cover, I supported several client accounts as Project Manager, coordinating priorities, timelines, client feedback, internal tasks, QA checks, and handoff between design and development across Lane7, Five Iron, Play Dirty, and Collection World.',
+    'Pasimedia is a digital agency focused on hospitality and competitive socializing brands, creating websites and digital experiences for venues that depend on strong booking and conversion flows.',
+    'While covering a six-month maternity leave, I supported several client accounts as a project manager, coordinating priorities, timelines, client feedback, internal tasks, QA checks, and handoffs between design and development across Lane7, Five Iron, Play Dirty, and Collection World.',
   ],
   details: [
     { label: 'Client', value: 'Pasimedia' },

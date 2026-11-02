@@ -10,6 +10,7 @@ import { ProjectMazalosaPage } from '../pages/ProjectMazalosaPage'
 import { ProjectPasimediaPage } from '../pages/ProjectPasimediaPage'
 import { ProjectPortSalusPage } from '../pages/ProjectPortSalusPage'
 import { ProjectRegalaloPage } from '../pages/ProjectRegalaloPage'
+import { ProjectModulUniversityPage } from '../pages/ProjectModulUniversityPage'
 import { ProjectsPage } from '../pages/ProjectsPage'
 
 export const router = createBrowserRouter([
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: 'projects/regalalo',
         element: <ProjectRegalaloPage />,
+      },
+      {
+        path: 'projects/modul-university',
+        element: <ProjectModulUniversityPage />,
       },
       {
         path: 'projects/habit-driven',

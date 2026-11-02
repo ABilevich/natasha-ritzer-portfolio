@@ -26,9 +26,9 @@ export function ProjectsFeaturedSection() {
   return (
     <section
       aria-labelledby="featured-projects-title"
-      className="projects-featured-section min-h-screen px-[clamp(20px,6.6vw,100px)] pb-[30px] pt-[132px] md:flex md:min-h-svh md:items-center md:py-0"
+      className="projects-featured-section min-h-screen px-[clamp(20px,6.6vw,100px)] pb-12 pt-[132px] md:pb-16 md:pt-[156px] xl:flex xl:min-h-svh xl:items-center xl:py-[132px]"
     >
-      <div className="mx-auto grid w-full max-w-[1312px] gap-12 lg:grid-cols-[minmax(280px,0.72fr)_minmax(560px,1.28fr)] lg:items-center lg:gap-[clamp(48px,5vw,80px)]">
+      <div className="mx-auto grid w-full max-w-[1312px] gap-12 xl:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] xl:items-center xl:gap-[clamp(48px,5vw,80px)]">
         <div className="flex min-w-0 flex-col">
           <div className="projects-featured-section__title-block mb-10 flex items-start justify-between gap-8 border-b border-[#e5e7eb] py-6 md:mb-16 md:border-b-0 md:pb-8 md:pt-0">
             <div>
@@ -44,7 +44,7 @@ export function ProjectsFeaturedSection() {
             </div>
           </div>
 
-          <div className="projects-featured-section__mobile-list flex flex-col gap-14 lg:hidden">
+          <div className="projects-featured-section__mobile-list flex flex-col gap-14 xl:hidden">
             {featuredProjects.map((project) => {
               const mobileProjectContent = (
                 <>
@@ -89,7 +89,7 @@ export function ProjectsFeaturedSection() {
             })}
           </div>
 
-          <ul className="m-0 hidden list-none flex-col gap-8 p-0 md:gap-10 lg:flex">
+          <ul className="m-0 hidden list-none flex-col gap-8 p-0 md:gap-10 xl:flex">
             {featuredProjects.map((project) => {
               const isActive = project.slug === activeProject.slug
 
@@ -170,7 +170,7 @@ export function ProjectsFeaturedSection() {
           </ul>
         </div>
         {activeProject ? (
-          <div className="relative hidden lg:sticky lg:top-24 lg:block">
+          <div className="relative hidden xl:sticky xl:top-24 xl:block">
             {activeProject.detailPath ? (
               <Link
                 to={activeProject.detailPath}
@@ -180,17 +180,17 @@ export function ProjectsFeaturedSection() {
                 <ProjectPlaceholderTile
                   project={activeProject}
                   metaVariant="featured"
-                  className="h-[clamp(300px,48vw,520px)] md:h-[clamp(420px,47vw,600px)] lg:h-[min(58vh,620px)]"
+                  className="h-[clamp(300px,48vw,520px)] md:h-[clamp(420px,47vw,600px)] xl:h-[min(58vh,620px)]"
                 />
               </Link>
             ) : (
               <ProjectPlaceholderTile
                 project={activeProject}
                 metaVariant="featured"
-                className="h-[clamp(300px,48vw,520px)] md:h-[clamp(420px,47vw,600px)] lg:h-[min(58vh,620px)]"
+                className="h-[clamp(300px,48vw,520px)] md:h-[clamp(420px,47vw,600px)] xl:h-[min(58vh,620px)]"
               />
             )}
-            <div className="absolute left-0 right-0 top-full mt-5 flex items-start justify-between gap-8 max-sm:flex-col max-sm:gap-4">
+            <div className="mt-5 flex flex-col items-start justify-between gap-4 2xl:flex-row 2xl:gap-8">
               <p className="m-0 max-w-[680px] text-base font-normal leading-6 tracking-normal text-[#6b7280]">
                 {activeProject.description}
               </p>

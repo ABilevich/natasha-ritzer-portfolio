@@ -53,3 +53,15 @@
     transform: translateY(0);
   }
 }
+
+/* Touch tablets have no hover state to reveal the project description. */
+@media (min-width: 640px) and (hover: none) {
+  .project-preview-card .project-preview-overlay,
+  .project-preview-card .project-preview-content {
+    opacity: 1;
+  }
+
+  .project-preview-card .project-preview-content {
+    transform: none;
+  }
+}

@@ -13,17 +13,30 @@ export function AlternateHeroSection() {
     const mobileViewport = window.matchMedia('(max-width: 767px)')
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
-    if (!mobileViewport.matches || reducedMotion.matches) {
-      return
+    let interval: number | undefined
+
+    const updateRotation = () => {
+      window.clearInterval(interval)
+      interval = undefined
+
+      if (mobileViewport.matches && !reducedMotion.matches) {
+        interval = window.setInterval(() => {
+          setActiveMobileProject(
+            (current) => (current + 1) % alternateHeroProjectCards.length,
+          )
+        }, 3000)
+      }
     }
 
-    const interval = window.setInterval(() => {
-      setActiveMobileProject(
-        (current) => (current + 1) % alternateHeroProjectCards.length,
-      )
-    }, 3000)
+    updateRotation()
+    mobileViewport.addEventListener('change', updateRotation)
+    reducedMotion.addEventListener('change', updateRotation)
 
-    return () => window.clearInterval(interval)
+    return () => {
+      window.clearInterval(interval)
+      mobileViewport.removeEventListener('change', updateRotation)
+      reducedMotion.removeEventListener('change', updateRotation)
+    }
   }, [])
 
   return (
@@ -39,7 +52,7 @@ export function AlternateHeroSection() {
             id="alternate-hero-title"
             className="m-0 w-full max-w-[22rem] text-[45px] font-bold leading-[0.98] tracking-normal text-[#111928] md:max-w-[900px] md:text-[clamp(2.6rem,10vw,5.25rem)] md:leading-[1.02]"
           >
-            <span className="md:hidden">
+            <span className="alternate-hero-title--mobile md:hidden">
               Design work
               <br />
               that gets
@@ -54,7 +67,7 @@ export function AlternateHeroSection() {
                 />
               </span>
             </span>
-            <span className="hidden md:inline">
+            <span className="alternate-hero-title--wide hidden md:inline">
               Design work that gets projects{' '}
               <span className="relative inline-block whitespace-nowrap">
                 <span className="relative z-10">moving</span>

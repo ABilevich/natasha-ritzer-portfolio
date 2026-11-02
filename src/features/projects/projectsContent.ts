@@ -1,3 +1,4 @@
+import modulUniversityImage from '@/assets/projects/modul-university/card-graphic-design.jpg'
 import agendaVitalImage from '@/assets/projects/agenda-vital/card-ux-ui.jpg'
 import bncImage from '@/assets/projects/bnc/card-ux-ui.jpg'
 import delphiOneImage from '@/assets/projects/delphi-one/card-ux-ui.jpg'
@@ -8,7 +9,7 @@ import regalaloImage from '@/assets/projects/regalalo/card-graphic-design.jpg'
 import portSalusImage from '@/assets/projects/port-salus/card-graphic-design.jpg'
 
 export type ProjectCategoryTitle =
-  | 'UX UI Design'
+  | 'UX/UI Design'
   | 'Graphic Design'
   | 'Project Management'
 
@@ -25,7 +26,7 @@ export const projects: PortfolioProject[] = [
   {
     slug: 'delphi-one-ux-ui',
     title: 'Delphi One',
-    category: 'UX UI Design',
+    category: 'UX/UI Design',
     description:
       'A crypto community platform redesigned around clearer navigation, sharper content flows, and easier decision-making.',
     image: delphiOneImage,
@@ -34,7 +35,7 @@ export const projects: PortfolioProject[] = [
   {
     slug: 'bnc',
     title: 'BNC',
-    category: 'UX UI Design',
+    category: 'UX/UI Design',
     description:
       'A product configurator experience that simplifies carport customization from first selection to final quote.',
     image: bncImage,
@@ -43,7 +44,7 @@ export const projects: PortfolioProject[] = [
   {
     slug: 'agenda-vital',
     title: 'Agenda Vital',
-    category: 'UX UI Design',
+    category: 'UX/UI Design',
     description:
       'A wellness scheduling concept focused on calmer booking flows, service discovery, and everyday planning.',
     image: agendaVitalImage,
@@ -57,6 +58,15 @@ export const projects: PortfolioProject[] = [
       'A visual identity and gifting experience built around playful discovery, clear product moments, and memorable packaging.',
     image: regalaloImage,
     detailPath: '/projects/regalalo',
+  },
+  {
+    slug: 'modul-university',
+    title: 'Modul University',
+    category: 'Graphic Design',
+    description:
+      'Event graphics, e-shop product compositions, and promotional materials developed across multiple collaborations using the university’s established visual identity.',
+    image: modulUniversityImage,
+    detailPath: '/projects/modul-university',
   },
   {
     slug: 'port-salus',
@@ -98,7 +108,7 @@ export const projects: PortfolioProject[] = [
 
 export const projectCategories = [
   {
-    title: 'UX UI Design',
+    title: 'UX/UI Design',
     defaultExpanded: true,
   },
   {

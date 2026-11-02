@@ -17,8 +17,8 @@ export function QuoteSection() {
       <blockquote className="relative z-10 mx-auto flex w-full max-w-[1312px] min-w-0 flex-col items-start gap-8 text-left text-white md:gap-[45px]">
         <p className="m-0 max-w-[1312px] text-[clamp(1.6rem,2.65vw,2.5rem)] font-medium italic leading-[1.55] md:text-[45px] xl:text-[clamp(1.6rem,2.65vw,2.5rem)]">
           “I get to combine my love for technology and art to create
-          user-centered experiences, that not only look stunning but also makes
-          user’s lives easier”
+          user-centered experiences that not only look stunning but also make
+          users’ lives easier.”
         </p>
         <footer className="flex items-center gap-4 text-white md:gap-6">
           <img
@@ -28,7 +28,7 @@ export function QuoteSection() {
             aria-hidden="true"
           />
           <cite className="not-italic text-[clamp(1.125rem,2.1vw,2rem)] font-normal leading-tight md:text-[24px] xl:text-[clamp(1.125rem,2.1vw,2rem)]">
-            Natasha Ritzer · UX UI Designer
+            Natasha Ritzer · UX/UI Designer
           </cite>
         </footer>
       </blockquote>

@@ -8,7 +8,7 @@ export const portSalusCaseStudy = {
   title: 'Port Salus',
   category: 'Graphic Design',
   intro: [
-    'PortSalus is a wealth management brand that needed a refined and trustworthy visual identity to support its communication across digital and corporate touchpoints.',
+    'Port Salus is a wealth management brand that needed a refined and trustworthy visual identity to support its communication across digital and corporate touchpoints.',
     "For this project, I designed the logo, visual direction, color system, typography guidelines, and usage rules that shaped the brand's look and feel. The work focused on creating a sophisticated and consistent identity, balancing financial credibility with a calm, maritime-inspired visual language.",
   ],
   details: [
@@ -20,7 +20,7 @@ export const portSalusCaseStudy = {
       value:
         'Logo Design · Visual Identity · Brand Guidelines · Color System · Typography · Usage Rules',
     },
-    { label: 'Duration', value: '1Month' },
+    { label: 'Duration', value: '1 month' },
   ],
   galleryLayout: 'grid-2x2',
   gallery: [

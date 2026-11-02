@@ -253,6 +253,9 @@
 
 .skills-flow-section__process-chips li {
   display: inline-flex;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
   min-height: 2.5rem;
   align-items: center;
   justify-content: center;

@@ -9,7 +9,7 @@ export const mazalosaCaseStudy = {
   category: 'Project Management',
   intro: [
     'Mazalosa is the company behind fashion retail brands Portsaid and Desiderata. My work was fully focused on consumer experience, especially how digital touchpoints could improve the journey inside physical stores.',
-    'I explored opportunities across the retail environment, identifying where the traditional in-store experience could converge with practical digital solutions: member club sign-up screens, self checkout, self pickup for online orders, B2C support channels, and interactive tools to help shoppers find the right jean fit and size.',
+    'I explored opportunities across the retail environment, identifying where the traditional in-store experience could converge with practical digital solutions: membership sign-up screens, self-checkout, pickup for online orders, B2C support channels, and interactive tools to help shoppers find the right fit and size for jeans.',
   ],
   details: [
     { label: 'Client', value: 'Mazalosa' },
@@ -20,7 +20,7 @@ export const mazalosaCaseStudy = {
       value:
         'Retail Experience · Phygital Flows · Service Design · In-store Touchpoints',
     },
-    { label: 'Duration', value: '1 Year' },
+    { label: 'Duration', value: '1 year' },
   ],
   galleryLayout: 'grid-2x2',
   gallery: [
@@ -33,19 +33,19 @@ export const mazalosaCaseStudy = {
     {
       id: 'self-checkout',
       image: selfCheckoutImage,
-      alt: 'Mazalosa self checkout concept placeholder',
+      alt: 'Mazalosa self-checkout concept placeholder',
       variant: 'wide',
     },
     {
       id: 'jean-fit',
       image: jeanFitImage,
-      alt: 'Mazalosa jean fit interactive tool placeholder',
+      alt: 'Mazalosa interactive jeans fit tool placeholder',
       variant: 'wide',
     },
     {
       id: 'member-club',
       image: memberClubImage,
-      alt: 'Mazalosa member club and support flow placeholder',
+      alt: 'Mazalosa membership and support flow placeholder',
       variant: 'wide',
     },
   ],
