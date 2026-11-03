@@ -25,15 +25,6 @@ export type PortfolioProject = {
 
 export const projects: PortfolioProject[] = [
   {
-    slug: 'sense-co',
-    title: 'Sense & Co',
-    category: 'Graphic Design',
-    description:
-      'A side project bringing locally sold products to life through branding, photography, industrial design, and collaboration with producers.',
-    image: senseCoImage,
-    detailPath: '/projects/sense-co',
-  },
-  {
     slug: 'delphi-one-ux-ui',
     title: 'Delphi One',
     category: 'UX/UI Design',
@@ -41,15 +32,6 @@ export const projects: PortfolioProject[] = [
       'A crypto community platform redesigned around clearer navigation, sharper content flows, and easier decision-making.',
     image: delphiOneImage,
     detailPath: '/projects/delphi-one',
-  },
-  {
-    slug: 'bnc',
-    title: 'BNC',
-    category: 'UX/UI Design',
-    description:
-      'A product configurator experience that simplifies carport customization from first selection to final quote.',
-    image: bncImage,
-    detailPath: '/projects/bnc',
   },
   {
     slug: 'agenda-vital',
@@ -61,13 +43,13 @@ export const projects: PortfolioProject[] = [
     detailPath: '/projects/agenda-vital',
   },
   {
-    slug: 'regalalo',
-    title: 'Regalalo',
-    category: 'Graphic Design',
+    slug: 'bnc',
+    title: 'BNC',
+    category: 'UX/UI Design',
     description:
-      'A visual identity and gifting experience built around playful discovery, clear product moments, and memorable packaging.',
-    image: regalaloImage,
-    detailPath: '/projects/regalalo',
+      'A product configurator experience that simplifies carport customization from first selection to final quote.',
+    image: bncImage,
+    detailPath: '/projects/bnc',
   },
   {
     slug: 'modul-university',
@@ -88,6 +70,15 @@ export const projects: PortfolioProject[] = [
     detailPath: '/projects/port-salus',
   },
   {
+    slug: 'sense-co',
+    title: 'Sense & Co',
+    category: 'Graphic Design',
+    description:
+      'A side project bringing locally sold products to life through branding, photography, industrial design, and collaboration with producers.',
+    image: senseCoImage,
+    detailPath: '/projects/sense-co',
+  },
+  {
     slug: 'habit-driven',
     title: 'Habit Driven',
     category: 'Graphic Design',
@@ -95,6 +86,15 @@ export const projects: PortfolioProject[] = [
       'A lifestyle brand exploration shaped around habit-building, motivational visuals, and flexible digital content.',
     image: habitDrivenImage,
     detailPath: '/projects/habit-driven',
+  },
+  {
+    slug: 'regalalo',
+    title: 'Regalalo Olivos',
+    category: 'Graphic Design',
+    description:
+      'A visual identity and gifting experience built around playful discovery, clear product moments, and memorable packaging.',
+    image: regalaloImage,
+    detailPath: '/projects/regalalo',
   },
   {
     slug: 'pasimedia',
