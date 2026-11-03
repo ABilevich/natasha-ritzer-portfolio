@@ -6,7 +6,10 @@ import { projects } from '../projectsContent'
 import { ProjectPlaceholderTile } from './ProjectPlaceholderTile'
 import './ProjectsFeaturedSection.css'
 
-const featuredProjects = projects.slice(0, 3)
+const featuredProjectSlugs = ['delphi-one-ux-ui', 'bnc', 'agenda-vital']
+const featuredProjects = featuredProjectSlugs.flatMap((slug) =>
+  projects.filter((project) => project.slug === slug),
+)
 
 export function ProjectsFeaturedSection() {
   const defaultProjectSlug = featuredProjects[0]?.slug

@@ -1,3 +1,4 @@
+import senseCoImage from '@/assets/projects/sense-co/card-graphic-design.jpg'
 import modulUniversityImage from '@/assets/projects/modul-university/card-graphic-design.jpg'
 import agendaVitalImage from '@/assets/projects/agenda-vital/card-ux-ui.jpg'
 import bncImage from '@/assets/projects/bnc/card-ux-ui.jpg'
@@ -23,6 +24,15 @@ export type PortfolioProject = {
 }
 
 export const projects: PortfolioProject[] = [
+  {
+    slug: 'sense-co',
+    title: 'Sense & Co',
+    category: 'Graphic Design',
+    description:
+      'A side project bringing locally sold products to life through branding, photography, industrial design, and collaboration with producers.',
+    image: senseCoImage,
+    detailPath: '/projects/sense-co',
+  },
   {
     slug: 'delphi-one-ux-ui',
     title: 'Delphi One',

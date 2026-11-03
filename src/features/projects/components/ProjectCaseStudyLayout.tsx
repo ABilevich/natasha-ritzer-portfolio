@@ -87,6 +87,22 @@ function ProjectGallery({
   project: ProjectCaseStudy
   onOpen: (item: ProjectCaseStudyGalleryItem) => void
 }) {
+  if (project.galleryLayout === 'three-column') {
+    return (
+      <div className="mx-auto grid max-w-[1312px] gap-5 md:grid-cols-2 md:gap-[30px] lg:grid-cols-3">
+        {project.gallery.map((item) => (
+          <ProjectGalleryImage
+            key={item.id}
+            item={item}
+            className="h-[369px] min-w-0 w-full"
+            imageClassName="block h-full w-full object-cover"
+            onOpen={onOpen}
+          />
+        ))}
+      </div>
+    )
+  }
+
   if (project.galleryLayout === 'feature-stack-natural') {
     return (
       <div className="mx-auto grid max-w-[1312px] items-start gap-5 lg:grid-cols-[minmax(0,593fr)_minmax(0,689fr)] md:gap-[30px]">
@@ -303,16 +319,16 @@ export function ProjectCaseStudyLayout({
             <h1 className="m-0 text-[clamp(44px,12vw,60px)] font-bold leading-[1.08] tracking-normal text-[#111928]">
               {project.title}
             </h1>
-            <div className="mt-7 flex flex-col gap-5 text-[18px] font-normal leading-7 tracking-normal text-[#6b7280] md:mt-8 md:gap-6 md:leading-6">
+            {project.intro.length > 0 && <div className="mt-7 flex flex-col gap-5 text-[18px] font-normal leading-7 tracking-normal text-[#6b7280] md:mt-8 md:gap-6 md:leading-6">
               {project.intro.map((paragraph) => (
                 <p key={paragraph} className="m-0">
                   {paragraph}
                 </p>
               ))}
-            </div>
+            </div>}
           </div>
 
-          <dl
+          {project.details.length > 0 && <dl
             className="m-0 self-stretch overflow-hidden rounded-[10px] border border-[#E5E7EB] bg-white lg:flex lg:flex-col"
           >
             {project.details.map((detail) => (
@@ -320,7 +336,7 @@ export function ProjectCaseStudyLayout({
                 key={detail.label}
                 className={cn(
                   'grid min-h-[56px] grid-cols-[88px_minmax(0,1fr)] items-center gap-4 border-b border-[#E5E7EB] px-4 py-4 last:border-b-0 max-[360px]:grid-cols-1 max-[360px]:gap-1 sm:grid-cols-[118px_minmax(0,1fr)] sm:gap-6 md:px-6',
-                  'lg:flex-1',
+                  'lg:flex-[1_0_auto]',
                 )}
               >
                 <dt className="text-base font-normal leading-6 text-[#6b7280]">
@@ -331,7 +347,7 @@ export function ProjectCaseStudyLayout({
                 </dd>
               </div>
             ))}
-          </dl>
+          </dl>}
         </div>
       </section>
 

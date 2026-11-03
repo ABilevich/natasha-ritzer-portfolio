@@ -1,3 +1,4 @@
+import { ProjectSenseCoPage } from '../pages/ProjectSenseCoPage'
 import { createBrowserRouter } from 'react-router-dom'
 import { MainLayout } from '../components/layout/MainLayout'
 import { ContactPage } from '../pages/ContactPage'
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
     path: '/',
     element: <MainLayout />,
     children: [
+      {
+        path: 'projects/sense-co',
+        element: <ProjectSenseCoPage />,
+      },
       {
         index: true,
         element: <HomePage />,
